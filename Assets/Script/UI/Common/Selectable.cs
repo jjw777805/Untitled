@@ -11,12 +11,12 @@ namespace MyUI
     [AddComponentMenu("MyUI/selectable", 30)]
     public class Selectable : MonoBehaviour,ISelectHandler,IDeselectHandler
     {
-        public void OnSelect(BaseEventData baseEvent)
+        public virtual void OnSelect(BaseEventData baseEvent)
         {
             
         }
-
-        public void OnDeselect(BaseEventData baseEvent)
+ 
+        public virtual void OnDeselect(BaseEventData baseEvent)
         {
             
         }

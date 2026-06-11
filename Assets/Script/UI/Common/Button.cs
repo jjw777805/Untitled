@@ -9,7 +9,8 @@ using UnityEngine.UI;
 namespace MyUI
 {
     [AddComponentMenu("MyUI/Button", 30)]
-    public class Button : UnityEngine.UI.Selectable, IPointerClickHandler, IEventSystemHandler, ISubmitHandler
+    public class Button : Selectable, IPointerClickHandler, IEventSystemHandler, ISubmitHandler,
+    IPointerEnterHandler
     {
         protected Button()
         {
@@ -40,11 +41,8 @@ namespace MyUI
 
         private void Press()
         {
-            if (IsActive() && IsInteractable())
-            {
-                UISystemProfilerApi.AddMarker("Button.onClick", this);
-                m_OnClick.Invoke();
-            }
+            UISystemProfilerApi.AddMarker("Button.onClick", this);
+            m_OnClick.Invoke();
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)
@@ -58,6 +56,11 @@ namespace MyUI
         public virtual void OnSubmit(BaseEventData eventData)
         {
             Press();
+        }
+
+        public virtual void OnPointerEnter(PointerEventData eventData)
+        {
+            Select();
         }
 
     }

@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[AddComponentMenu("Manager/GameManager")]
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         #endregion
 
         inputs = new MyInput();
+        inputs.Enable();
     }
     void Start()
     {
