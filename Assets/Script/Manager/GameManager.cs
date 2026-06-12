@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 using System.Threading.Tasks;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Manager/GameManager")]
 public class GameManager : MonoBehaviour
@@ -19,16 +21,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     Canvas canvas;
-    [SerializeField]
-    Panel setting;
-    async public void OpenSetting()
+    async public void OpenClosable(string key)
     {
-        var handle = Addressables.LoadAssetAsync<GameObject>("SettingPanel");
+        var handle = Addressables.LoadAssetAsync<GameObject>(key);
         GameObject prefab = await handle.Task;
         GameObject set = Instantiate(prefab);
         set.transform.SetParent(canvas.transform,false);
-        setting = set.GetComponent<Panel>();
-        if(setting!=null)Debug.Log("asdf");
+        Closable setting = set.GetComponent<Closable>();
         if(EventSystem.current != null)
         {
             setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
@@ -38,6 +37,29 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ReturnMainMemu()
+    {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+            Debug.Log("exit已经触发");
+        #else 
+            Application.Quit();
+        #endif
+    }
+    public bool HasSave(int i)
+    {
+       string saveFile = Path.Combine(Application.persistentDataPath,"save"+i.ToString()+".json");
+       if(!File.Exists(saveFile))return false;
+       else return true; 
+    }
+
+    #region 生命周期函数
     void Awake()
     {
         #region 单例模式
@@ -65,4 +87,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    #endregion
 }

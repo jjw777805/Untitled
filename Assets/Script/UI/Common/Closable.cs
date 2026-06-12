@@ -52,6 +52,7 @@ namespace MyUI
 
         public virtual void ShutDown()
         {
+            Close();
             Destroy(gameObject);
         }
         void Start()

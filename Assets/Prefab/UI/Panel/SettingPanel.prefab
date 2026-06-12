@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 7857086024813322798}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -690,7 +690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Close
+      value: ShutDown
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -843,7 +843,7 @@ PrefabInstance:
       objectReference: {fileID: 3655093216391327876}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -871,11 +871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Close
+      value: ShutDown
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShutDown
+      value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 2347975205014553317, guid: f4e9a24a46d2f3349b960d0523bb2e0a, type: 3}
       propertyPath: m_OnExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
