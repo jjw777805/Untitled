@@ -10,7 +10,7 @@ namespace MyUI
 {
     [AddComponentMenu("MyUI/Button", 30)]
     public class Button : Selectable, IPointerClickHandler, IEventSystemHandler, ISubmitHandler,
-    IPointerEnterHandler
+    IPointerEnterHandler, ICancelHandler
     {
         protected Button()
         {
@@ -24,7 +24,6 @@ namespace MyUI
         [FormerlySerializedAs("onClick")]
         [SerializeField]
         private ButtonClickedEvent m_OnClick = new ButtonClickedEvent();
-
         public ButtonClickedEvent onClick
         {
             get
@@ -37,12 +36,28 @@ namespace MyUI
             }
         }
 
-        
+        [SerializeField]
+        private ButtonClickedEvent m_OnExit = new ButtonClickedEvent();
+        public ButtonClickedEvent OnExit
+        {
+            get
+            {
+                return m_OnExit;
+            }
+            set
+            {
+                m_OnExit = value;
+            }
+        }
 
         private void Press()
         {
-            UISystemProfilerApi.AddMarker("Button.onClick", this);
             m_OnClick.Invoke();
+        }
+
+        private void PressRight()
+        {
+            m_OnExit.Invoke();
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)
@@ -50,6 +65,10 @@ namespace MyUI
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 Press();
+            }
+            else if(eventData.button == PointerEventData.InputButton.Right)
+            {
+                PressRight();
             }
         }
 
@@ -61,6 +80,12 @@ namespace MyUI
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             Select();
+        }
+
+        public virtual void OnCancel(BaseEventData eventData)
+        {
+            
+            PressRight();
         }
 
     }

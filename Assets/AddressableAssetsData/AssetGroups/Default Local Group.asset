@@ -17,6 +17,16 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2b12da7211ab04f459cdca57ec67f935
   m_SerializeEntries:
+  - m_GUID: 1920dc87f9d99694f8124abd3a347c0d
+    m_Address: SettingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4e9a24a46d2f3349b960d0523bb2e0a
+    m_Address: NavigateButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8e5bed5a3892d34487f7d185a43f174
     m_Address: TextButton.prefab
     m_ReadOnly: 0

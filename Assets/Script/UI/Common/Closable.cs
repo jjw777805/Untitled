@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,11 +14,15 @@ namespace MyUI
         Selectable defaultFocus;
         [SerializeField]
         Closable defaultOpen;
-
+        GameObject frontSelected;
         protected Closable()
         {
         }
 
+        public void SetFrontSelected(GameObject t)
+        {
+            frontSelected = t ;
+        }
         public virtual void Open()
         {
             canvasGroup.alpha=1;
@@ -29,10 +34,29 @@ namespace MyUI
 
         public virtual void Close()
         {
-            EventSystem.current=null;
+            if(     EventSystem.current!=null 
+                && !EventSystem.current.alreadySelecting
+                && frontSelected != null )
+            {
+                EventSystem.current.SetSelectedGameObject(frontSelected);
+            }
             canvasGroup.alpha=0;
             canvasGroup.blocksRaycasts=false;
             canvasGroup.interactable=false;
         }    
+
+        public virtual void Initailize()
+        {
+            Close();
+        }
+
+        public virtual void ShutDown()
+        {
+            Destroy(gameObject);
+        }
+        void Start()
+        {
+            Initailize();
+        }
     }
 }

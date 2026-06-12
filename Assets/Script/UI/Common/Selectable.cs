@@ -34,7 +34,10 @@ namespace MyUI
 
         public virtual void Deselect()
         {
-            EventSystem.current = null;
+            if (!(EventSystem.current == null) && !EventSystem.current.alreadySelecting)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
 
         public void SetCanSeleted(bool f)

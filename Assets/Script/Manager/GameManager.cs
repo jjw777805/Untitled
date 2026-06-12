@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using MyUI;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.AddressableAssets;
+using System.Threading.Tasks;
 
 [AddComponentMenu("Manager/GameManager")]
 public class GameManager : MonoBehaviour
@@ -22,9 +21,21 @@ public class GameManager : MonoBehaviour
     Canvas canvas;
     [SerializeField]
     Panel setting;
-    public void OpenSetting()
+    async public void OpenSetting()
     {
+        var handle = Addressables.LoadAssetAsync<GameObject>("SettingPanel");
+        GameObject prefab = await handle.Task;
+        GameObject set = Instantiate(prefab);
+        set.transform.SetParent(canvas.transform,false);
+        setting = set.GetComponent<Panel>();
+        if(setting!=null)Debug.Log("asdf");
+        if(EventSystem.current != null)
+        {
+            setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
+        }
+        await Task.Yield();
         setting.Open();
+        
     }
 
     void Awake()

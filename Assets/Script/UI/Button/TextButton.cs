@@ -23,9 +23,14 @@ namespace MyUI
             base.OnDeselect(eventData);
         }
         // Start is called before the first frame update
-        void Start()
+
+        public virtual void Initailize()
         {
             nowText = buttonText.text;
+        }
+        void Start()
+        {
+            Initailize();
         }
 
         // Update is called once per frame

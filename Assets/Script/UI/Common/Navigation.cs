@@ -12,13 +12,17 @@ using UnityEngine.UI;
 namespace MyUI
 {
     [AddComponentMenu("MyUI/navigation", 30)]
-    public class Navigation : MonoBehaviour,ISelectHandler,IDeselectHandler
+    public class Navigation : MonoBehaviour,ISelectHandler,IDeselectHandler,ICancelHandler
     {
-        public Selectable up,down,left,right;
+        public Selectable up,down,left,right,cancel;
         private MyInput inputs;
         private bool isSelect=false;
         static float beginTime;
 
+        public virtual void OnCancel(BaseEventData eventData)
+        {
+            cancel?.Select();
+        }
         public virtual void OnSelect(BaseEventData eventData)
         {
             isSelect = true;  
