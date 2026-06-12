@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 2b12da7211ab04f459cdca57ec67f935
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f8e5bed5a3892d34487f7d185a43f174
+    m_Address: TextButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
   m_SchemaSet:
