@@ -6,10 +6,13 @@ namespace MyPlayer
 {
     public partial class PlayerStatus
     {
-        public bool CanMove()
+        bool onGround = true;
+
+        public bool OnGround()
         {
-            if(isAttack==true||isSlide==true)return false;
-            else return true;    
+            return true;
         }
+
+        
     }
 }

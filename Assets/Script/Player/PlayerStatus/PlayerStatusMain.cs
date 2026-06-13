@@ -20,18 +20,6 @@ namespace MyPlayer
             }
         }
 
-
-        public bool canSlide,isSlide;
-
-        int JumpTime;
-        public int canJump;
-        public float defTime;
-
-        public bool isGround()
-        {
-            return true;
-        }
-
         public void Initialize(PlayerData data)
         {
             

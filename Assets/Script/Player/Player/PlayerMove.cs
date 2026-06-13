@@ -7,12 +7,7 @@ namespace MyPlayer
     {
         public void Move()
         {
-            if(   PlayerStatus.instance.isSlide == true
-                )
-            {
-                return ;
-            }
-
+          
 
         }
     }
