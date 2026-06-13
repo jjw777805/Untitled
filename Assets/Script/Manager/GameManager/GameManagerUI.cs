@@ -6,19 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-[AddComponentMenu("Manager/GameManager")]
-public class GameManager : MonoBehaviour
+public partial class GameManager 
 {
-    public static GameManager instance = null;
-
-
-    // Start is called before the first frame update
-    MyInput inputs;
-    public MyInput GetInputs()
-    {   
-        return inputs;
-    }
-
     [SerializeField]
     Canvas canvas;
     async public void OpenClosable(string key)
@@ -44,6 +33,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
     }
+
     public void ExitGame()
     {
         #if UNITY_EDITOR
@@ -52,40 +42,4 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         #endif
     }
-    public bool HasSave(int i)
-    {
-       string saveFile = Path.Combine(Application.persistentDataPath,"save"+i.ToString()+".json");
-       if(!File.Exists(saveFile))return false;
-       else return true; 
-    }
-
-    #region 生命周期函数
-    void Awake()
-    {
-        #region 单例模式
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);    
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        #endregion
-
-        inputs = new MyInput();
-        inputs.Enable();
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    #endregion
 }
