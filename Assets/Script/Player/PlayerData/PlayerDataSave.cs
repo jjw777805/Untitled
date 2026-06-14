@@ -6,18 +6,8 @@ using UnityEngine;
 
 namespace MyPlayer
 {
-    public enum Weapon
+    public partial class PlayerData
     {
-        NONE,JI,GUN,DAO,BIAN
-    }
-
-    [Serializable]
-    public class PlayerData
-    {
-        public int HP = 3;
-        public int damage = 5;
-        public Weapon weapon = Weapon.NONE;
-
         private static string GetSavingPath(string filename)
         {
             return Path.Combine(Application.persistentDataPath,filename);

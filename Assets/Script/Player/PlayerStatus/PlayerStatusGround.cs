@@ -13,6 +13,9 @@ namespace MyPlayer
             return true;
         }
 
-        
+        void OnGroundUpdate()
+        {
+            onGround = OnGround();
+        }
     }
 }

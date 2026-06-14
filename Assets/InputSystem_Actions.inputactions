@@ -28,7 +28,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "359d3b75-f560-4b90-a526-9fecccd78504",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -46,7 +46,7 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "23071c78-7d0e-4b5f-a793-b74f6cfd1a24",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -55,7 +55,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8f809a81-2fc5-4873-8001-643744767593",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -64,7 +64,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "878bf790-da24-41d4-885a-1f93bfd38cc6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -73,16 +73,16 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "43ddbfdd-0a00-4177-a086-69273af18fea",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Slide",
                     "type": "Button",
                     "id": "73d81ede-7a41-41b9-ad89-fa33354714f6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -312,7 +312,7 @@
                 {
                     "name": "",
                     "id": "19583e0e-93b2-4e64-920f-6a6d5ac66cfd",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -345,11 +345,11 @@
                 {
                     "name": "",
                     "id": "98f3b558-106c-4953-90e1-ce5cc612c760",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Sprint",
+                    "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -360,7 +360,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Sprint",
+                    "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -371,14 +371,14 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Sprint",
+                    "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b7dd7ce1-6edd-464d-b2c0-397b68fc4d59",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

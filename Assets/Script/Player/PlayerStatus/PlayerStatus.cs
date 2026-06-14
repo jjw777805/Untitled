@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace MyPlayer
 {
+    [AddComponentMenu("MyPlayer/PlayerStatus")]
     public partial class PlayerStatus:MonoBehaviour
     {
         public static PlayerStatus instance;
         void CreateInstance()
         {
-            if(instance = null)
+            if(instance == null)
             {
                 instance = this;
                 DontDestroyOnLoad(gameObject);    
@@ -20,9 +21,9 @@ namespace MyPlayer
             }
         }
 
-        public void Initialize(PlayerData data)
+        public void Initialize()
         {
-            
+            SlideInitial();
         }
 
         void Awake()
@@ -30,9 +31,17 @@ namespace MyPlayer
             CreateInstance();
         }
 
+        void Start()
+        {
+            Initialize();              
+        }
+
         void Update()
         {
-            
+            // OnGround();
+            SlideUpdate();
+            JumpUpdate();
+            AttackUpdate();
         }
     }
 }

@@ -19,10 +19,6 @@ public partial class GameManager : MonoBehaviour
         return inputs;
     }
 
-    
-   
-    
-
     #region 生命周期函数
     void Awake()
     {
