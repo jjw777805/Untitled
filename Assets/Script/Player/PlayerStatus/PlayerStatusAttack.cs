@@ -1,8 +1,4 @@
-using System;
-using System.Runtime.CompilerServices;
-using Newtonsoft.Json.Linq;
-using TMPro;
-using Unity.Collections;
+
 using UnityEngine;
 
 namespace MyPlayer
@@ -14,12 +10,20 @@ namespace MyPlayer
         private bool isAttack = false;
         public bool CanAttack()
         {
+            if(isSlide)return false;
             return canAttack;
         }
 
-        public bool IsAttack()
+        public bool IsAttack
         {
-            return isAttack;
+            get
+            {
+                return isAttack;
+            }
+            set
+            {
+                isAttack = value;
+            }
         }
 
         public void SetAttackSeq(float k)

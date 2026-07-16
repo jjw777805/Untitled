@@ -1,6 +1,4 @@
-using System;
-using Newtonsoft.Json.Linq;
-using UnityEditor.SceneTemplate;
+
 using UnityEngine;
 
 namespace MyPlayer

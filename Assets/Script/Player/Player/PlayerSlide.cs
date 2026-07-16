@@ -1,7 +1,6 @@
 
 using MyUtils;
 using UnityEngine;
-using UnityEngine.Playables;
 
 namespace MyPlayer
 {
@@ -9,7 +8,7 @@ namespace MyPlayer
     {
         void Slide()
         {
-            if(!ps.CanSlide())return ;
+            if(  !ps.CanSlide())return ;
             if(!inputs.Player.Slide.WasPressedThisFrame())return ;
             Vector3 newPos;
             newPos = ColliderUtils.AvailablePos(transform,cd,ps.SlideDistance);

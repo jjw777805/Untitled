@@ -1,5 +1,4 @@
-using System;
-using Newtonsoft.Json.Linq;
+
 using UnityEngine;
 
 namespace MyPlayer
@@ -38,9 +37,7 @@ namespace MyPlayer
 
         void Update()
         {
-            // OnGround();
             SlideUpdate();
-            JumpUpdate();
             AttackUpdate();
         }
     }

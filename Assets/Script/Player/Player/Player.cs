@@ -1,4 +1,5 @@
-using System.Numerics;
+
+using System;
 using UnityEngine;
 
 namespace MyPlayer
@@ -14,6 +15,7 @@ namespace MyPlayer
         Rigidbody2D rb;
         SpriteRenderer sr;
         CD cd;
+        Animator am;
         void Start()
         {
             inputs = GameManager.instance.GetInputs();
@@ -22,11 +24,13 @@ namespace MyPlayer
             rb = gameObject.GetComponent<Rigidbody2D>();
             sr = gameObject.GetComponent<SpriteRenderer>();
             cd = gameObject.GetComponent<CD>();
+            am = gameObject.GetComponent<Animator>();
         }
         void Update()
         {
             Move();
             Slide();
+            Attack();
         }
     }
 }
