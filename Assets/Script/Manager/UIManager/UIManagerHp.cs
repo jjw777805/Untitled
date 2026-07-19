@@ -35,7 +35,7 @@ public partial class UIManager : MonoBehaviour
 
     public void UpdateHP()
     {
-        Debug.Log(activeHP+" : "+HPcount+":"+HPList.Count);
+        // Debug.Log(activeHP+" : "+HPcount+":"+HPList.Count);
         if(activeHP==HPcount)return;
         if(activeHP < HPcount)
         {

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 namespace MyUtils{
     public class TimeCount
     {
-        private UnityEvent on_End;
+        private UnityEvent on_End = new UnityEvent();
         public UnityEvent On_End
         {
             get
