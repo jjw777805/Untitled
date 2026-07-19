@@ -5,6 +5,7 @@ namespace MyPlayer
 {
     public partial class PlayerStatus
     {
+        [SerializeField]
         private float attackSeq=1.0f;
         private bool canAttack = true;  
         private bool isAttack = false;

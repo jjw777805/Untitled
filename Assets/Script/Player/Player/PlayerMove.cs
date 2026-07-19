@@ -1,5 +1,6 @@
 
 using MyUtils;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace MyPlayer
@@ -29,11 +30,14 @@ namespace MyPlayer
                 );
             }
 
-            Vector3 newPosBottom,newPosTop;
-            newPosBottom = ColliderUtils.AvailablePos(transform,cd,ps.SlideDistance,Anchor.Bottom);
-            newPosTop = ColliderUtils.AvailablePos(transform,cd,ps.SlideDistance,Anchor.Top);
-            if(Mathf.Abs(newPosBottom.x)>0.1 && Mathf.Abs(newPosTop.x)>0.1)
+            Vector3 newPos;
+            newPos = ColliderUtils.AvailablePosBox(transform,cd,ps.SlideDistance);
+            if(Mathf.Abs(newPos.x)>0.1)
                 rb.velocity = newSpeed;
+            else
+            {
+                if(rb.velocity.y>0 && math.abs(newSpeed.x)>0.1f)rb.velocity = new Vector2(rb.velocity.x,0);
+            }
         }
     }
 }

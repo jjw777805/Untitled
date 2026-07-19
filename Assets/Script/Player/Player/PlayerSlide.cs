@@ -11,8 +11,9 @@ namespace MyPlayer
             if(  !ps.CanSlide())return ;
             if(!inputs.Player.Slide.WasPressedThisFrame())return ;
             Vector3 newPos;
-            newPos = ColliderUtils.AvailablePos(transform,cd,ps.SlideDistance);
+            newPos = ColliderUtils.AvailablePosRay(transform,cd,ps.SlideDistance);
             transform.Translate(newPos);
+            rb.velocity = new Vector2(rb.velocity.x,0);
             ps.Slide();
         
         }

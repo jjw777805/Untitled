@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b86338cc36984f47bab82947274174b
+    m_Address: Assets/Prefab/Player/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f5706bc3cea1fa44b599a9fde918acd
     m_Address: SavePanel.prefab
     m_ReadOnly: 0

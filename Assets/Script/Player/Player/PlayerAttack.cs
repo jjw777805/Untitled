@@ -10,6 +10,7 @@ namespace MyPlayer
             if(!ps.CanAttack())return ;
             if(!inputs.Player.Attack.WasPressedThisFrame())return ;
             am.SetTrigger("Attack");
+            ps.Attacked();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEditor.PackageManager;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
@@ -47,7 +48,7 @@ namespace MyUtils{
         /// <param name="box"></param>
         /// <param name="distance"></param>
         /// <returns>前进方向的偏移量</returns>
-        public static Vector3 AvailablePos(Transform trans,BoxCollider2D box,float distance,
+        public static Vector3 AvailablePosRay(Transform trans,BoxCollider2D box,float distance,
             Anchor anchor = Anchor.Bottom )
         {
             Vector3 anchorPos = GetAnchor(trans,box,0.01f,anchor);
@@ -55,7 +56,6 @@ namespace MyUtils{
             float t = anchorPos.z;
 
             RaycastHit2D hit = Physics2D.Raycast(oriPos,trans.right,distance,LayerMask.GetMask("Ground"));
-            
 
             // Debug.Log(oriPos);
             if(hit.collider != null)
@@ -63,6 +63,27 @@ namespace MyUtils{
                 return Vector3.right*(hit.distance-t);
             }
             else return Vector3.right*distance;
+        }
+
+        public static Vector3 AvailablePosBox(Transform trans,BoxCollider2D box,float distance)
+        {
+            Vector3 oriPos = trans.position;
+            Vector2 size = Vector3.Scale(box.size,trans.localScale);
+            size.x -= 0f;
+            size.y -= 0.075f;
+
+            RaycastHit2D hit = Physics2D.BoxCast(
+                oriPos,
+                size,
+                0f,
+                trans.right,
+                distance,
+                LayerMask.GetMask("Ground")
+            );
+
+            // Debug.Log(oriPos);
+            if(hit.collider != null)return Vector3.right*hit.distance;
+            return Vector3.right*distance;
         }
     
         public static Vector2 GetCollionWay(Collision2D col)

@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 namespace MyPlayer
 {
     public partial class PlayerStatus
@@ -11,25 +13,29 @@ namespace MyPlayer
             return isJump;
         }
         public bool CanJump()
-        {
+        {   
+            // Debug.Log("canJump:"+canJump);
             if(canJump != 0 && !isAttack && !isSlide)return true;
             else return false;      
         }    
 
         void JumpInitial()
         {
-            jumpTimes = canJump;
+            canJump = jumpTimes;
         }
 
         public void Jump()
         {
             isJump = true;
             canJump--;
+            onGround=false;
+            // Debug.Log(canJump);
         }
 
         void JumpUpdate()
         {
             if (!onGround)return ;
+            // Debug.Log("Update! "+ onGround);
             canJump = jumpTimes;
             isJump = false;
         }

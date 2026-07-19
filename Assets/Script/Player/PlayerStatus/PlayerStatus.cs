@@ -23,6 +23,7 @@ namespace MyPlayer
         public void Initialize()
         {
             SlideInitial();
+            JumpInitial();
         }
 
         void Awake()
@@ -37,8 +38,10 @@ namespace MyPlayer
 
         void Update()
         {
+            OnGroundUpdate();
+            JumpUpdate();
             SlideUpdate();
-            AttackUpdate();
+            AttackUpdate(); 
         }
     }
 }

@@ -24,6 +24,7 @@ namespace MyPlayer
         }
         public bool CanSlide()
         {
+            if(isAttack)return false;
             return canSlide;
         }
         public void Slide()
@@ -42,7 +43,7 @@ namespace MyPlayer
         {
             slideTime += Time.deltaTime;
             if(slideTime < slideSeq)return ;
-            canSlide = true;
+            if(onGround)canSlide = true;
         }
     }
 }
