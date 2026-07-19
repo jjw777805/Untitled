@@ -22,6 +22,7 @@ public partial class GameManager
             setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
         }
         await Task.Yield();
+        Addressables.Release(handle);
         setting.Open();
         
     }

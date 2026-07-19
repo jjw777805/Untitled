@@ -46,6 +46,7 @@ namespace MyPlayer
         }
         void Update()
         {
+            if(Time.timeScale==0)return;
             Move();
             Slide();
             Attack();

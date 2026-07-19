@@ -11,7 +11,7 @@ namespace MyPlayer
         private bool isAttack = false;
         public bool CanAttack()
         {
-            if(isSlide)return false;
+            if(isSlide || isBlock)return false;
             return canAttack;
         }
 

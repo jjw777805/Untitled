@@ -20,7 +20,7 @@ namespace MyPlayer
         }
         public bool CanMove()
         {
-            if(isAttack==true||isSlide==true)return false;
+            if(isAttack==true||isSlide==true||isBlock)return false;
             else return true;    
         }
 

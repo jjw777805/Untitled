@@ -24,6 +24,7 @@ namespace MyPlayer
         {
             SlideInitial();
             JumpInitial();
+            HurtInitial();
         }
 
         void Awake()
@@ -38,10 +39,12 @@ namespace MyPlayer
 
         void Update()
         {
+            if(Time.deltaTime == 0)return ;
             OnGroundUpdate();
             JumpUpdate();
             SlideUpdate();
             AttackUpdate(); 
+            HurtUpdate();
         }
     }
 }

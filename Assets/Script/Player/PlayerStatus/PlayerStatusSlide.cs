@@ -24,7 +24,7 @@ namespace MyPlayer
         }
         public bool CanSlide()
         {
-            if(isAttack)return false;
+            if(isAttack||isBlock)return false;
             return canSlide;
         }
         public void Slide()

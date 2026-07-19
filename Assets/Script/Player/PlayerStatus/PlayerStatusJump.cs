@@ -15,7 +15,7 @@ namespace MyPlayer
         public bool CanJump()
         {   
             // Debug.Log("canJump:"+canJump);
-            if(canJump != 0 && !isAttack && !isSlide)return true;
+            if(canJump != 0 && !isAttack && !isSlide && !isBlock)return true;
             else return false;      
         }    
 

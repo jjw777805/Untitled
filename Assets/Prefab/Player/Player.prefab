@@ -187,11 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2187a9b4d94e05429e7e7a31e420e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpF: 2000
   upG: 1
-  downG: 2
+  downG: 5
   maxFallingV: -10
   maxJumpTime: 0.25
+  jumpV1: 20
+  jumpV2: 10
 --- !u!114 &8616742603330573247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSeq: 0.6
-  moveSpeed: 5
+  moveSpeed: 7
   slideSeq: 0.25
   slideDistance: 5
 --- !u!95 &81662609654587356

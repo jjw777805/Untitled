@@ -38,7 +38,7 @@ namespace MyPlayer
             if(!inputs.Player.Jump.WasPressedThisFrame())return ;
             ps.Jump();
             jumpBegin = true;
-            Debug.Log("Here!");
+            // Debug.Log("Here!");
             rb.velocity = new Vector2(rb.velocity.x,jumpV1);
             deltaJumpTime = Time.deltaTime;
             rb.gravityScale = upG;
