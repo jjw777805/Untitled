@@ -19,9 +19,10 @@ namespace MyUtils{
                 on_End = value;
             }
         }
-        float time;
+        float countTime;
         float deltaTime;
         bool triggered=false;
+        bool stop = true;
 
         public TimeCount()
         {
@@ -30,27 +31,37 @@ namespace MyUtils{
 
         public TimeCount(float t )
         {
-            time=t;
+            countTime=t;
         }
         public TimeCount(float t , UnityEvent e)
         {
-            time=t;
+            countTime=t;
             on_End=e;
         }
         public void Update(float t)
         {
+            if(stop)return;
             deltaTime += t;
-            if(deltaTime>time && !triggered )
+            if(deltaTime>countTime && !triggered )
             {
                 on_End?.Invoke();
                 triggered = true;
+                stop=true;
             }
         }
         public void Reset()
         {
             deltaTime = 0;
             triggered = false;
+            stop=false;
         }
+
+        public void SetTime(float t)
+        {
+            countTime=t;
+        }
+
+
     }
 
 }

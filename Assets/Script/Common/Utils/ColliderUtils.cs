@@ -1,4 +1,5 @@
-using System.Drawing;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace MyUtils{
                 float skinWidth,Anchor anchor = Anchor.Bottom)
         {
             Vector2 transPos2D = trans.position;
-            Vector2 oriPos = transPos2D + box.offset;
+            Vector2 oriPos = transPos2D + Vector2.Scale(box.offset,trans.localScale);
             Vector3 ans=Vector3.zero;
             switch (anchor)
             {
@@ -67,11 +68,13 @@ namespace MyUtils{
 
         public static Vector3 AvailablePosBox(Transform trans,BoxCollider2D box,float distance)
         {
-            Vector3 oriPos = trans.position;
+            Vector2 oriPos = trans.position;
+            oriPos += Vector2.Scale(box.offset,trans.localScale);
             Vector2 size = Vector3.Scale(box.size,trans.localScale);
             size.x -= 0f;
-            size.y -= 0.075f;
+            size.y -= 0f;
 
+            
             RaycastHit2D hit = Physics2D.BoxCast(
                 oriPos,
                 size,
@@ -95,6 +98,24 @@ namespace MyUtils{
             }
             avg.Normalize();
             return avg;
+        }
+
+        public static void DrawSquare(Vector2 center, Vector2 size)
+        {
+            Vector3 center3D = new Vector3(center.x, center.y, 0);
+            Vector3 halfSize = new Vector3(size.x / 2, size.y / 2, 0);
+
+            // 计算四个顶点
+            Vector3 topLeft = center3D + new Vector3(-halfSize.x, halfSize.y, 0);
+            Vector3 topRight = center3D + new Vector3(halfSize.x, halfSize.y, 0);
+            Vector3 bottomRight = center3D + new Vector3(halfSize.x, -halfSize.y, 0);
+            Vector3 bottomLeft = center3D + new Vector3(-halfSize.x, -halfSize.y, 0);
+
+            // 绘制四条边
+            Debug.DrawLine(topLeft, topRight);
+            Debug.DrawLine(topRight, bottomRight);
+            Debug.DrawLine(bottomRight, bottomLeft);
+            Debug.DrawLine(bottomLeft, topLeft);
         }
     }
 

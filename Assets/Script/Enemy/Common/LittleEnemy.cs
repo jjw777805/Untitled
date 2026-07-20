@@ -1,4 +1,5 @@
 
+using System.Reflection.Emit;
 using MyPlayer;
 using MyUtils;
 using Unity.Collections;
@@ -6,6 +7,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.UIElements;
 
 namespace MyEnemy
 {
@@ -26,7 +28,7 @@ namespace MyEnemy
             if (isKnowPlayer)
             {
                 if(dis<enemyData.catchDis)return true;
-                else isKnowPlayer = false;
+                else playerKnownCT.Reset();
                 return true;
             }
             else
@@ -86,9 +88,10 @@ namespace MyEnemy
             if(hp<0)gameObject.SetActive(false);
         }
         bool canAttack = true;
+        public bool isAtk = false;
         bool Attack()
         {
-            if(!canAttack)return false;
+            if(!canAttack || isAtk)return false;
             var hit = Physics2D.Raycast(
                     transform.position,
                     transform.right,
@@ -98,7 +101,9 @@ namespace MyEnemy
             if (hit.collider != null)
             {
                 canAttack = false;
+                isAtk = true;
                 atkCoolDown.Reset();
+                rb.velocity = new Vector2(0,rb.velocity.y);
                 anim.SetTrigger(AttackHash);
                 return true;
             }
@@ -108,6 +113,12 @@ namespace MyEnemy
         TimeCount atkCoolDown;
         Animator anim;
 
+        void MoveCheck()
+        {
+            Vector3 newPos;
+            newPos = ColliderUtils.AvailablePosBox(transform,cd,5.0f);
+            if(Mathf.Abs(newPos.x)<0.01f)rb.velocity= new Vector2(0,rb.velocity.y);
+        }
         public void Reset()
         {
             gameObject.transform.position = bornPos;
@@ -115,25 +126,31 @@ namespace MyEnemy
             transform.rotation = Quaternion.Euler(0,0,0);
             gameObject.SetActive(true);
         }
-        private readonly int StunHash = Animator.StringToHash("Stun");
-        private readonly int AttackHash = Animator.StringToHash("Attack");
+        public static readonly int StunHash = Animator.StringToHash("Stun");
+        public static readonly int AttackHash = Animator.StringToHash("Attack");
+        TimeCount playerKnownCT = new TimeCount();
+        BoxCollider2D cd;
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
+            cd = GetComponent<BoxCollider2D>();
             hp = enemyData.hp;
             atkCoolDown = new TimeCount(enemyData.atkSeq);
             atkCoolDown.On_End.AddListener(()=>{canAttack=true;});
             stunCoolDown = new TimeCount(enemyData.stunTime);
             stunCoolDown.On_End.AddListener(()=>{isStun=false;});
+            playerKnownCT = new TimeCount(enemyData.lossPlayerTime);
+            playerKnownCT.On_End.AddListener(()=>isKnowPlayer = false);
         }
         void Update()
         {
             
             if(Time.deltaTime ==0)return;
             atkCoolDown.Update(Time.deltaTime);
-
-            if(isStun)return;
+            stunCoolDown.Update(Time.deltaTime);
+            playerKnownCT.Update(Time.deltaTime);
+            if(isStun || isAtk)return;
             playerPos = Player.instance.transform.position;
             bool isInsight = IsInsight();
             if(!isInsight)Patrol();
@@ -141,6 +158,7 @@ namespace MyEnemy
             {
                 if(!Attack())Catch();
             }
+            MoveCheck();
         }
     }
 }
