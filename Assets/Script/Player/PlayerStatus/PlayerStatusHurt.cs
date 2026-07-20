@@ -7,6 +7,7 @@ namespace MyPlayer
     public partial class PlayerStatus
     {
         int hp;
+        [SerializeField]
         float injuryTime = 1.0f;
         bool isinjury=false;
         TimeCount hurtTc;
@@ -20,14 +21,14 @@ namespace MyPlayer
             hp = GameManager.instance.playerData.HP;
             UIManager.instance.SetHP(hp);
             hurtTc = new TimeCount(injuryTime);
-            hurtTc.On_End.AddListener(()=>SetIsInjury(false));
+            hurtTc.On_End.AddListener(()=>{SetIsInjury(false);Player.instance.QuitHurt();});
         }
 
         void HurtUpdate()
         {
             hurtTc.Update(Time.deltaTime);
         }
-        void Hurt()
+        public void Hurt()
         {
            
             if(isinjury != false)return ;

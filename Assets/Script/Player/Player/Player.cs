@@ -43,6 +43,7 @@ namespace MyPlayer
             sr = gameObject.GetComponent<SpriteRenderer>();
             cd = gameObject.GetComponent<CD>();
             am = gameObject.GetComponent<Animator>();
+            sr = gameObject.GetComponent<SpriteRenderer>();
         }
         void Update()
         {

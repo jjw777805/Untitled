@@ -1,4 +1,5 @@
 
+using MyEnemy;
 using UnityEngine;
 
 namespace MyPlayer
@@ -11,6 +12,14 @@ namespace MyPlayer
             if(!inputs.Player.Attack.WasPressedThisFrame())return ;
             am.SetTrigger("Attack");
             ps.Attacked();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.GetComponent<Enemy>().Hurt(playerData.Damage);
+            }
         }
     }
 }

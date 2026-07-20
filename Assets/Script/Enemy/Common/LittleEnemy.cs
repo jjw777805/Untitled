@@ -78,14 +78,14 @@ namespace MyEnemy
         float hp;
         TimeCount stunCoolDown = new TimeCount();
         bool isStun=false;
-        public void Hurt(float damage)
+        public override void Hurt(float damage)
         {
             hp -= damage;
             isStun = true;
             anim.SetTrigger(StunHash);
             stunCoolDown.Reset();
             isKnowPlayer = true;
-            if(hp<0)gameObject.SetActive(false);
+            if(hp<=0)gameObject.SetActive(false);
         }
         bool canAttack = true;
         public bool isAtk = false;
@@ -159,6 +159,14 @@ namespace MyEnemy
                 if(!Attack())Catch();
             }
             MoveCheck();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Player.instance.Hurt();
+            }
         }
     }
 }
