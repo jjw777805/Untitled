@@ -21,6 +21,7 @@ namespace MyUtils{
         }
         float time;
         float deltaTime;
+        bool triggered=false;
 
         public TimeCount()
         {
@@ -39,11 +40,16 @@ namespace MyUtils{
         public void Update(float t)
         {
             deltaTime += t;
-            if(t>time)on_End?.Invoke();
+            if(deltaTime>time && !triggered )
+            {
+                on_End?.Invoke();
+                triggered = true;
+            }
         }
         public void Reset()
         {
             deltaTime = 0;
+            triggered = false;
         }
     }
 
