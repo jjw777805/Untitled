@@ -17,7 +17,7 @@ MonoBehaviour:
   attackDamage: 1
   atkSeq: 2
   atkDis: 2
-  catchDis: 4
+  catchDis: 6
   catchSpeed: 2
   lossPlayerTime: 1
   patrolDis: 4

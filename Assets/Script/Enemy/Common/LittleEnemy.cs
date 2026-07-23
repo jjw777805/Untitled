@@ -126,10 +126,10 @@ namespace MyEnemy
             }
 
             isStun = true;
-            anim.SetTrigger(StunHash);
+            anim.SetBool(StunHash,true);
             stunCoolDown.Reset();
             isKnowPlayer = true;
-            
+            rb.velocity=Vector2.zero;
             if(PlayerStatus.instance.Visible)return ;
             SetVisible(true);
             canSeeCT.Reset();
@@ -225,7 +225,7 @@ namespace MyEnemy
             atkCoolDown = new TimeCount(enemyData.atkSeq);
             atkCoolDown.On_End.AddListener(()=>{canAttack=true;});
             stunCoolDown = new TimeCount(enemyData.stunTime);
-            stunCoolDown.On_End.AddListener(()=>{isStun=false;});
+            stunCoolDown.On_End.AddListener(()=>{isStun=false;anim.SetBool(StunHash,false);});
             playerKnownCT = new TimeCount(enemyData.lossPlayerTime);
             playerKnownCT.On_End.AddListener(()=>isKnowPlayer = false);
             canSeeCT.SetTime(enemyData.canSeeTime);

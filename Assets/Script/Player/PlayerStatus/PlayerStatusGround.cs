@@ -7,14 +7,12 @@ namespace MyPlayer
     public partial class PlayerStatus
     {
         bool onGround = true;
-        bool halfOnGround = false;
         BoxCollider2D cd;
 
         void GroundInitial()
         {
             cd = GetComponent<BoxCollider2D>();
             onGround = true;
-            halfOnGround = false;
         }
 
         public bool OnGround()
@@ -33,7 +31,7 @@ namespace MyPlayer
         {
             if(isJump && GetComponent<Rigidbody2D>().velocity.y>0f)
             {
-                onGround = halfOnGround = false;
+                onGround = false;
                 return ;
             }
 
@@ -61,9 +59,8 @@ namespace MyPlayer
             }else onGround = false;
 
             if(hitLeft.collider!=null == (hitRight.collider != null)){
-                halfOnGround = false;
                 if(onGround)lastStablePos = transform.position;
-            }else halfOnGround = true;
+            }
             // Debug.Log(onGround +" "+ halfOnGround);
         }
     }

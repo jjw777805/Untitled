@@ -31,3 +31,5 @@
 *.unitypackage
 
 [Bb]uild
+
+message.txt

@@ -5,6 +5,9 @@ using TMPro;
 
 namespace MyUI
 {
+    /// <summary>
+    /// 用来导航的按钮，也就是选中了之后会自动打开按钮对应的界面
+    /// </summary>
     [AddComponentMenu("MyUI/NavigateButton")]
     public class NavigateButton : TextButton
     {
