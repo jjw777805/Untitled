@@ -35,7 +35,7 @@ public partial class UIManager : MonoBehaviour
             // Addressables.Release(handle);
         }
         // Debug.Log("checkDict:\n"+string.Join(", ", ImageList.Keys));
-        Image.transform.SetParent(canvas.transform);
+        Image.transform.SetParent(canvas.transform,false);
         RectTransform rect= Image.GetComponent<RectTransform>();
         rect.localPosition = GetUIPosition(position);
         rect.right=way;

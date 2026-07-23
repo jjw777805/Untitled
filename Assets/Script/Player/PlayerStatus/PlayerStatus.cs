@@ -22,9 +22,11 @@ namespace MyPlayer
 
         public void Initialize()
         {
+            GroundInitial();
             SlideInitial();
             JumpInitial();
             HurtInitial();
+            RebornInitial();
         }
 
         void Awake()

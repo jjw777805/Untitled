@@ -69,7 +69,7 @@ namespace MyUtils{
             oriPos += Vector2.Scale(box.offset,trans.localScale);
             Vector2 size = Vector3.Scale(box.size,trans.localScale);
             size.x -= 0f;
-            size.y -= 0f;
+            size.y -= 0.01f;
 
             
             RaycastHit2D hit = Physics2D.BoxCast(

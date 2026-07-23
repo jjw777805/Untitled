@@ -17,6 +17,12 @@ namespace MyPlayer
         TimeCount blkCT =new TimeCount();
         public string blkShiverImage = "p_blk.prefab";
         float blkShiverBeginTime=0.0f;
+        public enum BlkType
+        {
+            Hurt,Trap
+        }
+        
+        BlkType blkType;
         void BlockInitial()
         {
             // Debug.Log(blkShiverTime);
@@ -36,7 +42,7 @@ namespace MyPlayer
             blockBeginTime = time;
             blkLimitTime = blkDuration/blkCnt;
             // Debug.Log("limit:"+blkLimitTime +"begin:"+blockBeginTime);
-            UIManager.instance.BeginCountDown(transform.position,10,blkLimitTime);
+            UIManager.instance.BeginCountDown(transform.position,100,blkLimitTime);
         }
         void Block()
         {
@@ -59,7 +65,8 @@ namespace MyPlayer
                 {
                     ps.BlockEnd();
                     UIManager.instance.FinishCoundDown();
-                    Hurt();
+                    if(blkType==BlkType.Hurt)Hurt(hurtDamage);
+                    else Trap(hurtDamage);
                     blkCnt = 0;
                     Time.timeScale=1;
                     return ;
@@ -68,13 +75,14 @@ namespace MyPlayer
 
             // Debug.Log("ssuccess!");
             ps.BlockEnd();
+            ps.GetGround();
             UIManager.instance.FinishCoundDown();
             Vector3 way = blkDeltaPos.normalized*blkRadius;
             UIManager.instance.ShowImage(
                     blkShiverImage,
                     transform.position+way,
                     way,
-                    new Vector2(20,20));
+                    new Vector2(150,150));
             blkShiverBeginTime = Time.realtimeSinceStartup;
             blkCT.Reset();
         }

@@ -12,7 +12,7 @@ public partial class UIManager : MonoBehaviour
         ctIsBegin = true;
         ctTime = time;
         ctGameObject = Instantiate(CdCirclePrefab);
-        ctGameObject.transform.SetParent(gameObject.transform);
+        ctGameObject.transform.SetParent(gameObject.transform,false);
         RectTransform rect= ctGameObject.GetComponent<RectTransform>();
         rect.localPosition = GetUIPosition(center);
         rect.sizeDelta=new Vector2(2*r,2*r);

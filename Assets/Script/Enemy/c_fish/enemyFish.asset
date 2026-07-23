@@ -19,8 +19,8 @@ MonoBehaviour:
   atkDis: 2
   catchDis: 4
   catchSpeed: 2
-  lossPlayerTime: 0.4
-  patrolDis: 2
+  lossPlayerTime: 1
+  patrolDis: 4
   patrolSpeed: 2
   stunTime: 1
   canSeeTime: 3

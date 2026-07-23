@@ -17,6 +17,39 @@ namespace MyEnemy
         Rigidbody2D rb;
 
         #region Motion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// 如果左边检测到在地面，十位置为1
+        /// 如果右边检测到在地面，个位置为1
+        /// </returns>
+        int IsHalfOnGround()
+        {   
+            if(rb.velocity.y<-1f)return 0;
+            Vector3 centerPos = 
+                transform.position + Vector3.Scale(cd.offset,transform.localScale);
+            Vector3 leftPos,RightPos;
+            RightPos = leftPos = centerPos;
+            leftPos.x = centerPos.x - transform.localScale.x * cd.size.x/2+0.1f;  
+            RightPos.x = centerPos.x + transform.localScale.x * cd.size.x/2-0.1f;  
+            RaycastHit2D hitLeft = Physics2D.Raycast(
+                leftPos,
+                -transform.up,
+                transform.localScale.y*(cd.size.y+0.1f)/2,
+                LayerMask.GetMask("Ground")
+            );
+            RaycastHit2D hitRight = Physics2D.Raycast(
+                RightPos,
+                -transform.up,
+                transform.localScale.y*(cd.size.y+0.1f)/2,
+                LayerMask.GetMask("Ground")
+            );
+            int ans=0;
+            if(hitLeft.collider!=null)ans+=10;
+            if(hitRight.collider!=null)ans+=1;
+            return ans;
+        }
         bool IsInsight()
         {
             Vector3 selfPos = transform.position;
@@ -24,8 +57,9 @@ namespace MyEnemy
             float dis=Vector3.Magnitude(deltaPos);
             if (isKnowPlayer)
             {
-                if(dis<enemyData.catchDis)return true;
-                else playerKnownCT.Reset();
+                if(dis>=enemyData.catchDis && playerKnownCT.isStop())
+                    playerKnownCT.Reset();
+
                 return true;
             }
             else
@@ -65,9 +99,11 @@ namespace MyEnemy
             float left = bornPos.x - enemyData.patrolDis/2;
             float right = bornPos.x + enemyData.patrolDis/2;
             float nowPos = transform.position.x;
+            // Debug.Log("Patrol:");
             if( left <= nowPos  && nowPos <= right)
             {
                 rb.velocity = new Vector2(enemyData.patrolSpeed * transform.right.x , 0);
+                // Debug.Log("speed="+rb.velocity);
             } 
             else MoveHorizontal(bornPos,enemyData.patrolSpeed);
         }
@@ -75,12 +111,17 @@ namespace MyEnemy
         float hp;
         TimeCount stunCoolDown = new TimeCount();
         bool isStun=false;
+
+        public override void Death()
+        {
+            gameObject.SetActive(false);
+        }
         public override void Hurt(float damage)
         {
             hp -= damage;
             if(hp<=0)
             {
-                gameObject.SetActive(false);
+                Death();
                 return ;
             }
 
@@ -121,9 +162,28 @@ namespace MyEnemy
 
         void MoveCheck()
         {
+            if (!IsInsight())
+            {
+                int isHalfOnGround = IsHalfOnGround();
+                if(transform.right.x == 1)
+                {
+                    if(isHalfOnGround%10==0)transform.right = - transform.right;
+                }
+                else
+                {
+                    if(isHalfOnGround/10==0)transform.right = - transform.right;
+                }
+                // Debug.Log(transform.right+" "+isHalfOnGround);
+            }
             Vector3 newPos;
             newPos = ColliderUtils.AvailablePosBox(transform,cd,5.0f);
-            if(Mathf.Abs(newPos.x)<0.01f)rb.velocity= new Vector2(0,rb.velocity.y);
+            if (Mathf.Abs(newPos.x) < 0.01f)
+            {
+                // Debug.Log(transform.position+":"+transform.right+","+newPos);
+                transform.right = -transform.right;
+                rb.velocity= new Vector2(0,rb.velocity.y);
+            }
+            
         }
         #endregion 
         
@@ -198,7 +258,7 @@ namespace MyEnemy
                 if(PlayerStatus.instance.Visible)return ;
                 SetVisible(true);
                 canSeeCT.Reset();
-                Player.instance.MayHurt(delta);
+                Player.instance.MayHurt(delta,(int)enemyData.attackDamage,Player.BlkType.Hurt);
             }
         }
     }

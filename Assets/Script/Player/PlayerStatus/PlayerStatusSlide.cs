@@ -37,6 +37,7 @@ namespace MyPlayer
         {
             canSlide = true;
             isSlide = false;    
+            slideTime = 0f;
         }
 
         void SlideUpdate()

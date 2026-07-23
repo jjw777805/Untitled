@@ -18,31 +18,27 @@ GameObject:
   - component: {fileID: 81662609654587356}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4464566484016439159
-RectTransform:
+--- !u!4 &4464566484016439159
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620676935470106580}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.64, y: 0.74, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5583222166204381942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.64, y: 0.74}
-  m_SizeDelta: {x: 1.97, y: 3.95}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5474854361676809796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1529775433
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d5549ae49dd8a9f468669fa468e0c6d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,7 +106,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -118,7 +114,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -137,7 +133,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -187,6 +183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2187a9b4d94e05429e7e7a31e420e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blkDuration: 1
+  blkCD: 1
+  blkRadius: 1
+  blkShiverTime: 0.3
+  blkShiverImage: p_blk.prefab
   upG: 1
   downG: 5
   maxFallingV: -10
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSeq: 0.6
+  injuryTime: 1
   moveSpeed: 7
   slideSeq: 0.25
   slideDistance: 5
@@ -240,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5583222166204381942}
   - component: {fileID: 6706081801254586647}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: player_atk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7910870793343223501}
   - component: {fileID: 1194059082646554584}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

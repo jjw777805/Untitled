@@ -20,6 +20,7 @@ namespace MyPlayer
         void JumpInitial()
         {
             canJump = jumpTimes;
+            isJump = false;
         }
 
         public void Jump()

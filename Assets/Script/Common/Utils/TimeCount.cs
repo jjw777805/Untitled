@@ -57,7 +57,10 @@ namespace MyUtils{
             countTime=t;
         }
 
-
+        public bool isStop()
+        {
+            return stop;
+        }
     }
 
 }

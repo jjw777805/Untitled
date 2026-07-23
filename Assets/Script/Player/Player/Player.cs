@@ -48,9 +48,9 @@ namespace MyPlayer
         }
         void Update()
         {
-            Block();
             Move();
             Slide();
+            Block();   
             if(Time.timeScale==0)return;
             Attack();
             Jump();

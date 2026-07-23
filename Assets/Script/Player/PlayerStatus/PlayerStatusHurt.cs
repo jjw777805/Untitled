@@ -18,6 +18,7 @@ namespace MyPlayer
         }
         void HurtInitial()
         {
+            isinjury = false;
             hp = GameManager.instance.playerData.HP;
             UIManager.instance.SetHP(hp);
             hurtTc = new TimeCount(injuryTime);
@@ -29,15 +30,15 @@ namespace MyPlayer
             hurtTc.Update(Time.deltaTime);
         }
 
-        public void Hurt()
+        public void Hurt(int k)
         {
            
             if(isinjury != false)return ;
             hurtTc.Reset();
             isinjury = true;
-            hp--;
+            hp-=k;
             UIManager.instance.SetHP(hp);
-            if(hp==0)Death();
+            if(hp<=0)Death();
         }
     }
 }
