@@ -5,7 +5,7 @@ namespace MyPlayer
     {
         void Death()
         {
-            
+            GameManager.instance.ScenesReload();
         }
     }
 }

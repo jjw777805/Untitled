@@ -26,7 +26,6 @@ namespace MyPlayer
             SlideInitial();
             JumpInitial();
             HurtInitial();
-            RebornInitial();
         }
 
         void Awake()

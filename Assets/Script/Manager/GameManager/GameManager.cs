@@ -13,6 +13,15 @@ public partial class GameManager : MonoBehaviour
         return inputs;
     }
 
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            inputs?.Dispose(); 
+            inputs = null;
+        }
+    }
+
     #region 生命周期函数
     void Awake()
     {
@@ -20,16 +29,15 @@ public partial class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);    
+            DontDestroyOnLoad(this.gameObject);  
+            inputs = new MyInput();
+            inputs.Enable();  
         }
         else
         {
             Destroy(this.gameObject);
         }
-        #endregion
-
-        inputs = new MyInput();
-        inputs.Enable();
+        #endregion 
     }
     void Start()
     {
