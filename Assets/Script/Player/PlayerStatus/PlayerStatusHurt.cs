@@ -28,6 +28,7 @@ namespace MyPlayer
         {
             hurtTc.Update(Time.deltaTime);
         }
+
         public void Hurt()
         {
            
@@ -36,6 +37,7 @@ namespace MyPlayer
             isinjury = true;
             hp--;
             UIManager.instance.SetHP(hp);
+            if(hp==0)Death();
         }
     }
 }

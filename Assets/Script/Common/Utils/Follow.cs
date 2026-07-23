@@ -1,7 +1,5 @@
 
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.U2D;
 using UnityEngine;
 
 namespace MyUtils

@@ -15,6 +15,13 @@ namespace MyPlayer
             transform.Translate(newPos);
             rb.velocity = new Vector2(rb.velocity.x,0);
             ps.Slide();
+            if (ps.IsBlock())
+            {
+                ps.BlockEnd();
+                UIManager.instance.FinishCoundDown();
+                blkCnt = 0;
+                Time.timeScale=1;
+            }
         
         }
     }

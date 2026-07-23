@@ -1,7 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.PackageManager;
-using UnityEditor.Rendering.Universal;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace MyUtils{
@@ -100,22 +97,34 @@ namespace MyUtils{
             return avg;
         }
 
-        public static void DrawSquare(Vector2 center, Vector2 size)
+        public static Vector2 GetWay(Vector2 delta)
         {
-            Vector3 center3D = new Vector3(center.x, center.y, 0);
-            Vector3 halfSize = new Vector3(size.x / 2, size.y / 2, 0);
-
-            // 计算四个顶点
-            Vector3 topLeft = center3D + new Vector3(-halfSize.x, halfSize.y, 0);
-            Vector3 topRight = center3D + new Vector3(halfSize.x, halfSize.y, 0);
-            Vector3 bottomRight = center3D + new Vector3(halfSize.x, -halfSize.y, 0);
-            Vector3 bottomLeft = center3D + new Vector3(-halfSize.x, -halfSize.y, 0);
-
-            // 绘制四条边
-            Debug.DrawLine(topLeft, topRight);
-            Debug.DrawLine(topRight, bottomRight);
-            Debug.DrawLine(bottomRight, bottomLeft);
-            Debug.DrawLine(bottomLeft, topLeft);
+            Vector2 ans = Vector2.zero;
+            float theta = Vector2.Angle(Vector2.zero,ans);
+            theta += 22.5f ;
+            int time = (int)math.floor(theta%360f / 45f);
+            switch (time)
+            {
+                case 0:
+                    return new Vector2(1,0).normalized;
+                case 1 :
+                    return new Vector2(1,1).normalized;
+                case 2 :
+                    return new Vector2(0,1).normalized;
+                case 3 :
+                    return new Vector2(-1,1).normalized;
+                case 4 :
+                    return new Vector2(-1,0).normalized;
+                case 5 :
+                    return new Vector2(-1,-1).normalized;
+                case 6 :
+                    return new Vector2(0,-1).normalized;
+                case 7 :
+                    return new Vector2(1,-1).normalized;
+                default :
+                    Debug.LogError("Wrong!");
+                    return new Vector2(0,0);
+            }
         }
     }
 

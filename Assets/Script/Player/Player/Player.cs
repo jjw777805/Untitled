@@ -44,12 +44,14 @@ namespace MyPlayer
             cd = gameObject.GetComponent<CD>();
             am = gameObject.GetComponent<Animator>();
             sr = gameObject.GetComponent<SpriteRenderer>();
+            BlockInitial();
         }
         void Update()
         {
-            if(Time.timeScale==0)return;
+            Block();
             Move();
             Slide();
+            if(Time.timeScale==0)return;
             Attack();
             Jump();
         }

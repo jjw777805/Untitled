@@ -1,12 +1,5 @@
-using MyUI;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.AddressableAssets;
-using System.Threading.Tasks;
-using System.IO;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Threading;
 public partial class UIManager : MonoBehaviour
 { 
     int HPcount=3;
@@ -17,12 +10,13 @@ public partial class UIManager : MonoBehaviour
     public void InitialHP()
     {
         HPList = new List<GameObject>();
-        Vector3 beginPos = new Vector3(-60,39.6f,-841.7767f);
+        Vector3 beginPos = new Vector3(350,-100f,-10f);
         for(int i = 0; i <= 8; i++)
         {
             GameObject set = Instantiate(HPprefab);
             set.transform.SetParent(gameObject.transform,false);
-            set.transform.localPosition = beginPos + i*new Vector3(11,0,0);
+            var rect = set.GetComponent<RectTransform>();
+            rect.anchoredPosition3D = beginPos + i*new Vector3(110,0,0);
             set.SetActive(false);
             HPList.Add(set);
         }

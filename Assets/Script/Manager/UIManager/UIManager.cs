@@ -1,16 +1,11 @@
-using MyUI;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.AddressableAssets;
-using System.Threading.Tasks;
-using System.IO;
-using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Manager/UIManager")]
 public partial class UIManager : MonoBehaviour
 { 
     public static UIManager instance = null;
-
+    Canvas canvas;
+    Camera UIcamera;
     #region 生命周期函数
     void Awake()
     {
@@ -25,23 +20,23 @@ public partial class UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         #endregion
-
-        InitialHP();
+        Initial();
     }
 
     public void Initial()
     {
-  
+        InitialHP();
+        
     }
     void Start()
     {
-
+        canvas = GetComponent<Canvas>();
+        UIcamera = canvas.worldCamera;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
     #endregion
 }

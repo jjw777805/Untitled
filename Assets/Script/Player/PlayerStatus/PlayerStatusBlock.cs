@@ -1,7 +1,4 @@
 
-using MyUtils;
-using UnityEngine;
-
 namespace MyPlayer
 {
     public partial class PlayerStatus
@@ -12,6 +9,10 @@ namespace MyPlayer
         }
 
         bool isBlock=false;
+        public bool IsBlock()
+        {
+            return isBlock;
+        }
         public void BlockBegin()
         {
             isBlock = true;

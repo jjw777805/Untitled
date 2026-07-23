@@ -23,3 +23,4 @@ MonoBehaviour:
   patrolDis: 2
   patrolSpeed: 2
   stunTime: 1
+  canSeeTime: 3

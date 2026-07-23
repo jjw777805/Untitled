@@ -1,13 +1,8 @@
 
-using System.Reflection.Emit;
+using System.Collections.Generic;
 using MyPlayer;
 using MyUtils;
-using Unity.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Analytics;
-using UnityEngine.UIElements;
 
 namespace MyEnemy
 {
@@ -20,6 +15,8 @@ namespace MyEnemy
         bool isKnowPlayer = false;
         Vector3 playerPos;
         Rigidbody2D rb;
+
+        #region Motion
         bool IsInsight()
         {
             Vector3 selfPos = transform.position;
@@ -81,11 +78,20 @@ namespace MyEnemy
         public override void Hurt(float damage)
         {
             hp -= damage;
+            if(hp<=0)
+            {
+                gameObject.SetActive(false);
+                return ;
+            }
+
             isStun = true;
             anim.SetTrigger(StunHash);
             stunCoolDown.Reset();
             isKnowPlayer = true;
-            if(hp<=0)gameObject.SetActive(false);
+            
+            if(PlayerStatus.instance.Visible)return ;
+            SetVisible(true);
+            canSeeCT.Reset();
         }
         bool canAttack = true;
         public bool isAtk = false;
@@ -119,22 +125,42 @@ namespace MyEnemy
             newPos = ColliderUtils.AvailablePosBox(transform,cd,5.0f);
             if(Mathf.Abs(newPos.x)<0.01f)rb.velocity= new Vector2(0,rb.velocity.y);
         }
+        #endregion 
+        
+        #region Interface
         public void Reset()
         {
             gameObject.transform.position = bornPos;
             hp = enemyData.hp;
             transform.rotation = Quaternion.Euler(0,0,0);
             gameObject.SetActive(true);
+            SetVisible(PlayerStatus.instance.Visible);
         }
+
+        public void SetVisible(bool visible)
+        {
+            foreach (var i in srList)
+            {
+                i.enabled = visible;
+            }
+        }
+
+        #endregion 
         public static readonly int StunHash = Animator.StringToHash("Stun");
         public static readonly int AttackHash = Animator.StringToHash("Attack");
         TimeCount playerKnownCT = new TimeCount();
         BoxCollider2D cd;
+        SpriteRenderer sr;
+        TimeCount canSeeCT = new TimeCount();
+        List<SpriteRenderer>srList = new List<SpriteRenderer>();
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             cd = GetComponent<BoxCollider2D>();
+            sr = GetComponent<SpriteRenderer>();
+            GetComponentsInChildren<SpriteRenderer>(true,srList);
+            SetVisible(PlayerStatus.instance.Visible);
             hp = enemyData.hp;
             atkCoolDown = new TimeCount(enemyData.atkSeq);
             atkCoolDown.On_End.AddListener(()=>{canAttack=true;});
@@ -142,6 +168,8 @@ namespace MyEnemy
             stunCoolDown.On_End.AddListener(()=>{isStun=false;});
             playerKnownCT = new TimeCount(enemyData.lossPlayerTime);
             playerKnownCT.On_End.AddListener(()=>isKnowPlayer = false);
+            canSeeCT.SetTime(enemyData.canSeeTime);
+            canSeeCT.On_End.AddListener(()=>{SetVisible(false);});
         }
         void Update()
         {
@@ -150,6 +178,7 @@ namespace MyEnemy
             atkCoolDown.Update(Time.deltaTime);
             stunCoolDown.Update(Time.deltaTime);
             playerKnownCT.Update(Time.deltaTime);
+            canSeeCT.Update(Time.deltaTime);
             if(isStun || isAtk)return;
             playerPos = Player.instance.transform.position;
             bool isInsight = IsInsight();
@@ -165,7 +194,11 @@ namespace MyEnemy
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Player.instance.Hurt();
+                Vector2 delta = transform.position - Player.instance.transform.position;
+                if(PlayerStatus.instance.Visible)return ;
+                SetVisible(true);
+                canSeeCT.Reset();
+                Player.instance.MayHurt(delta);
             }
         }
     }

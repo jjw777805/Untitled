@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2db561663d5776e4bbc5bcdb23aca7ec
+    m_Address: p_blk.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b86338cc36984f47bab82947274174b
     m_Address: Assets/Prefab/Player/Player.prefab
     m_ReadOnly: 0
@@ -34,6 +39,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5eabdced30dde84abbc6852e45da744
     m_Address: HP.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4ca5dc1f592d724984f5014b5a7db76
+    m_Address: CDcircle.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

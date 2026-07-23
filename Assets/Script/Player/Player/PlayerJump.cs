@@ -1,8 +1,4 @@
-
-using UnityEditor.SceneTemplate;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.Timeline;
 
 namespace MyPlayer
 {

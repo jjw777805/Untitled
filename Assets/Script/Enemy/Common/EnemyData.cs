@@ -17,5 +17,7 @@ namespace MyEnemy{
         public float patrolDis;
         public float patrolSpeed;
         public float stunTime;
+
+        public float canSeeTime;
     }    
 }
