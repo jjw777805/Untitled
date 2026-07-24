@@ -31,6 +31,7 @@ public partial class GameManager
             Closable setting = set.GetComponent<Closable>();
             if(EventSystem.current != null)
             {
+                Debug.Log("has Point!");
                 setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
             }
             await Task.Yield();
@@ -53,6 +54,7 @@ public partial class GameManager
         if (ClosableList.ContainsKey(key))
         {
             // Debug.Log("In!");
+            ClosableList[key].GetComponent<Closable>().Close();
             Addressables.ReleaseInstance(ClosableHandleList[key]);
             ClosableList.Remove(key);
             ClosableHandleList.Remove(key);
