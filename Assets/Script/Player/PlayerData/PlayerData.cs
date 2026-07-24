@@ -11,35 +11,16 @@ namespace MyPlayer
     [Serializable]
     public partial class PlayerData
     {
-        [SerializeField]
-        int hp = 3;
-        public int HP
+        void NewPlayerData()
         {
-            set
-            {
-                HP = value;
-            }
-            get
-            {
-                return hp;
-            }
+            NewAttack();
+            NewHp();
+            NewPosition();
         }
-        
-
-        [SerializeField]
-        Weapon weapon = Weapon.NONE;
-        public Weapon Weapon
+        public PlayerData()
         {
-            set
-            {
-                weapon = value;
-            }
-            get
-            {
-                return weapon;
-            }
+            NewPlayerData();
         }
-
         
     }
 }

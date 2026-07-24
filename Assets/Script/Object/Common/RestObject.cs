@@ -9,7 +9,7 @@ namespace MyObject
         public Vector3 rebornPos;
         public void Rest()
         {
-            PlayerStatus.instance.SetResetPos(rebornPos);
+            GameManager.instance.playerData.SetResetPos(rebornPos);
             GameManager.instance.ScenesReload();
         }
 

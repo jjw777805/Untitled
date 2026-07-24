@@ -1,7 +1,9 @@
 
 using System.IO;
 using UnityEngine;
-
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using MyUtils;
 namespace MyPlayer
 {
     public partial class PlayerData
@@ -13,7 +15,8 @@ namespace MyPlayer
         public void Save(string filename)
         {
             string path =  GetSavingPath(filename);
-            string content = JsonUtility.ToJson(this);
+            Debug.Log(path);
+            string content = JsonConvert.SerializeObject(this,Json.Settings);
             File.WriteAllText(path,content);
         }
 
@@ -25,7 +28,7 @@ namespace MyPlayer
                Debug.LogError("No such File");
             }
             string content = File.ReadAllText(path);
-            return JsonUtility.FromJson<PlayerData>(content);
+            return JsonConvert.DeserializeObject<PlayerData>(content,Json.Settings);
         }
     }
 }

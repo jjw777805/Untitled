@@ -3,28 +3,96 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
 
 public partial class GameManager 
 {
-    [SerializeField]
-    Canvas canvas;
+    public Dictionary<string,GameObject>ClosableList = new Dictionary<string, GameObject>();
+    public Dictionary<string,AsyncOperationHandle<GameObject>>ClosableHandleList
+        = new Dictionary<string,AsyncOperationHandle<GameObject>>();
     async public void OpenClosable(string key)
     {
-        var handle = Addressables.LoadAssetAsync<GameObject>(key);
-        GameObject prefab = await handle.Task;
-        GameObject set = Instantiate(prefab);
-        set.transform.SetParent(canvas.transform,false);
-        Closable setting = set.GetComponent<Closable>();
-        if(EventSystem.current != null)
+        if (this != instance && instance != null)
         {
-            setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
+            instance.OpenClosable(key);
+            return ;
         }
-        await Task.Yield();
-        Addressables.Release(handle);
-        setting.Open();
-        
+        try
+        {
+            // Debug.Log($"ShutDownClosable 调用者：{this.gameObject.name} (ID:{this.GetInstanceID()})");
+            var handle = Addressables.InstantiateAsync(key);
+            GameObject set = await handle.Task;
+            set.transform.SetParent(UIManager.instance.transform,false);
+            ClosableList.Add(key,set);
+            ClosableHandleList.Add(key,handle);
+            
+            Closable setting = set.GetComponent<Closable>();
+            if(EventSystem.current != null)
+            {
+                setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
+            }
+            await Task.Yield();
+            setting.Open();
+        }catch(Exception e)
+        {
+            Debug.Log(e.Message);
+            Debug.LogError(e.ToString());
+        }
+        // Debug.Log("Open!: check "+name+ "\n"+string.Join(", ", ClosableList.Keys));
     }
 
+    public void ShutDownClosable(string key)
+    {
+        if (this != instance && instance != null)
+        {
+            instance.ShutDownClosable(key);
+            return ;
+        }
+        if (ClosableList.ContainsKey(key))
+        {
+            // Debug.Log("In!");
+            Addressables.ReleaseInstance(ClosableHandleList[key]);
+            ClosableList.Remove(key);
+            ClosableHandleList.Remove(key);
+        }
+    }
 
+    void ReleaseAllClosables()
+    {
+        foreach (var kv in ClosableHandleList)
+            Addressables.ReleaseInstance(kv.Value);
+        ClosableList.Clear();
+        ClosableHandleList.Clear();
+    }
+    bool isPause=false;
+    float pauseTimeScale;
+    public string pausePanelName="PausePanel.prefab";
+    void PauseUpdate()
+    {
+        if(SavingNumber == -1)return ;
+        // Debug.Log("isChecking");
+        if(!inputs.UI.Cancel.WasPressedThisFrame())return;
+        if (!isPause)
+        {
+            pauseTimeScale = Time.timeScale;
+            OpenClosable(pausePanelName);
+            Time.timeScale = 0;
+            isPause = true;
+        }
+    }
+
+    public void ShutDownPause()
+    {
+        if(instance != this && instance != null)
+        {
+            instance.ShutDownPause();
+            return ;
+        }
+        // Debug.Log("Getin???");
+        Time.timeScale = pauseTimeScale;
+        ShutDownClosable(pausePanelName);
+        isPause = false;
+    }
 }

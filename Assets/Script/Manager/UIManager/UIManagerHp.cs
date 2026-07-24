@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public partial class UIManager : MonoBehaviour
 { 
     int HPcount=3;
@@ -10,7 +11,7 @@ public partial class UIManager : MonoBehaviour
     public void InitialHP()
     {
         HPList = new List<GameObject>();
-        Vector3 beginPos = new Vector3(350,-100f,-10f);
+        Vector3 beginPos = new Vector3(350,-100f,0f);
         for(int i = 0; i <= 8; i++)
         {
             GameObject set = Instantiate(HPprefab);
@@ -29,6 +30,7 @@ public partial class UIManager : MonoBehaviour
 
     public void UpdateHP()
     {
+        if(SceneManager.GetActiveScene().name=="MainMenu")return;
         // Debug.Log(activeHP+" : "+HPcount+":"+HPList.Count);
         if(activeHP==HPcount)return;
         if(activeHP < HPcount)

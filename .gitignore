@@ -30,6 +30,6 @@
 
 *.unitypackage
 
-[Bb]uild
+[Bb]uild.*
 
 message.txt

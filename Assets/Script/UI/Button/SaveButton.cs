@@ -12,17 +12,15 @@ namespace MyUI
     {
         [SerializeField]
         private int number;
-        private bool isNew = true;
         public override void Initailize()
         {
             base.Initailize();
             if (GameManager.instance.HasSave(number))
             {
-                isNew = false;
+                buttonText.text = "存档 " + number ;
             }else
             {
                 buttonText.text = "新存档" ;
-                isNew = true;
             }
         }
         void Start()

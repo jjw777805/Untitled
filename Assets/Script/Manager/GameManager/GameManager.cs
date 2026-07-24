@@ -1,5 +1,4 @@
 using UnityEngine;
-
 [AddComponentMenu("Manager/GameManager")]
 public partial class GameManager : MonoBehaviour
 {
@@ -32,6 +31,7 @@ public partial class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);  
             inputs = new MyInput();
             inputs.Enable();  
+            SavingNumber = -1;
         }
         else
         {
@@ -41,13 +41,14 @@ public partial class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        SaveStart();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        PauseUpdate();
     }
     #endregion
 }

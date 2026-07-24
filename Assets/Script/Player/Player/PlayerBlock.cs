@@ -30,11 +30,13 @@ namespace MyPlayer
             blkCT.On_End.AddListener(
                 ()=>{
                         UIManager.instance.CloseImage(blkShiverImage);
-                        Time.timeScale=1;
+                        Time.timeScale=blkTimeScale;
                     });
         }
+        float blkTimeScale=0;
         void BlockStart(float time,Vector3 delta)
         {
+            blkTimeScale = Time.timeScale;
             Time.timeScale=0;
             blkDeltaPos = delta;
             if(time-blockBeginTime <= blkCD)blkCnt++;
@@ -68,7 +70,7 @@ namespace MyPlayer
                     if(blkType==BlkType.Hurt)Hurt(hurtDamage);
                     else Trap(hurtDamage);
                     blkCnt = 0;
-                    Time.timeScale=1;
+                    Time.timeScale=blkTimeScale;
                     return ;
                 }else return;
             }
@@ -84,6 +86,7 @@ namespace MyPlayer
                     way,
                     new Vector2(150,150));
             blkShiverBeginTime = Time.realtimeSinceStartup;
+            
             blkCT.Reset();
         }
     }

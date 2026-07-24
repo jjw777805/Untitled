@@ -20,12 +20,22 @@ namespace MyPlayer
             }
         }
 
+        void OnDestroy()
+        {
+            if(instance == this)instance = null;
+        }
+
         public void Initialize()
         {
             GroundInitial();
             SlideInitial();
             JumpInitial();
             HurtInitial();
+        }
+
+        void StartBinding()
+        {
+            HurtBinding();  
         }
 
         void Awake()
@@ -35,7 +45,8 @@ namespace MyPlayer
 
         void Start()
         {
-            Initialize();              
+            StartBinding();
+            Initialize();   
         }
 
         void Update()

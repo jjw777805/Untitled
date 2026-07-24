@@ -24,6 +24,11 @@ namespace MyManager
             }
             #endregion
         }
+
+        void OnDestroy()
+        {
+            if(instance == this)instance = null;
+        }
         void Start()
         {
             

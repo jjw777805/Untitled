@@ -38,5 +38,10 @@ public partial class UIManager : MonoBehaviour
     void Update()
     {
     }
+
+    void OnDestroy()
+    {
+        if(instance == this)instance = null;
+    }
     #endregion
 }

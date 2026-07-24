@@ -1,6 +1,7 @@
 
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace MyUtils
 {
@@ -12,6 +13,7 @@ namespace MyUtils
         public GameObject targetObject;
         void LateUpdate()
         {
+            if(targetObject == null)return ;
             Vector3 endPos = targetObject.transform.position;
             endPos.z = transform.position.z;
             float ratio = math.pow(2,Vector3.Distance(endPos,transform.position))/math.pow(2,maxDistance);

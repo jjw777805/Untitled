@@ -1,5 +1,6 @@
 
 using MyUtils;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyPlayer
@@ -16,13 +17,17 @@ namespace MyPlayer
         {
             isinjury = f;
         }
+
+        void HurtBinding()
+        {
+            hurtTc = new TimeCount(injuryTime);
+            hurtTc.On_End.AddListener(()=>{SetIsInjury(false);Player.instance.QuitHurt();});
+        }
         void HurtInitial()
         {
             isinjury = false;
             hp = GameManager.instance.playerData.HP;
             UIManager.instance.SetHP(hp);
-            hurtTc = new TimeCount(injuryTime);
-            hurtTc.On_End.AddListener(()=>{SetIsInjury(false);Player.instance.QuitHurt();});
         }
 
         void HurtUpdate()
@@ -37,8 +42,8 @@ namespace MyPlayer
             hurtTc.Reset();
             isinjury = true;
             hp-=k;
-            UIManager.instance.SetHP(hp);
             if(hp<=0)Death();
+            UIManager.instance.SetHP(hp);
         }
     }
 }

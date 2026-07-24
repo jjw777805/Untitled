@@ -8,7 +8,6 @@ namespace MyPlayer
         public void Trap(int damage)
         {
             isinjury=false;
-            Player.instance.GetComponent<Animator>().SetBool("Hurt",false);
             if(hp>damage)Reborn();
             Hurt(damage);
             

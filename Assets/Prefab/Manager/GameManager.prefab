@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964f45b4e55cf64d94542e4d1fc0ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savingNumber: 5
   playerData:
     hp: 3
     weapon: 0
     damage: 5
-  canvas: {fileID: 0}
+  pausePanelName: PausePanel.prefab

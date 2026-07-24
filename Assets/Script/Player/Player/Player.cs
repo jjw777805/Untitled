@@ -33,6 +33,11 @@ namespace MyPlayer
             }
             #endregion
         }
+
+        void OnDestroy()
+        {
+            if(instance == this)instance = null;
+        }
         void Start()
         {
             inputs = GameManager.instance.GetInputs();

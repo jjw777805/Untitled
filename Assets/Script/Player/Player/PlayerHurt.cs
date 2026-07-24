@@ -30,8 +30,8 @@ namespace MyPlayer
 
         public void Trap(int damage)
         {
-            ps.Trap(damage);
             am.SetBool("Hurt",true);
+            ps.Trap(damage);
         }
         
     }
