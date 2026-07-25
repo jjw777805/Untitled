@@ -22,7 +22,7 @@ public partial class GameManager
 
     void SaveStart()
     {
-        Debug.Log("Start!");
+        // Debug.Log("Start!");
         if(Player.instance!=null)SavingNumber = 4;
         else SavingNumber = -1;
     }
@@ -67,5 +67,31 @@ public partial class GameManager
         }
         string filename = "save"+SavingNumber.ToString()+".json";
         playerData.Save(filename);
+    }
+
+    public void DelSave(int i)
+    {
+        if (this != instance && instance != null)
+        {
+            instance.DelSave(i);
+            return ;
+        }
+        string saveFile = Path.Combine(Application.persistentDataPath,"save"+i.ToString()+".json");
+        if(!File.Exists(saveFile))
+        {
+            Debug.LogError("no save exist!");
+        }
+        else 
+        {
+            try
+            {
+                File.Delete(saveFile);
+                Debug.Log($"存档已删除: {saveFile}");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"删除存档失败: {e.Message}");
+            }
+        }
     }
 }

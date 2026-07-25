@@ -42,6 +42,9 @@ public partial class GameManager
         CameraManager.instance.ResetStatus();
     }
 
+    public void tryFunc(Action action){
+
+    }
     public void LoadScene(string name,Vector3 pos)
     {
         if (this != instance && instance != null)

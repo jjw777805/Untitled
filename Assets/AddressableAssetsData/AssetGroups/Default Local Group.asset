@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e968fbcab429fb46a7e5854b40b7c09
+    m_Address: MessageBoxYN.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b86338cc36984f47bab82947274174b
     m_Address: Assets/Prefab/Player/Player.prefab
     m_ReadOnly: 0
