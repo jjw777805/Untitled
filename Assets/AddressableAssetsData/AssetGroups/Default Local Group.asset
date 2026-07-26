@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2b12da7211ab04f459cdca57ec67f935
   m_SerializeEntries:
+  - m_GUID: 15c07ae0af748574ab97c780745a72e7
+    m_Address: Collection/Diary.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1920dc87f9d99694f8124abd3a347c0d
     m_Address: SettingPanel.prefab
     m_ReadOnly: 0
@@ -29,6 +34,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e968fbcab429fb46a7e5854b40b7c09
     m_Address: MessageBoxYN.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7413f7f73f7917f40b0310b370ad7678
+    m_Address: Collection/Collection.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

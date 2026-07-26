@@ -36,11 +36,11 @@ namespace MyPlayer
                 rb.velocity = newSpeed;
             else
             {
-                if(rb.velocity.y>0 && math.abs(newSpeed.x) > 0.1f)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x,0);
-                    jumpBegin = false;
-                }
+                // if(rb.velocity.y>0 && math.abs(newSpeed.x) > 0.1f)
+                // {
+                //     rb.velocity = new Vector2(rb.velocity.x,0);
+                //     jumpBegin = false;
+                // }
             }
         }
     }

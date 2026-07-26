@@ -15,6 +15,7 @@ namespace MyUI
         [SerializeField]
         Closable defaultOpen;
         GameObject frontSelected;
+        bool isInitialed = false;
         protected Closable()
         {
         }
@@ -25,6 +26,7 @@ namespace MyUI
         }
         public virtual void Open()
         {
+            // Debug.Log(gameObject.GetInstanceID()+"_"+gameObject.name+":Open "+frontSelected?.name);
             canvasGroup.alpha=1;
             canvasGroup.blocksRaycasts=true;
             canvasGroup.interactable=true;
@@ -34,11 +36,15 @@ namespace MyUI
 
         public virtual void Close()
         {
-            if(     EventSystem.current!=null 
-                && !EventSystem.current.alreadySelecting
-                && frontSelected != null )
+            // Debug.Log(gameObject.GetInstanceID()+"_"+gameObject.name+":Close "+frontSelected?.name);
+            if(frontSelected != null)
+                frontSelected.GetComponent<Selectable>().Select();
+            else
             {
-                EventSystem.current.SetSelectedGameObject(frontSelected);
+                if ( isInitialed &&!(EventSystem.current == null) && !EventSystem.current.alreadySelecting)
+                {
+                    EventSystem.current.SetSelectedGameObject(null);
+                }
             }
             canvasGroup.alpha=0;
             canvasGroup.blocksRaycasts=false;
@@ -48,6 +54,7 @@ namespace MyUI
         public virtual void Initailize()
         {
             Close();
+            isInitialed = true;
         }
 
         public virtual void ShutDown()

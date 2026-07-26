@@ -10,7 +10,9 @@ namespace MyEnemy{
         public float hp;
         public float attackDamage;
         public float atkSeq;
-        public float atkDis;
+        public float atkMinDis;
+
+        public float atkMaxDis;
         public float catchDis;
         public float catchSpeed;
         public float lossPlayerTime;

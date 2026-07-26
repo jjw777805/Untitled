@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using MyUtils;
+using System.Threading.Tasks;
 namespace MyPlayer
 {
     public partial class PlayerData
@@ -20,7 +21,7 @@ namespace MyPlayer
             File.WriteAllText(path,content);
         }
 
-        public static PlayerData Load(string filename)
+        public static async Task<PlayerData> Load(string filename)
         {
             string path =  GetSavingPath(filename);
             if (!File.Exists(path))
@@ -28,7 +29,9 @@ namespace MyPlayer
                Debug.LogError("No such File");
             }
             string content = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<PlayerData>(content,Json.Settings);
+            PlayerData result =  JsonConvert.DeserializeObject<PlayerData>(content,Json.Settings);
+            await result.LoadBag();
+            return result;
         }
     }
 }

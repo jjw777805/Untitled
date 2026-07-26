@@ -31,7 +31,7 @@ public partial class GameManager
             Closable setting = set.GetComponent<Closable>();
             if(EventSystem.current != null)
             {
-                Debug.Log("has Point!");
+                // Debug.Log("has Point!");
                 setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
             }
             await Task.Yield();
@@ -71,21 +71,41 @@ public partial class GameManager
     bool isPause=false;
     float pauseTimeScale;
     public string pausePanelName="PausePanel.prefab";
-    void PauseUpdate()
+    bool pauseTrigger = false;
+
+    /// <summary>
+    /// 停止/启动游戏的时间流动
+    /// </summary>
+    void Stop()
     {
-        if(SavingNumber == -1)return ;
-        // Debug.Log("isChecking");
-        if(!inputs.UI.Cancel.WasPressedThisFrame())return;
         if (!isPause)
         {
             pauseTimeScale = Time.timeScale;
-            OpenClosable(pausePanelName);
             Time.timeScale = 0;
             isPause = true;
         }
+        else
+        {
+            isPause = false;
+            Time.timeScale = pauseTimeScale;
+        }
+        
+    }
+    void PauseUpdate()
+    {
+        if(SavingNumber == -1)return ;
+        if(!inputs.UI.Cancel.WasPressedThisFrame() || pauseTrigger)return;
+        pauseTrigger = true;
+        if (!isPause)
+        {
+            // Debug.Log("isChecking");
+            
+            OpenClosable(pausePanelName);
+            Stop();
+        }
     }
 
-    public void ShutDownPause()
+    void ShutDownPause()
     {
         if(instance != this && instance != null)
         {
@@ -93,8 +113,13 @@ public partial class GameManager
             return ;
         }
         // Debug.Log("Getin???");
-        Time.timeScale = pauseTimeScale;
+        pauseTrigger = true;
+        Stop();
         ShutDownClosable(pausePanelName);
-        isPause = false;
+    }
+
+    void PauseLateUpdate()
+    {
+        pauseTrigger = false;
     }
 }

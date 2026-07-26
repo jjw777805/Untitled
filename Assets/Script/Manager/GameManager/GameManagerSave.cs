@@ -2,6 +2,8 @@ using UnityEngine;
 using System.IO;
 using MyPlayer;
 using MyManager;
+using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 public partial class GameManager 
 {
@@ -34,7 +36,7 @@ public partial class GameManager
         else return true; 
     }
 
-    public void LoadSave(int i)
+    public async void LoadSave(int i)
     {
         if (this != instance && instance != null)
         {
@@ -47,8 +49,13 @@ public partial class GameManager
             SavingNumber = i;
             SaveSave();
         }
+        playerData.Clear();
         string filename = "save"+i.ToString()+".json";
-        playerData = PlayerData.Load(filename);
+        
+        Stop();
+        playerData = await PlayerData.Load(filename);
+        Stop();
+        
         SavingNumber = i;
         // Debug.Log("loadsavebefore:"+SavingNumber);
         Destroy(CameraManager.instance.gameObject);

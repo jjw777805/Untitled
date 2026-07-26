@@ -53,6 +53,7 @@ namespace MyPlayer
         }
         void Update()
         {
+            if(Time.timeScale==0 && !ps.IsBlock())return ;
             Move();
             Slide();
             Block();   

@@ -63,13 +63,13 @@ namespace MyUtils{
             else return Vector3.right*distance;
         }
 
-        public static Vector3 AvailablePosBox(Transform trans,BoxCollider2D box,float distance)
+        public static Vector3 AvailablePosBox(Transform trans,BoxCollider2D box,float distance,float skinWidth=0.01f)
         {
             Vector2 oriPos = trans.position;
             oriPos += Vector2.Scale(box.offset,trans.localScale);
             Vector2 size = Vector3.Scale(box.size,trans.localScale);
             size.x -= 0f;
-            size.y -= 0.01f;
+            size.y -= skinWidth;
 
             
             RaycastHit2D hit = Physics2D.BoxCast(

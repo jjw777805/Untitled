@@ -14,6 +14,9 @@ namespace MyPlayer
         Vector3 blkDeltaPos;
         public float blkRadius=2.0f;
         public float blkShiverTime=0.1f;
+        /// <summary>
+        /// 用来控制格挡或闪避成功之后的静止时长
+        /// </summary>
         TimeCount blkCT =new TimeCount();
         public string blkShiverImage = "p_blk.prefab";
         float blkShiverBeginTime=0.0f;
@@ -31,6 +34,8 @@ namespace MyPlayer
                 ()=>{
                         UIManager.instance.CloseImage(blkShiverImage);
                         Time.timeScale=blkTimeScale;
+                        ps.BlockEnd();
+                        ps.GetGround();
                     });
         }
         float blkTimeScale=0;
@@ -43,6 +48,7 @@ namespace MyPlayer
             else blkCnt = 1;
             blockBeginTime = time;
             blkLimitTime = blkDuration/blkCnt;
+            rb.velocity = Vector2.zero;
             // Debug.Log("limit:"+blkLimitTime +"begin:"+blockBeginTime);
             UIManager.instance.BeginCountDown(transform.position,100,blkLimitTime);
         }
@@ -76,8 +82,6 @@ namespace MyPlayer
             }
 
             // Debug.Log("ssuccess!");
-            ps.BlockEnd();
-            ps.GetGround();
             UIManager.instance.FinishCoundDown();
             Vector3 way = blkDeltaPos.normalized*blkRadius;
             UIManager.instance.ShowImage(

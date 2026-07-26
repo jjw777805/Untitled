@@ -12,6 +12,12 @@ public partial class GameManager : MonoBehaviour
         return inputs;
     }
 
+    bool IsInstance()
+    {
+        if (this != instance && instance != null)return false;
+        else return true;
+    }
+
     private void OnDestroy()
     {
         if (instance == this)
@@ -49,6 +55,11 @@ public partial class GameManager : MonoBehaviour
     void Update()
     {
         PauseUpdate();
+    }
+
+    void LateUpdate()
+    {
+        PauseLateUpdate();
     }
     #endregion
 }

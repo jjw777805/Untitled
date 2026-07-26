@@ -90,8 +90,15 @@ namespace MyEnemy
         }
         void Catch()
         {
-            if(Vector3.Distance(playerPos,transform.position)<enemyData.atkDis)return;
-            MoveHorizontal(playerPos,enemyData.catchSpeed);
+            float td = Vector3.Distance(playerPos,transform.position);
+            if(td<enemyData.atkMaxDis && td>enemyData.atkMinDis)return;
+            if(td>=enemyData.atkMaxDis)
+                MoveHorizontal(playerPos,enemyData.catchSpeed);
+            else
+            {
+                Vector3 delta = playerPos - transform.position;
+                MoveHorizontal(transform.position-delta,enemyData.catchSpeed);
+            }
         }
 
         void Patrol()
@@ -139,10 +146,11 @@ namespace MyEnemy
         bool Attack()
         {
             if(!canAttack || isAtk)return false;
+            if(Vector3.Distance(playerPos,transform.position)<enemyData.atkMinDis)return false;
             var hit = Physics2D.Raycast(
                     transform.position,
                     transform.right,
-                    enemyData.atkDis,
+                    enemyData.atkMaxDis,
                     LayerMask.GetMask("Player")  
                 );
             if (hit.collider != null)

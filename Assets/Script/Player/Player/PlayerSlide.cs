@@ -11,7 +11,7 @@ namespace MyPlayer
             if(  !ps.CanSlide())return ;
             if(!inputs.Player.Slide.WasPressedThisFrame())return ;
             Vector3 newPos;
-            newPos = ColliderUtils.AvailablePosBox(transform,cd,ps.SlideDistance);
+            newPos = ColliderUtils.AvailablePosBox(transform,cd,ps.SlideDistance,0.1f);
             transform.Translate(newPos);
             rb.velocity = new Vector2(rb.velocity.x,0);
             ps.Slide();
@@ -20,8 +20,9 @@ namespace MyPlayer
             {
                 ps.BlockEnd();
                 UIManager.instance.FinishCoundDown();
-                blkCnt = 0;
-                Time.timeScale=1;
+                ps.GetGround();
+                Time.timeScale = blkTimeScale;
+                // blkCT.Reset();
             }
         
         }

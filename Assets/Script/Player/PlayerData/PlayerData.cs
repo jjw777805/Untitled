@@ -16,11 +16,18 @@ namespace MyPlayer
             NewAttack();
             NewHp();
             NewPosition();
+            NewBag();
+        }
+
+        public void Clear()
+        {
+            BagClear();
         }
         public PlayerData()
         {
             NewPlayerData();
         }
         
+
     }
 }
