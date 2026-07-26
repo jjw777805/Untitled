@@ -12,15 +12,46 @@ namespace MyUI
     public class Selectable : MonoBehaviour,ISelectHandler,IDeselectHandler
     {
         private bool canSelected=true;
+        [SerializeField]
+        private UnityEvent m_OnSelect = new UnityEvent();
+        public UnityEvent onSelect
+        {
+            get
+            {
+                return m_OnSelect;
+            }
+            set
+            {
+                m_OnSelect = value;
+            }
+        }
+        
+        [SerializeField]
+        private UnityEvent m_OnDeselect = new UnityEvent();
+        public UnityEvent onDeselect
+        {
+            get
+            {
+                return m_OnDeselect;
+            }
+            set
+            {
+                m_OnDeselect = value;
+            }
+        }
+
         public virtual void OnSelect(BaseEventData baseEvent)
         {
-            if(canSelected)return;
+            if (canSelected)
+            {
+                m_OnSelect?.Invoke();
+            }
             Deselect();
         }
  
         public virtual void OnDeselect(BaseEventData baseEvent)
         {
-            
+            m_OnDeselect?.Invoke();
         }
 
         public virtual void Select()

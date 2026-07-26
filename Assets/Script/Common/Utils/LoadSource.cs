@@ -11,8 +11,8 @@ namespace Myutils
 {
     public class LoadSource<T>
     {
-        Dictionary<string , T>dic = new Dictionary<string ,T >();
-        Dictionary<string , AsyncOperationHandle<T> >handleDic
+        public Dictionary<string , T>dic = new Dictionary<string ,T >();
+        public Dictionary<string , AsyncOperationHandle<T> >handleDic
             =new  Dictionary<string , AsyncOperationHandle<T> >();
 
 

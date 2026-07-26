@@ -816,6 +816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77beae91c868f6d49b8df7f6538ce308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3451,7 +3457,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784354627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 200, y: 200, z: 1.00008}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4419,6 +4425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77beae91c868f6d49b8df7f6538ce308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5076,10 +5088,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964f45b4e55cf64d94542e4d1fc0ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagPanelName: BagPanel.prefab
   playerData:
     hp: 3
     weapon: 0
     damage: 5
+    collectionCommonDatas: []
+    collectionSprites: []
   pausePanelName: PausePanel.prefab
 --- !u!4 &8298437367466055068
 Transform:

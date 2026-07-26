@@ -55,11 +55,13 @@ public partial class GameManager : MonoBehaviour
     void Update()
     {
         PauseUpdate();
+        BagUpdate();
     }
 
     void LateUpdate()
     {
         PauseLateUpdate();
+        BagLateUpdate();
     }
     #endregion
 }

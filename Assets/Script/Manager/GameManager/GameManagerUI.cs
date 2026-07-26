@@ -78,6 +78,8 @@ public partial class GameManager
     /// </summary>
     void Stop()
     {
+        // Debug.Log(isPause);
+        // Debug.Log(StackTraceUtility.ExtractStackTrace());
         if (!isPause)
         {
             pauseTimeScale = Time.timeScale;

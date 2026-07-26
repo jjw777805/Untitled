@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using MyObject;
 using Myutils;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MyPlayer
 {
@@ -16,15 +18,27 @@ namespace MyPlayer
             new Dictionary<string,string>();
 
         LoadSource<CollectionCommonData>collectionSource= new LoadSource<CollectionCommonData>();
+        LoadSource<Sprite>imageSource = new LoadSource<Sprite>();
+        public List<CollectionCommonData>collectionCommonDatas
+            =new List<CollectionCommonData>();
+        public List<Sprite>collectionSprites
+            =new List<Sprite>();
         void NewBag()
         {
             playerBag = new Dictionary<string,string>();
             collectionSource = new LoadSource<CollectionCommonData>();
         }
-        public void BagAdd(string key , CollectionCommonData sc)
+        async public void BagAdd(string key , CollectionCommonData sc)
         {
             playerBag.Add(key,sc.soAddressPath);
-            collectionSource.Load(key,sc.soAddressPath);
+            var tasks = new List<Task>
+            {
+                collectionSource.LoadAsync(key, sc.soAddressPath),
+                imageSource.LoadAsync(key, sc.ImagePath)
+            };
+            await Task.WhenAll(tasks);
+            collectionCommonDatas.Add(collectionSource.Get(key));
+            collectionSprites.Add(imageSource.Get(key));
         }
         public bool HasCollected(string key)
         {
@@ -38,14 +52,29 @@ namespace MyPlayer
 
         async Task LoadBag()
         {
-            var tasks=new List<Task>();
-            foreach(var a in playerBag)
-            {
-                tasks.Add(collectionSource.LoadAsync(a.Key,a.Value));
-            }
             try
             {
+                var tasks=new List<Task>();
+                foreach(var a in playerBag)
+                {
+                    tasks.Add(collectionSource.LoadAsync(a.Key,a.Value));
+                }
                 await Task.WhenAll(tasks);
+                tasks.Clear();
+                foreach(var a in collectionSource.dic)
+                {
+                    tasks.Add(imageSource.LoadAsync(a.Key,a.Value.ImagePath));
+                }
+                await Task.WhenAll(tasks);
+
+                collectionCommonDatas.Clear();
+                collectionSprites.Clear();
+
+                foreach(var a in playerBag.Keys)
+                {
+                    collectionCommonDatas.Add(collectionSource.Get(a));
+                    collectionSprites.Add(imageSource.Get(a));
+                }
             }
             catch(Exception e)
             {

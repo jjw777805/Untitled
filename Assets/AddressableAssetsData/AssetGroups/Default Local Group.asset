@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2732d6d9e4025ad4d853775ba2bcf745
+    m_Address: BagPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2db561663d5776e4bbc5bcdb23aca7ec
     m_Address: p_blk.prefab
     m_ReadOnly: 0

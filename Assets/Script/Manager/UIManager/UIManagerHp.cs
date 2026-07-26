@@ -11,7 +11,7 @@ public partial class UIManager : MonoBehaviour
     public void InitialHP()
     {
         HPList = new List<GameObject>();
-        Vector3 beginPos = new Vector3(350,-100f,0f);
+        Vector3 beginPos = new Vector3(350,-100f,1f);
         for(int i = 0; i <= 8; i++)
         {
             GameObject set = Instantiate(HPprefab);
