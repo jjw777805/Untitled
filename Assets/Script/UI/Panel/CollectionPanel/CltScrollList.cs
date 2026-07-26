@@ -1,11 +1,7 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using MyObject;
 using TMPro;
-using UnityEditor.Build.Pipeline;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace MyUI
 {

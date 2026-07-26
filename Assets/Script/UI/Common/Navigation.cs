@@ -1,14 +1,6 @@
-using System;
-using System.Collections;
-using System.Threading;
-using Unity.Mathematics;
-using UnityEditor.Build;
+
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace MyUI
 {
