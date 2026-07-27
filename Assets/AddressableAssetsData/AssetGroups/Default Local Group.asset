@@ -52,6 +52,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b8b1dfea5e418e498a88d0bf30656af
+    m_Address: MessageBox.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f5706bc3cea1fa44b599a9fde918acd
     m_Address: SavePanel.prefab
     m_ReadOnly: 0

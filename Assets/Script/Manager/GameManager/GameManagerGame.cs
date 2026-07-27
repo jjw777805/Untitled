@@ -36,8 +36,8 @@ public partial class GameManager
             instance.ScenesReload();
             return ;
         }
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        // string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(playerData.GetSceneName());
         PlayerStatus.instance.ResetStatus(playerData.GetResetPos());
         CameraManager.instance.ResetStatus();
     }

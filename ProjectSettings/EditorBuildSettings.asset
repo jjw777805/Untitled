@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tomb.unity
     guid: d25673e5e0528434b8e6b86b43426c6b
+  - enabled: 1
+    path: Assets/Scenes/GutterLow.unity
+    guid: 9b523e82ce0307640bb1098bda28fc80
+  - enabled: 1
+    path: Assets/Scenes/GutterHigh.unity
+    guid: 8a7e79c3fa898774c8634253ec5c4c29
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b622840c4eeda0f47911500a71153f75, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: e9c1aa6e7abf3b943914fb23c29bd248, type: 2}
