@@ -11,6 +11,7 @@ namespace MyUI
         private TMP_Text MessageText;
         [SerializeField]
         private RectTransform rect;
+        private string uniqueKey; 
         protected MessageBox()
         {
         }
@@ -23,6 +24,15 @@ namespace MyUI
         public virtual void SetSize(Vector2 size)
         {
             rect.sizeDelta = size;
+        }
+
+        public virtual void SetKey(string key)
+        {
+            uniqueKey = key;
+        }
+        public virtual void ShutDownSelf()
+        {
+            UIManager.instance.ShutDownMsgBox(uniqueKey);
         }
     }
 }

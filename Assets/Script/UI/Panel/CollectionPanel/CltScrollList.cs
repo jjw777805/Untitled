@@ -32,9 +32,19 @@ namespace MyUI
                 var bt = it.GetComponent<Button>();
                 // Debug.Log(((text)==null) +" "+ (bt==null));
                 text.SetText(itemData[i].objName);
-                bt.onClick.AddListener(()=>{});
-                
+
                 int index = i;
+
+                bt.onClick.AddListener(
+                    () =>
+                    {
+                        UIManager.instance.OpenMsgBox(
+                            GetInstanceID()+"_"+index,
+                            itemData[index].detailDiscription,
+                            new Vector2(1600,800)
+                        );
+                    }
+                );
                 bt.onSelect.AddListener(
                     () =>
                     {

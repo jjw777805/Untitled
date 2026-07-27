@@ -100,6 +100,7 @@ public partial class GameManager
         }
         // Debug.Log("Getin???");
         bagTrigger = true;
+        pauseTrigger = true;
         Stop();
         ShutDownClosable(bagPanelName);
     }

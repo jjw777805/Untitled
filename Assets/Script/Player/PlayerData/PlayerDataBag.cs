@@ -19,8 +19,11 @@ namespace MyPlayer
 
         LoadSource<CollectionCommonData>collectionSource= new LoadSource<CollectionCommonData>();
         LoadSource<Sprite>imageSource = new LoadSource<Sprite>();
+        
+        [JsonIgnore]
         public List<CollectionCommonData>collectionCommonDatas
             =new List<CollectionCommonData>();
+        [JsonIgnore]
         public List<Sprite>collectionSprites
             =new List<Sprite>();
         void NewBag()

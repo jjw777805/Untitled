@@ -14,6 +14,45 @@ public partial class UIManager : MonoBehaviour
         = new Dictionary<string,AsyncOperationHandle<GameObject>>();
 
     public string boxYNname="MessageBoxYN.prefab";
+    public string boxName="MessageBox.prefab";
+
+    async public void OpenMsgBox(string key,string msg,Vector2 size)
+    {
+        if (this != instance && instance != null)
+        {
+            instance.OpenMsgBox(key,msg,size);
+            return ;
+        }
+        try
+        {
+            // Debug.Log($"ShutDownMsgBox 调用者：{this.gameObject.name} (ID:{this.GetInstanceID()})");
+            var handle = Addressables.InstantiateAsync(boxName);
+            GameObject set = await handle.Task;
+            set.transform.SetParent(UIManager.instance.transform,false);
+            
+            MsgBoxList.Add(key,set);
+            MsgBoxHandleList.Add(key,handle);
+            
+            MessageBox setting = set.GetComponent<MessageBox>();
+            
+            setting.SetSize(size);
+            setting.SetKey(key);
+            setting.SetMessage(msg);
+            if(EventSystem.current != null)
+            {
+                setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
+            }
+            await Task.Yield();
+            setting.Open();
+        }catch(Exception e)
+        {
+            Debug.Log(e.Message);
+            Debug.LogError(e.ToString());
+        }
+        // Debug.Log("Open!: check "+name+ "\n"+string.Join(", ", MsgBoxList.Keys));
+    }
+    
+
     async public void OpenMsgBoxYN(string key,string msg,Action yesAction,
         Action noAction, Vector2 size)
     {
