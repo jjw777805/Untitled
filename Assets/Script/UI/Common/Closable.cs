@@ -22,6 +22,7 @@ namespace MyUI
 
         public void SetFrontSelected(GameObject t)
         {
+            // Debug.Log(t.name);
             frontSelected = t ;
         }
         public virtual void Open()

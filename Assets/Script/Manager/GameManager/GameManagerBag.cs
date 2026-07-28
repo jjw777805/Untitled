@@ -41,7 +41,7 @@ public partial class GameManager
         bagTrigger = true;
         if (!isPause)
         {
-            
+            if(Time.timeScale == 0 )return ;
             BagOpen(
                 bagPanelName,
                 playerData.collectionCommonDatas,

@@ -75,6 +75,11 @@ public partial class GameManager
 
     public void HasEsced()
     {
+        if (!IsInstance())
+        {
+            instance.HasEsced();
+            return ;
+        }
         pauseTrigger = true;
     }
 

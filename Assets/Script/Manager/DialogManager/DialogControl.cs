@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using static MyDiaLog.DiaLogChoiceSO;
 
 namespace MyManager
 {
@@ -17,10 +18,6 @@ namespace MyManager
         LoadSource<Sprite> sprite = new LoadSource<Sprite>();
         async void SetCurrentDialog()
         {
-            if(EventSystem.current != null)
-            {
-                currentPanel.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
-            }
             currentPanel.personName.SetText(currentDL.personName);
             currentPanel.content.SetText(currentDL.content);
             await sprite.LoadAsync(
@@ -29,6 +26,28 @@ namespace MyManager
             );
             currentPanel.image.sprite = sprite.Get(currentDL.image.RuntimeKey.ToString());
             currentPanel.Open();
+
+            if(currentDL.type == MyEnum.DialogType.Choice)SetChoice();
+
+            
+        }
+
+        void SetChoiceButton(DialogButton bt,DialogChoiceData data)
+        {
+            // Debug.Log(data.choiceText);
+            bt.SetText(data.choiceText);
+            bt.onClick=data.onClick;
+        }
+        void SetChoice()
+        {
+            var cs = currentDL.choice.choices;
+            currentPanel.SetActiveNumber(cs.Count);
+            for(int i = 0; i < cs.Count; i++)
+            {
+                var t =currentPanel.GetDialogButton(i);
+                SetChoiceButton(t,cs[i]);
+            }
+            currentPanel.GetDialogButton(0).Select();
         }
 
         public void Open(DiaLogSO dlSO)
@@ -38,6 +57,12 @@ namespace MyManager
                 return ;
             }          
             Stop();
+            Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+            if (EventSystem.current != null)
+            {
+                left.SetFrontSelected(EventSystem.current.currentSelectedGameObject);
+                right.SetFrontSelected(EventSystem.current.currentSelectedGameObject);
+            }
             currentDL = dlSO;
             SetCurrentPanel();
             SetCurrentDialog(); 
@@ -56,15 +81,18 @@ namespace MyManager
                 currentPanel = right ;
             }
         }
-        public void NextDialog()
+        
+
+        public void NextDialog(DiaLogSO nxt)
         {
             if (!IsInstance())
             {
-                instance.NextDialog();
+                instance.NextDialog(nxt);
                 return ;
             }
 
-            currentDL = currentDL.next;
+            if(currentDL.type == MyEnum.DialogType.Choice)currentPanel.Clear();
+            currentDL = nxt;
             if(currentDL.type == MyEnum.DialogType.End)
             {
                 Close();
@@ -73,6 +101,17 @@ namespace MyManager
             SetCurrentPanel();
             SetCurrentDialog();
         }
+
+        public void NextDialog()
+        {
+            if (!IsInstance())
+            {
+                instance.NextDialog();
+                return ;
+            }
+            NextDialog(currentDL.next);
+        }
+
         public void Close()
         {
             if (!IsInstance())

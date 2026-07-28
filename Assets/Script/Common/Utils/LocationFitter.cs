@@ -32,9 +32,9 @@ namespace MyUtils
 
         void Fitter()
         {
-            selfRect.position = GetPosition(target.position);
+            selfRect.position = GetPosition();
         }
-        Vector3 GetPosition(Vector3 pos)
+        Vector3 GetPosition()
         {
             // Debug.Log(pos+","+target.rect.xMin+","+target.rect.yMax);
             switch (anchor)
@@ -42,6 +42,10 @@ namespace MyUtils
                 case Anchor.TopLeft:
                     return target.TransformPoint (
                             new Vector3(target.rect.xMin,target.rect.yMax,0)+delta
+                        );
+                case Anchor.TopRight:
+                    return target.TransformPoint (
+                            new Vector3(target.rect.xMax,target.rect.yMax,0)+delta
                         );
                 default:
                     Debug.LogError("No this anchor");

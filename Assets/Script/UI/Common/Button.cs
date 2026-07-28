@@ -16,15 +16,10 @@ namespace MyUI
         {
         }
 
-        [Serializable]
-        public class ButtonClickedEvent : UnityEvent
-        {
-        }
-
         [FormerlySerializedAs("onClick")]
         [SerializeField]
-        private ButtonClickedEvent m_OnClick = new ButtonClickedEvent();
-        public ButtonClickedEvent onClick
+        private UnityEvent m_OnClick = new UnityEvent();
+        public UnityEvent onClick
         {
             get
             {
@@ -37,8 +32,8 @@ namespace MyUI
         }
 
         [SerializeField]
-        private ButtonClickedEvent m_OnExit = new ButtonClickedEvent();
-        public ButtonClickedEvent OnExit
+        private UnityEvent m_OnExit = new UnityEvent();
+        public UnityEvent OnExit
         {
             get
             {

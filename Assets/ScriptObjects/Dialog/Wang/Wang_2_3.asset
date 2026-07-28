@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76689ee81d2a747428f63ce94a2cdbd3, type: 3}
-  m_Name: Wang_2
+  m_Name: Wang_2_3
   m_EditorClassIdentifier: 
   choices:
-  - choiceText: "\u600E\u4E48\uFF1F"
-    next: {fileID: 11400000, guid: 854c908a918609744ba67111d108e453, type: 2}
+  - choiceText: "\u2026\u2026"
+    next: {fileID: 11400000, guid: 08ec2d886ebf07d4e892d1d00e41fd7c, type: 2}
     onClick:
       m_PersistentCalls:
         m_Calls:
@@ -23,15 +23,15 @@ MonoBehaviour:
           m_MethodName: NextDialog
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 854c908a918609744ba67111d108e453, type: 2}
+            m_ObjectArgument: {fileID: 11400000, guid: 08ec2d886ebf07d4e892d1d00e41fd7c, type: 2}
             m_ObjectArgumentAssemblyTypeName: MyDiaLog.DiaLogSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - choiceText: "\u662F\u6211"
-    next: {fileID: 11400000, guid: 59c4a7849eca56f42adb8b7f24013bd2, type: 2}
+  - choiceText: "\u591F\u4E86\u5427"
+    next: {fileID: 11400000, guid: 08ec2d886ebf07d4e892d1d00e41fd7c, type: 2}
     onClick:
       m_PersistentCalls:
         m_Calls:
@@ -40,7 +40,7 @@ MonoBehaviour:
           m_MethodName: NextDialog
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 59c4a7849eca56f42adb8b7f24013bd2, type: 2}
+            m_ObjectArgument: {fileID: 11400000, guid: 08ec2d886ebf07d4e892d1d00e41fd7c, type: 2}
             m_ObjectArgumentAssemblyTypeName: MyDiaLog.DiaLogSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
