@@ -45,13 +45,16 @@ namespace MyUI
             if (canSelected)
             {
                 m_OnSelect?.Invoke();
+                // Debug.Log("GetSelected!"+name+":"+gameObject.GetInstanceID());
+                return ;
             }
-            Deselect();
+            else Deselect();
         }
  
         public virtual void OnDeselect(BaseEventData baseEvent)
         {
             m_OnDeselect?.Invoke();
+            // Debug.Log("DeSelected!"+name+":"+gameObject.GetInstanceID());
         }
 
         public virtual void Select()
@@ -59,6 +62,7 @@ namespace MyUI
             if(canSelected==false)return;
             if (!(EventSystem.current == null) && !EventSystem.current.alreadySelecting)
             {
+                if(EventSystem.current.currentSelectedGameObject == gameObject)return ;
                 EventSystem.current.SetSelectedGameObject(this.gameObject);
             }
         }

@@ -1,10 +1,17 @@
+using MyEnum;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace MyUtils{
+
+namespace MyEnum
+{
     public enum Anchor {
         Top,Bottom,Left,Right,TopLeft,TopRight,BottomLeft,BottomRight
     };
+}
+
+namespace MyUtils{
+    
     public class ColliderUtils
     {
         /// <summary>

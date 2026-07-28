@@ -3,7 +3,7 @@ using Newtonsoft.Json.Converters;
 using UnityEngine;
 using System;
 
-namespace Myutils
+namespace MyUtils
 {
     public class Vector3Converter : JsonConverter<Vector3>
     {

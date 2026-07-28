@@ -1,9 +1,6 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
-using Myutils;
-using UnityEngine.UI;
 
 namespace MyUI
 {

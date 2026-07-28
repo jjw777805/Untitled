@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace Myutils
+namespace MyUtils
 {
     [Serializable]
     class ColorChange

@@ -73,6 +73,11 @@ public partial class GameManager
     public string pausePanelName="PausePanel.prefab";
     bool pauseTrigger = false;
 
+    public void HasEsced()
+    {
+        pauseTrigger = true;
+    }
+
     /// <summary>
     /// 停止/启动游戏的时间流动
     /// </summary>

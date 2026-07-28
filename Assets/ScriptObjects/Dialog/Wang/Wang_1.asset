@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3c94e74999532458dee3680f216a0c, type: 3}
+  m_Name: Wang_1
+  m_EditorClassIdentifier: 
+  type: 0
+  pos: 0
+  personName: "\u8001\u738B"
+  image:
+    m_AssetGUID: d5549ae49dd8a9f468669fa468e0c6d7
+    m_SubObjectName: player_none
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  content: "\u600E\u4E48\uFF0C\u662F\u4F60\uFF1F"
+  choice: {fileID: 0}
+  next: {fileID: 11400000, guid: 854c908a918609744ba67111d108e453, type: 2}

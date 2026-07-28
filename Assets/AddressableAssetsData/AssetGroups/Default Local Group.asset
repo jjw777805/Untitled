@@ -67,6 +67,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5549ae49dd8a9f468669fa468e0c6d7
+    m_Address: player_none.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5eabdced30dde84abbc6852e45da744
     m_Address: HP.prefab
     m_ReadOnly: 0

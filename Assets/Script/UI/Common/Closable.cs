@@ -31,7 +31,10 @@ namespace MyUI
             canvasGroup.blocksRaycasts=true;
             canvasGroup.interactable=true;
             if(defaultOpen!=null)defaultOpen.Open();
-            else defaultFocus?.Select();
+            else
+            {
+                if(defaultFocus!=null)defaultFocus?.Select();
+            }
         }
 
         public virtual void Close()

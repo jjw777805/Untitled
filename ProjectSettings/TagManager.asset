@@ -18,7 +18,7 @@ TagManager:
   - EnemyAtk
   - Interact
   - Camera
-  - 
+  - Dialog
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1529775433
+    locked: 0
+  - name: Dialog
+    uniqueID: 2805997451
     locked: 0
