@@ -40,6 +40,7 @@ public partial class UIManager : MonoBehaviour
         rect.localPosition = GetUIPosition(position);
         rect.right=way;
         rect.sizeDelta = size;
+        
     }
 
     public void CloseImage(string name)

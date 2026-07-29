@@ -84,6 +84,7 @@ namespace MyPlayer
             // Debug.Log("ssuccess!");
             UIManager.instance.FinishCoundDown();
             Vector3 way = blkDeltaPos.normalized*blkRadius;
+            // Debug.Log(blkDeltaPos.normalized+":"+way);
             UIManager.instance.ShowImage(
                     blkShiverImage,
                     transform.position+way,

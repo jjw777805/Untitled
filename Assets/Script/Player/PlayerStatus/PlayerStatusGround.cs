@@ -1,5 +1,7 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 namespace MyPlayer
@@ -8,6 +10,8 @@ namespace MyPlayer
     {
         bool onGround = true;
         BoxCollider2D cd;
+        public LayerMask trapLayer;
+        public float trapCheckRadius= 2.5f;
 
         void GroundInitial()
         {
@@ -40,7 +44,8 @@ namespace MyPlayer
             Vector3 leftPos,RightPos;
             RightPos = leftPos = centerPos;
             leftPos.x = centerPos.x - transform.localScale.x * cd.size.x/2+0.1f;  
-            RightPos.x = centerPos.x + transform.localScale.x * cd.size.x/2-0.1f;  
+            RightPos.x = centerPos.x + transform.localScale.x * cd.size.x/2-0.1f;
+
             RaycastHit2D hitLeft = Physics2D.Raycast(
                 leftPos,
                 -transform.up,
@@ -53,10 +58,24 @@ namespace MyPlayer
                 transform.localScale.y*(cd.size.y+0.1f)/2,
                 LayerMask.GetMask("Ground")
             );
-            if(hitLeft.collider!=null || hitRight.collider != null)
+
+            if(hitLeft.collider!=null ||  hitRight.collider != null)
             {
                 onGround = true;
-            }else onGround = false;
+            }
+            else onGround = false;
+
+            Collider2D trap = Physics2D.OverlapCircle(transform.position, trapCheckRadius, trapLayer);
+            if( trap!=null)
+            {
+                Debug.Log("FindTrap!");
+                onGround = false;
+            }
+
+            if(hitLeft.collider!=null)
+                Debug.Log(hitLeft.collider.tag);
+            if(hitRight.collider!=null)
+                Debug.Log(hitLeft.collider.tag);
 
             if(hitLeft.collider!=null == (hitRight.collider != null)){
                 if(onGround)lastStablePos = transform.position;
