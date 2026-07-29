@@ -43,8 +43,10 @@ namespace MyPlayer
                     });
         }
         float blkTimeScale=0;
+        bool blockSuccess = false;
         void BlockStart(float time,Vector3 delta)
         {
+            blockSuccess = false;
             blkTimeScale = Time.timeScale;
             Time.timeScale=0;
             blkDeltaPos = delta;
@@ -67,7 +69,7 @@ namespace MyPlayer
             }
                 
             
-            if (!ps.IsBlock())return ;
+            if (!ps.IsBlock() || hasSlide || blockSuccess)return ;
             float delta = Time.realtimeSinceStartup - blockBeginTime;
             // Debug.Log("delta:"+delta);
             if (!inputs.Player.Block.WasPressedThisFrame())
@@ -100,6 +102,8 @@ namespace MyPlayer
             rb.velocity = Vector2.zero;
             // Debug.Log("sus1");
             blkS.Invoke();
+            ps.Slide();
+            blockSuccess = true;
             // Debug.Log("sus2");
             blkCT.Reset();
         }

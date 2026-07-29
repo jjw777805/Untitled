@@ -61,5 +61,10 @@ namespace MyPlayer
             Attack();
             Jump();
         }
+
+        void LateUpdate()
+        {
+            SlideLateUpdate();
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace MyPlayer
 {
     public partial class Player:MonoBehaviour
     {
+        bool hasSlide=false;
         void Slide()
         {
             if(  !ps.CanSlide())return ;
@@ -24,10 +25,15 @@ namespace MyPlayer
                 blkS.Invoke();
                 rb.velocity = Vector2.zero;
                 Time.timeScale = blkTimeScale;
-                
+                hasSlide = true;
                 // blkCT.Reset();
             }
         
+        }
+
+        void SlideLateUpdate()
+        {
+            hasSlide=false;
         }
     }
 }
