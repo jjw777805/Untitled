@@ -21,7 +21,10 @@ namespace MyPlayer
                 ps.BlockEnd();
                 UIManager.instance.FinishCoundDown();
                 ps.GetGround();
+                blkS.Invoke();
+                rb.velocity = Vector2.zero;
                 Time.timeScale = blkTimeScale;
+                
                 // blkCT.Reset();
             }
         

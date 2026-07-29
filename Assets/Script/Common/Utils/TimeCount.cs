@@ -1,4 +1,5 @@
 using UnityEngine.Events;
+using UnityEngine;
 
 namespace MyUtils{
     public class TimeCount
@@ -40,6 +41,7 @@ namespace MyUtils{
             deltaTime += t;
             if(deltaTime>countTime && !triggered )
             {
+                // Debug.Log("trigger");
                 on_End?.Invoke();
                 triggered = true;
                 stop=true;

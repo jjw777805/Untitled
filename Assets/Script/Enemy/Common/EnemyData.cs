@@ -7,7 +7,7 @@ namespace MyEnemy{
     public class EnemyData : ScriptableObject
     {
         public string enemyName;
-        public float hp;
+        public int hp =15;
         public float attackDamage;
         public float atkSeq;
         public float atkMinDis;

@@ -1,6 +1,8 @@
 
+using System;
 using MyUtils;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MyPlayer
 {
@@ -20,6 +22,7 @@ namespace MyPlayer
         TimeCount blkCT =new TimeCount();
         public string blkShiverImage = "p_blk.prefab";
         float blkShiverBeginTime=0.0f;
+        Action blkS,blkF;
         public enum BlkType
         {
             Hurt,Trap
@@ -36,6 +39,7 @@ namespace MyPlayer
                         Time.timeScale=blkTimeScale;
                         ps.BlockEnd();
                         ps.GetGround();
+                        TakeJump();
                     });
         }
         float blkTimeScale=0;
@@ -71,12 +75,14 @@ namespace MyPlayer
                 UIManager.instance.UpdateCountDown(delta);
                 if (delta > blkLimitTime)
                 {
+                    // Debug.Log("hurt?");
                     ps.BlockEnd();
                     UIManager.instance.FinishCoundDown();
                     if(blkType==BlkType.Hurt)Hurt(hurtDamage);
                     else Trap(hurtDamage);
                     blkCnt = 0;
                     Time.timeScale=blkTimeScale;
+                    blkF?.Invoke();
                     return ;
                 }else return;
             }
@@ -91,7 +97,10 @@ namespace MyPlayer
                     way,
                     new Vector2(150,150));
             blkShiverBeginTime = Time.realtimeSinceStartup;
-            
+            rb.velocity = Vector2.zero;
+            // Debug.Log("sus1");
+            blkS.Invoke();
+            // Debug.Log("sus2");
             blkCT.Reset();
         }
     }

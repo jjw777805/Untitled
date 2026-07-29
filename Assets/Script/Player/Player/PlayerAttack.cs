@@ -1,5 +1,6 @@
 
 using MyEnemy;
+using MyObject;
 using UnityEngine;
 
 namespace MyPlayer
@@ -19,6 +20,10 @@ namespace MyPlayer
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.GetComponent<Enemy>().Hurt(playerData.Damage);
+            }
+            else if (collision.gameObject.CompareTag("Crash"))
+            {
+                collision.GetComponent<CrashObject>().BeAttacked();
             }
         }
     }

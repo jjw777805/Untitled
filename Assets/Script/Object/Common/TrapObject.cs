@@ -15,7 +15,13 @@ namespace MyObject
             if (collision.CompareTag("Player"))
             {
                 Vector3 delta = transform.position - Player.instance.transform.position;
-                if(canBlock)Player.instance.MayHurt(delta,trapDamage,Player.BlkType.Trap);
+                if(canBlock)Player.instance.MayHurt(
+                        delta,
+                        trapDamage,
+                        Player.BlkType.Trap,
+                        ()=>{},
+                        ()=>{}
+                    );
                 else Player.instance.Trap(trapDamage);
             }
             else if (collision.CompareTag("Enemy"))

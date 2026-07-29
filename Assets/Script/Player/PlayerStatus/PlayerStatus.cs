@@ -58,5 +58,10 @@ namespace MyPlayer
             AttackUpdate(); 
             HurtUpdate();
         }
+
+        void LateUpdate()
+        {
+            TrapLateUpdate();
+        }
     }
 }

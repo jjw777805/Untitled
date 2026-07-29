@@ -66,19 +66,14 @@ namespace MyPlayer
             else onGround = false;
 
             Collider2D trap = Physics2D.OverlapCircle(transform.position, trapCheckRadius, trapLayer);
-            if( trap!=null)
-            {
-                Debug.Log("FindTrap!");
-                onGround = false;
-            }
 
-            if(hitLeft.collider!=null)
-                Debug.Log(hitLeft.collider.tag);
-            if(hitRight.collider!=null)
-                Debug.Log(hitLeft.collider.tag);
+            // if(hitLeft.collider!=null)
+            //     Debug.Log(hitLeft.collider.tag);
+            // if(hitRight.collider!=null)
+            //     Debug.Log(hitLeft.collider.tag);
 
             if(hitLeft.collider!=null == (hitRight.collider != null)){
-                if(onGround)lastStablePos = transform.position;
+                if(onGround && trap==null)lastStablePos = transform.position;
             }
             // Debug.Log(onGround +" "+ halfOnGround);
         }

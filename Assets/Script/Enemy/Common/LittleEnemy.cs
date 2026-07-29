@@ -115,7 +115,7 @@ namespace MyEnemy
             else MoveHorizontal(bornPos,enemyData.patrolSpeed);
         }
 
-        float hp;
+        int hp;
         TimeCount stunCoolDown = new TimeCount();
         bool isStun=false;
 
@@ -123,7 +123,7 @@ namespace MyEnemy
         {
             gameObject.SetActive(false);
         }
-        public override void Hurt(float damage)
+        public override void Hurt(int damage)
         {
             hp -= damage;
             if(hp<=0)
@@ -266,7 +266,13 @@ namespace MyEnemy
                 if(PlayerStatus.instance.Visible)return ;
                 SetVisible(true);
                 canSeeCT.Reset();
-                Player.instance.MayHurt(delta,(int)enemyData.attackDamage,Player.BlkType.Hurt);
+                Player.instance.MayHurt(
+                    delta,
+                    (int)enemyData.attackDamage,
+                    Player.BlkType.Hurt,
+                    ()=>{},
+                    ()=>{}
+                );
             }
         }
     }

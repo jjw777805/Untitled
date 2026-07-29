@@ -22,7 +22,14 @@ namespace MyPlayer
                     rb.velocity = new Vector2(rb.velocity.x,jumpV2);
                     deltaJumpTime += Time.deltaTime;     
                 }
-                else jumpBegin = false;
+                else
+                {
+                    if (jumpBegin)
+                    {
+                        jumpBegin = false;
+                        rb.velocity = new Vector2(rb.velocity.x,jumpV2);
+                    }  
+                }
                 
                 if(!jumpBegin){
                     rb.gravityScale = downG;
@@ -32,12 +39,18 @@ namespace MyPlayer
             if(!ps.CanJump())return ;
             if(ps.OnGround())rb.velocity = new Vector2(rb.velocity.x,0);
             if(!inputs.Player.Jump.WasPressedThisFrame())return ;
+            TakeJump();
+        }
+
+        void TakeJump()
+        {
             ps.Jump();
             jumpBegin = true;
             // Debug.Log("Here!");
             rb.velocity = new Vector2(rb.velocity.x,jumpV1);
             deltaJumpTime = Time.deltaTime;
             rb.gravityScale = upG;
+            // Debug.Log(deltaJumpTime);
         }
     }
 }
