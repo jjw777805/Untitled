@@ -1,0 +1,262 @@
+commit 3d66c3329ede630d7e6f8fc3491f492e65753742
+Author: jjw777805 <2033009449@qq.com>
+Date:   Wed Jul 29 23:10:03 2026 +0800
+
+    修复：
+    1.修复了快结束的时候格挡会导致进行受伤和成功双重判定的bug
+    [因为时停时间isblock还是true的，所以会持续判定，新增了判定bool变量]
+    
+    新增：
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit 064ed26a107428616983934fe93e64ec94384f52
+Author: jjw777805 <2033009449@qq.com>
+Date:   Wed Jul 29 21:02:10 2026 +0800
+
+    修复：
+    1.同时触发两种不同种类的陷阱时的情况
+    [增加了判定变量，一帧只能触发一次]
+    2.遇到写Debug.Log逻辑就恢复正常的话，记得查看是否是.dll的缓存问题，可以清除一下Library
+    
+    新增：
+    1.更新了格挡时的表现
+    2.拓展了MayHurt函数
+    3.基本完成了和投掷物相关的事物
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit 0b7d16f36c945429a32548b7e05c0b9c4d765b20
+Author: jjw777805 <2033009449@qq.com>
+Date:   Wed Jul 29 14:26:02 2026 +0800
+
+    修复：
+    1.对于有Trap时安全点的检测
+    [通过直接重叠圆形碰撞箱看周围是否有陷阱来判断]
+    
+    新增：
+    1.SimpleLayout.cs
+    2.SampleLayout.cs
+    3.投掷物相关初步实现
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit c262b1c7bb65f48471a3c78741f3616fd0d3da44
+Author: jjw777805 <2033009449@qq.com>
+Date:   Tue Jul 28 22:52:56 2026 +0800
+
+    修复：
+    
+    新增：
+    1.基本完成对话系统的实现
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit a011688cbe56b91018deb0cce38fc908e8bd5bde
+Author: jjw777805 <2033009449@qq.com>
+Date:   Tue Jul 28 18:06:07 2026 +0800
+
+    注意：
+    1. is Instance判断完后截断一定要return！！！一定要return！！！
+    
+    修复：
+    1.可选择物品会被自动退选的bug
+    [截断一定要return！！！一定要return！！！]
+    
+    新增：
+    1.对话系统
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit 20a1d0c5fa5d5a4acf010dad29339dd6520de30f
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 27 22:05:49 2026 +0800
+
+    修复：
+    
+    新增：
+    1.加了新场景和新场景之间的传送
+    
+    待办：
+    1.滚动列表的真正实现
+
+commit f46ea875a122f24c4b1a999f150224fb081284dd
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 27 19:10:19 2026 +0800
+
+    修复：
+    1.背包按esc退出后会直接到设置
+    新增：
+    1.收集品的详细介绍
+    
+    待办：
+    1.滚动列表的真正实现
+    2.展示详细描述
+
+commit 46611bf4071683edb8edf3247fd1bd52818411b9
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 27 00:20:55 2026 +0800
+
+    修复：
+    1.清理了引用
+    
+    新增：
+    
+    待办：
+    1.滚动列表的真正实现
+    2.展示详细描述
+
+commit 4bb02b5ab3b4f6f9f54158877b5509c36fad58af
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 27 00:11:32 2026 +0800
+
+    message.txt
+
+commit 1fc5abab302793368cdf286f07ef1ada3b66d8b3
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sun Jul 26 19:16:00 2026 +0800
+
+    message.txt
+
+commit 2a656f1bfe57fbfe6bce61dca684494a21e8d87b
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sat Jul 25 22:19:42 2026 +0800
+
+    message.txt
+
+commit 98e602230bba0e44f71ab21954fd32dfb3456a47
+Author: jjw777805 <2033009449@qq.com>
+Date:   Fri Jul 24 23:27:48 2026 +0800
+
+    message.txt
+
+commit 12ff2a8adc686387b7055b92c47a0243049d0c11
+Author: jjw777805 <2033009449@qq.com>
+Date:   Fri Jul 24 23:22:35 2026 +0800
+
+    message.txt
+
+commit c8832b462142f868cf97b294371c2fca227cd6e9
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jul 23 23:10:36 2026 +0800
+
+    添加了死亡以及存档点
+
+commit 3e1f2d0730762a71a5b961454411682fa1fe4db9
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jul 23 22:34:25 2026 +0800
+
+    message.txt
+
+commit 68e55457e551b1cbccd83e9864122e984df4d122
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jul 23 20:59:13 2026 +0800
+
+    添加了坠落伤害
+
+commit b4df1cf58b4f753565e2309359ea3fc18bc849f5
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jul 23 12:01:19 2026 +0800
+
+    Block
+
+commit 7da6901c49081ea0c5ce96d526ac6037f97afd7e
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 20 21:37:42 2026 +0800
+
+    完善了攻击交互
+
+commit 0e72fba2a979cb2777e79aedb4a024500780d0f3
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 20 20:07:34 2026 +0800
+
+    动画记得关loop
+
+commit d22070783d0e57877ab857d2ad22228bb298b3aa
+Author: jjw777805 <2033009449@qq.com>
+Date:   Mon Jul 20 18:03:38 2026 +0800
+
+    基本完善了小兵的逻辑
+
+commit 0b069d814180921f720ab78e052cd304757e8e50
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sun Jul 19 23:29:48 2026 +0800
+
+    增加了相机跟随
+
+commit b66af82d2c90705ecca3c9cad3cb45e01bcd2f63
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sun Jul 19 20:50:42 2026 +0800
+
+    初步处理了block
+
+commit c32c5a9c3e5870862db8027364c706fb620b98d2
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sun Jul 19 18:36:22 2026 +0800
+
+    完成了jump
+
+commit b8a89460b118e27f01c035d6ecc9fe34e5044fc6
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jul 16 23:32:34 2026 +0800
+
+    修改了贴墙不会下落的bug，同时初步拓展了AvailablePos函数的可拓展性
+
+commit 301d68996f4b0661631873ba3b6c5f98b5558135
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sun Jun 14 13:43:23 2026 +0800
+
+    基本完善了移动和闪避；p.s.碰撞箱的size的x会受到缩放大小的影响，要记得注意
+
+commit 1e588a249e9a40b10af701d00171904fe4c52178
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sat Jun 13 18:22:17 2026 +0800
+
+    初步搭建完成playerstatus的框架
+
+commit 2ce6283ee222c2890ad01233e46ac3f085cafee3
+Author: jjw777805 <2033009449@qq.com>
+Date:   Sat Jun 13 17:22:21 2026 +0800
+
+    准备着手Player相关逻辑
+
+commit 404e9a891a6df725f88cda44af5d01337eda249a
+Author: jjw777805 <2033009449@qq.com>
+Date:   Fri Jun 12 20:29:15 2026 +0800
+
+    完成了存档页面的跳转和实现
+
+commit 77b1961de363478b4c2c5eb38165c8d5e01d99e4
+Author: jjw777805 <2033009449@qq.com>
+Date:   Fri Jun 12 17:28:41 2026 +0800
+
+    实现了setting界面的自动创建和销毁
+
+commit c3c0742754514f425fbfa2490fd874c82aa94512
+Author: jjw777805 <2033009449@qq.com>
+Date:   Fri Jun 12 15:21:54 2026 +0800
+
+    初步实现了setting界面
+
+commit 822f4c54618097355425d7b1df3c35c9103eb9c5
+Author: jjw777805 <2033009449@qq.com>
+Date:   Thu Jun 11 22:13:29 2026 +0800
+
+    完成了自己手动的导航……P.S.：请注意unity的机制是顺序而不是并行，需要控制好时序和条件
+
+commit a6ad879a2a9cb4a4517f7c39c2d5d95166cfc95c
+Author: jjw777805 <2033009449@qq.com>
+Date:   Wed Jun 10 21:45:10 2026 +0800
+
+    开始尝试制作自定义UI
+
+commit 96df135c2b24ab0ded1463a6954d84ab942b2240
+Author: jjw777805 <2033009449@qq.com>
+Date:   Wed Jun 10 18:59:41 2026 +0800
+
+    初始化

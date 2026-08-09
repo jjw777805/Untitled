@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f84a70bae5aaac4781c898f036d4761
+    m_Address: player_none.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7413f7f73f7917f40b0310b370ad7678
     m_Address: Collection/Collection.png
     m_ReadOnly: 0
@@ -68,7 +73,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5549ae49dd8a9f468669fa468e0c6d7
-    m_Address: player_none.png
+    m_Address: LaoWang.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

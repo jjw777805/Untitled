@@ -16,11 +16,11 @@ MonoBehaviour:
   pos: 1
   personName: "\u4F60"
   image:
-    m_AssetGUID: d5549ae49dd8a9f468669fa468e0c6d7
+    m_AssetGUID: 6f84a70bae5aaac4781c898f036d4761
     m_SubObjectName: player_none
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   content: "\u662F\u6211\u3002\u600E\u4E48\u4E86\uFF1F"
   choice: {fileID: 11400000, guid: 8c664ac732233fe4e9ebb8ba3cb69f61, type: 2}
   next: {fileID: 11400000, guid: 08ec2d886ebf07d4e892d1d00e41fd7c, type: 2}
