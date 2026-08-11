@@ -1,8 +1,10 @@
+using MyScene;
 using UnityEngine;
 [AddComponentMenu("Manager/GameManager")]
 public partial class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public SceneSO InitailSceneSO = null;
 
 
     // Start is called before the first frame update

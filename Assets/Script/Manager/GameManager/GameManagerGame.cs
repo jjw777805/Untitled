@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Collections;
 using System;
 using System.Threading.Tasks;
+using MyScene;
 
 public partial class GameManager 
 {
@@ -21,10 +22,9 @@ public partial class GameManager
         {
             // Debug.Log("ReturnMenu?");
             SaveSave();
-            SceneManager.LoadScene("MainMenu");
             Destroy(PlayerStatus.instance.gameObject);
             Destroy(UIManager.instance.gameObject);
-            Destroy(CameraManager.instance.gameObject);
+            SceneLoaderManager.instance.ReturnMainMenu();
             SavingNumber = -1;
         }
     }
@@ -37,9 +37,7 @@ public partial class GameManager
             return ;
         }
         // string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(playerData.GetSceneName());
-        PlayerStatus.instance.ResetStatus(playerData.GetResetPos());
-        CameraManager.instance.ResetStatus();
+        LoadScene(playerData.GetSceneName(),playerData.GetResetPos());
     }
 
     public void LoadScene(string name,Vector3 pos)
@@ -49,7 +47,7 @@ public partial class GameManager
             instance.LoadScene(name,pos);
             return ;
         }
-        LoadSceneAsync(name,pos);
+        SceneLoaderManager.instance.LoadSceneAsync(name,pos);
 
     }
 

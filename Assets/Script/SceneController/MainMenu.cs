@@ -1,4 +1,6 @@
+using MyUI;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace MyScene
 {
@@ -13,6 +15,11 @@ namespace MyScene
 
         void Update()
         {
+            if(defaultOpen == null)
+            {
+                defaultOpen = GameObject.FindWithTag("MainMenu")?.GetComponent<Closable>();
+            }
+            if(defaultOpen == null)return ;
             Open();
         }
     }

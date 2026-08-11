@@ -8,7 +8,7 @@ namespace MyScene
     public class Scene:MonoBehaviour
     {
         [SerializeField]
-        Closable defaultOpen;
+        protected Closable defaultOpen;
         protected Scene()
         {
         }

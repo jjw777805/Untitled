@@ -1,6 +1,11 @@
 
+using System;
+using System.Threading.Tasks;
+using MyManager;
+using MyScene;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace MyPlayer
@@ -14,7 +19,7 @@ namespace MyPlayer
         public void SetResetPos(Vector3  p)
         {
             rebornPosition = p;
-            sceneName = SceneManager.GetActiveScene().name;
+            sceneName = SceneLoaderManager.instance.currentScene.sceneName;
         }
         public Vector3 GetResetPos()
         {

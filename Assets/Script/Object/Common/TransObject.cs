@@ -1,5 +1,6 @@
 using MyEnemy;
 using MyPlayer;
+using MyScene;
 using UnityEngine;
 
 namespace MyObject
