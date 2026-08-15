@@ -35,7 +35,7 @@ namespace MyCamera
             Vector3 delta = endPos - transform.position;
             endPos = AdjustPos(delta);
             endPos.z = transform.position.z;
-            Debug.Log(endPos+" "+targetObject.transform.position);
+            // Debug.Log(endPos+" "+targetObject.transform.position);
             float ratio = math.pow(2,Vector3.Distance(endPos,transform.position))/math.pow(2,maxDistance);
             if(ratio>1)ratio=1;
             float speed = maxSpeed - (maxSpeed-minSpeed)*ratio;
@@ -54,7 +54,7 @@ namespace MyCamera
             // 最终位置从当前刚体位置开始
             Vector2 finalPos = rb.position;
             float margin = 0.01f;
-            float boxMargin = 0.99f;
+            float boxMargin = 0.999f;
 
             // ========== 2. 水平移动（X轴）检测 ==========
             if (Mathf.Abs(moveDelta.x) > 0.001f)

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4891442656852659664}
   - component: {fileID: 2840684417062363549}
   - component: {fileID: 1308326868558977169}
-  m_Layer: 0
+  - component: {fileID: 8491357972956305624}
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -39,6 +40,7 @@ Transform:
   - {fileID: 8945640783769759111}
   - {fileID: 6648877167099166855}
   - {fileID: 983266858912915230}
+  - {fileID: 1392842999877545726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1746025352767565765
@@ -178,7 +180,112 @@ MonoBehaviour:
   maxDistance: 4
   targetObject: {fileID: 0}
   windowSize: {x: 0, y: 0}
-  layerName: Camera
+  layerName: CameraBound
+  bc: {fileID: 7559016059668976503}
+--- !u!50 &8491357972956305624
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195054689895370322}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 32768
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 32767
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!1 &1773122063673099835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1392842999877545726}
+  - component: {fileID: 7559016059668976503}
+  m_Layer: 11
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1392842999877545726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773122063673099835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6986146536038871396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7559016059668976503
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773122063673099835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 35.5, y: 20}
+  m_EdgeRadius: 0
 --- !u!1 &3136895553512731465
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +297,7 @@ GameObject:
   - component: {fileID: 6648877167099166855}
   - component: {fileID: 912478705313928939}
   - component: {fileID: 4006393257602407932}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InteractCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +425,7 @@ GameObject:
   - component: {fileID: 5668309786220053757}
   - component: {fileID: 1394150223419070041}
   - component: {fileID: 6866072409749599426}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +553,7 @@ GameObject:
   - component: {fileID: 983266858912915230}
   - component: {fileID: 2939552944760729223}
   - component: {fileID: 718229713379149777}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DiaLogCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +681,7 @@ GameObject:
   - component: {fileID: 8945640783769759111}
   - component: {fileID: 4282633215521301518}
   - component: {fileID: 5547170040143148559}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +809,7 @@ GameObject:
   - component: {fileID: 3991917486864948533}
   - component: {fileID: 7954386813478725053}
   - component: {fileID: 2381633261790956340}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UICamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
