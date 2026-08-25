@@ -13,7 +13,6 @@ namespace MyUI
     {
         [SerializeField]
         Closable defaultOpen;
-        Navigation ng;
         bool isIn = false;
         public override void OnSelect(BaseEventData eventData)
         {
@@ -37,7 +36,7 @@ namespace MyUI
         void Start()
         {
             Initailize();
-            ng = GetComponent<Navigation>();
+            // ng = GetComponent<Navigation>();
         }
 
         public void SetIsIn(bool f)
