@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Scene
+  m_Name: MyScene
   m_EditorClassIdentifier: 
-  m_GroupName: Scene
+  m_GroupName: MyScene
   m_Data:
     m_SerializedData: []
-  m_GUID: 852dea2e2058c7542a4f4588e190e0d9
+  m_GUID: ef1621cc4dc6ec24ca62baf16593de38
   m_SerializeEntries:
   - m_GUID: 0bed4857c4f92b1409d229556c97ea13
     m_Address: UItry
@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9abd94050f2887548b46c109b4d52d5a
+    m_Address: UItry.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b523e82ce0307640bb1098bda28fc80
     m_Address: GutterLow.unity
     m_ReadOnly: 0
@@ -55,4 +60,6 @@ MonoBehaviour:
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 37391fe1a0030594dbff2a313d667f05, type: 2}
+    - {fileID: 11400000, guid: cf9a44fa4085e874bb7ca4c8a5aef7a0, type: 2}

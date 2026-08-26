@@ -52,11 +52,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9abd94050f2887548b46c109b4d52d5a
-    m_Address: UItry.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b86338cc36984f47bab82947274174b
     m_Address: Assets/Prefab/Player/Player.prefab
     m_ReadOnly: 0

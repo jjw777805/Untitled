@@ -9,12 +9,12 @@ namespace MyUI
     [AddComponentMenu("MyUI/KeyButton")]
     public class KeyButton : TextButton
     {
-        public string mapName,actionName,bindingName;
+        public string mapName,actionName,bindingName="";
         public string dis;
 
         InputAction ia = null;
         GameManager gm;
-        protected void Flash()
+        protected virtual void Flash()
         {
             if (ia == null)
             {        
@@ -41,15 +41,29 @@ namespace MyUI
         {
             OpenMsgBox();
             GameManager.instance.InputsRebinding(mapName,actionName,bindingName,true,
-                () =>
-                {
-                    UIManager.instance.ShutDownMsgBox(dis);
-                }
+                () =>{UIManager.instance.ShutDownMsgBox(dis);},
+                () =>{UIManager.instance.ShutDownMsgBox(dis);}
             );
             Flash();
         }
 
-        
+        public void ResetAll()
+        {
+            UIManager.instance.OpenMsgBoxYN(
+                dis,
+                "确定要重置吗",
+                ()=>
+                {
+                    GameManager.instance.InputsReset();
+                    UIManager.instance.ShutDownMsgBox(dis);
+                },
+                () =>
+                {
+                    UIManager.instance.ShutDownMsgBox(dis);
+                },
+                new Vector2(800,400)
+            );
+        }
 
         void Start()
         {

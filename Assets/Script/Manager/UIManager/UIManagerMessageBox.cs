@@ -53,6 +53,14 @@ public partial class UIManager : MonoBehaviour
     }
     
 
+    /// <summary>
+    /// 请记得在回调函数中加入关闭操作
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="msg"></param>
+    /// <param name="yesAction"></param>
+    /// <param name="noAction"></param>
+    /// <param name="size"></param>
     async public void OpenMsgBoxYN(string key,string msg,Action yesAction,
         Action noAction, Vector2 size)
     {

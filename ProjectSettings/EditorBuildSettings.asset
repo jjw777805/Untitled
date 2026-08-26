@@ -4,16 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/Scenes/Tomb.unity
-    guid: d25673e5e0528434b8e6b86b43426c6b
-  - enabled: 0
-    path: Assets/Scenes/GutterLow.unity
-    guid: 9b523e82ce0307640bb1098bda28fc80
+  m_Scenes: []
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b622840c4eeda0f47911500a71153f75, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: e9c1aa6e7abf3b943914fb23c29bd248, type: 2}

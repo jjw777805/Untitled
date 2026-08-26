@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public partial class GameManager 
@@ -47,7 +48,8 @@ public partial class GameManager
     }
 
     public void InputsRebinding(string mapName, string actionName, string bindingName = null, 
-                               bool autoResolveConflicts = true, Action onComplete = null)
+                               bool autoResolveConflicts = true, Action onComplete = null,
+                               Action onCancel = null)
     {
 
         var action = GetInputAction(mapName,actionName);
@@ -55,32 +57,44 @@ public partial class GameManager
         int bindingIndex = FindBindingIndex(action, bindingName);
         if (bindingIndex == -1) return;
         action.Disable();
+        var nowEventSystem = EventSystem.current;
+        nowEventSystem.enabled = false;
         var rebindOp = action.PerformInteractiveRebinding()
             .WithTargetBinding(bindingIndex)
             .WithControlsExcluding("Mouse")
             .WithControlsExcluding("<Keyboard>/escape")
+            .WithControlsExcluding("<Keyboard>/anyKey")
             .WithCancelingThrough("<Keyboard>/escape")
-            .OnMatchWaitForAnother(0.1f)
+            // .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                Debug.Log($"OnComplete triggered, selectedControl path: {operation.selectedControl?.path}");
                 //获取玩家刚设置的新按键路径
                 string newBindingPath = action.bindings[bindingIndex].overridePath;
 
                 if (autoResolveConflicts && !string.IsNullOrEmpty(newBindingPath))
                 {
-                    // 移除所有其他动作占用相同按键的绑定
                     RemoveConflictingBindings(instance.inputs.asset, action, bindingIndex, newBindingPath);
                 }
 
-                // 4. 保存与收尾
                 SaveInputsToJson();
                 onComplete?.Invoke();
+                action.Enable();
+                nowEventSystem.enabled = true;
                 Debug.Log($"重绑成功：{mapName}/{actionName} -> {action.GetBindingDisplayString(bindingIndex)}");
                 operation.Dispose();
             })
-            .OnCancel(op => { op.Dispose(); })
+            .OnCancel(op => 
+            { 
+                Debug.Log("Canceled !");
+                nowEventSystem.enabled = true;
+                action.Enable(); 
+                onCancel?.Invoke();
+                op.Dispose(); 
+            }
+            )
             .Start();
-            action.Enable();
+           
     }
 
     protected void RemoveConflictingBindings(InputActionAsset asset, InputAction currentAction, 
@@ -100,7 +114,7 @@ public partial class GameManager
                     // 检查路径是否完全匹配（说明撞键了）
                     
                     string effectivePath = action.bindings[i].overridePath ?? action.bindings[i].path;
-                    Debug.Log(effectivePath);
+                    // Debug.Log(effectivePath);
                     if (effectivePath == conflictPath)
                     {
                         Debug.Log($"移除冲突绑定：{action.name} 的 {effectivePath}");
@@ -113,7 +127,8 @@ public partial class GameManager
 
     protected int FindBindingIndex(InputAction action, string bindingName)
     {
-        if (string.IsNullOrEmpty(bindingName))
+        if (string.IsNullOrEmpty(bindingName) 
+        || bindingName.StartsWith("null",StringComparison.OrdinalIgnoreCase))
         {
             // 简单动作：自动找第一个键盘绑定
             for (int i = 0; i < action.bindings.Count; i++)
