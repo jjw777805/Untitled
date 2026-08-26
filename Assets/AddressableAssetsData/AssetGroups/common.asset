@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: common
+  m_EditorClassIdentifier: 
+  m_GroupName: common
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bd05f2f1eac3cd94e8e96e7ca5286d6d
+  m_SerializeEntries:
+  - m_GUID: 1071fe9388ec7cb4aad551e9694ab0e0
+    m_Address: DialogManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2db561663d5776e4bbc5bcdb23aca7ec
+    m_Address: p_blk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3beec0668c7fd654ab99b5dcc0adf0ed
+    m_Address: GameManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52bc45ce4da96724cb64e8b7cdf79719
+    m_Address: UICanvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b14c39bc28c79f4cb53313692bcb055
+    m_Address: Main Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b86338cc36984f47bab82947274174b
+    m_Address: Player
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5eabdced30dde84abbc6852e45da744
+    m_Address: HP
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8f6b30cd858da434b83dc1d848b08763, type: 2}
+    - {fileID: 11400000, guid: cde427ef351c95f4fb8c804af1d089b6, type: 2}

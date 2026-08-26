@@ -17,6 +17,7 @@ namespace MyPlayer
             NewHp();
             NewPosition();
             NewBag();
+            NewMoney();
         }
 
         public void Clear()

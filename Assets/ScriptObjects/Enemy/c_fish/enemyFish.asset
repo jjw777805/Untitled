@@ -25,3 +25,6 @@ MonoBehaviour:
   patrolSpeed: 2
   stunTime: 1
   canSeeTime: 500
+  leftMoney: 50
+  leftCollection: {fileID: 0}
+  leftPossibility: 0

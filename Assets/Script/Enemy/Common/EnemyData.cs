@@ -1,5 +1,6 @@
 
 
+using MyObject;
 using UnityEngine;
 
 namespace MyEnemy{
@@ -21,5 +22,8 @@ namespace MyEnemy{
         public float stunTime;
 
         public float canSeeTime;
+        public int leftMoney;
+        public CollectionData leftCollection;
+        public float leftPossibility;
     }    
 }

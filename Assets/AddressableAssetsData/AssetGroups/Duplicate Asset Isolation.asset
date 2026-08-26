@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f6bb4210740e69941b288b9a71e3d5d1
+  m_SerializeEntries:
+  - m_GUID: 2269a09b172ef0a4784b752678a7513e
+    m_Address: Assets/Animate/player/atk_common.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b70e65dd9f1c3b4c92cfa000a1c7d89
+    m_Address: Assets/Pic/UI/Common/cdCircle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f63366be102c31429cc98dc47368322
+    m_Address: Assets/Pic/Player/player_atk.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9cc9ffdda7228f4e87d45c3f0ed6866
+    m_Address: Assets/Animate/player/hurt.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7f099be4416c734391cadc2c5d6f571
+    m_Address: Assets/Animate/player/player.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8b11368413c1dc4d8712a7e20d6f992
+    m_Address: Assets/Animate/player/idle_none.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9bcb82420e0fc648ad411333be1e3f4
+    m_Address: Assets/Pic/map.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 58beca1aff4eb004dbc76b4684fddb68, type: 2}
+    - {fileID: 11400000, guid: 0205fc5214965c246a61d3ebe86dcb4a, type: 2}

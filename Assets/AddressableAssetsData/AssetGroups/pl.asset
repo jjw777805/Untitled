@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: pl
+  m_EditorClassIdentifier: 
+  m_GroupName: pl
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0273021caed608b4c92f9de30a86fa12
+  m_SerializeEntries:
+  - m_GUID: 1920dc87f9d99694f8124abd3a347c0d
+    m_Address: SettingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2732d6d9e4025ad4d853775ba2bcf745
+    m_Address: BagPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f5706bc3cea1fa44b599a9fde918acd
+    m_Address: SavePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c772fbaa3280ab34181164ebfa9fb20e
+    m_Address: PausePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 66235a2b0935585429326a79bd8dd196, type: 2}
+    - {fileID: 11400000, guid: 2877c753ac35d8e40b95b4dbb75afc7b, type: 2}
