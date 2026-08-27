@@ -31,6 +31,7 @@ namespace MyPlayer
             SlideInitial();
             JumpInitial();
             HurtInitial();
+            HealInitial();
         }
 
         void StartBinding()
@@ -57,6 +58,7 @@ namespace MyPlayer
             SlideUpdate();
             AttackUpdate(); 
             HurtUpdate();
+            HealUpdate();
         }
 
         void LateUpdate()

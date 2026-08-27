@@ -1,5 +1,7 @@
 
+using System.Data;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine.Events;
 
 namespace MyPlayer
@@ -7,17 +9,19 @@ namespace MyPlayer
     public partial class PlayerData
     {
         [JsonProperty]
-        int money = 0;
+        public int money = 0;
         void NewMoney()
         {
             money = 0;
         }
 
-
+        float moneyRatio = 1.0f;
         private UnityEvent<int> m_MoneyChange = new UnityEvent<int>();
 
         [JsonIgnore]
-        ///int为delta
+        ///
+        /// int为delta
+        /// 
         public UnityEvent<int> onMoneyChange {
             get
             {
@@ -28,15 +32,44 @@ namespace MyPlayer
                 onMoneyChange = value;
             }
         }
-        public void MoneyDelta(int x)
+        public void MoneyDelta(int x , bool ratio = true)
         {
-            money+=x;
-            if(x!=0)onMoneyChange?.Invoke(x);
+            int delta = (int)(x*moneyRatio);
+            if(ratio) delta = (int)(x*moneyRatio);
+            else delta = x;
+
+            money+= delta;
+            if(x!=0)onMoneyChange?.Invoke(delta);
         }
 
         public int MoneyGet()
         {
             return money;
+        }
+
+        float healRatio = 1.0f;
+        public int healCost = 50;
+        int initialHealTime = 1;
+
+        public void MoneyReset()
+        {
+            int need = initialHealTime * MoneyGetHealCost();
+            if(money<need)MoneyDelta(need);
+        }
+
+        public int MoneyGetHealCost()
+        {
+            return (int)(healCost * healRatio);
+        }
+        public bool MoneyCanHeal()
+        {
+            int delta = MoneyGetHealCost();
+            if(delta<=money)return true;
+            else return false;
+        }
+        public void MoneyHeal()
+        {
+            MoneyDelta( -MoneyGetHealCost() );
         }
     }
 }

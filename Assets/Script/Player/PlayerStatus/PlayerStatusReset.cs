@@ -1,4 +1,5 @@
 
+using System.Threading.Tasks;
 using MyUtils;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace MyPlayer
         {
             Initialize();
             Player.instance.transform.position = pos;
+            GameManager.instance.playerData.MoneyReset();
         }
 
         void Reborn()

@@ -60,6 +60,7 @@ namespace MyPlayer
             if(Time.timeScale==0)return;
             Attack();
             Jump();
+            Heal();
         }
 
         void LateUpdate()

@@ -40,6 +40,7 @@ public partial class GameManager : MonoBehaviour
             inputs = new MyInput();
             inputs.Enable();  
             SavingNumber = -1;
+            LoadInputsFromJson();
         }
         else
         {

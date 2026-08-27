@@ -152,5 +152,6 @@ public partial class GameManager
     public void InputsReset()
     {
         instance.inputs.asset.RemoveAllBindingOverrides();
+        SaveInputsToJson();
     }
 }

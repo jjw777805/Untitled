@@ -76,7 +76,7 @@ namespace MyCamera
                 {
                     if(hitResults[0].fraction>margin)
                         finalPos.x = rb.position.x + moveDelta.x * (hitResults[0].fraction - margin);
-                    Debug.Log("here");     
+                    // Debug.Log("here");     
                 }
                 else
                 {

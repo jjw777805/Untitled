@@ -8,6 +8,7 @@ namespace MyPlayer
     public partial class PlayerStatus
     {
         int hp;
+        int hpMax;
         [SerializeField]
         float injuryTime = 1.0f;
         bool isinjury=false;
@@ -26,7 +27,8 @@ namespace MyPlayer
         void HurtInitial()
         {
             isinjury = false;
-            hp = GameManager.instance.playerData.HP;
+            hpMax = GameManager.instance.playerData.HP;
+            hp = hpMax;
             UIManager.instance.SetHP(hp);
         }
 
