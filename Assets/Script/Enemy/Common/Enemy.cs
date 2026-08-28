@@ -6,6 +6,7 @@ namespace MyEnemy
     {
         public virtual void Death(){}
         public virtual void Hurt(int damage){}
+        public virtual void Drop(){}
     }
 }
 

@@ -41,6 +41,7 @@ public partial class UIManager : MonoBehaviour
 
     void OnDestroy()
     {
+        ClearImage();
         if(instance == this)instance = null;
     }
     #endregion

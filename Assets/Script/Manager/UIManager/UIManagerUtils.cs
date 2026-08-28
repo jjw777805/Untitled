@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using System.Collections.Generic;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Unity.VisualScripting;
 public partial class UIManager : MonoBehaviour
 { 
     Vector2 GetUIPosition(Vector3 pos)
@@ -41,13 +42,19 @@ public partial class UIManager : MonoBehaviour
         rect.right=way;
         rect.sizeDelta = size;
         
+        Image.SetActive(true);
     }
 
-    public void CloseImage(string name)
+    public void CloseImage(string name,bool remove = false)
     {
         // Debug.Log("Here!: check "+name+ "\n"+string.Join(", ", ImageList.Keys));
         if (ImageList.ContainsKey(name))
         {
+            if (!remove)
+            {
+                ImageList[name].SetActive(false);
+                return ;
+            }
             // Debug.Log("In!");
             Addressables.ReleaseInstance(ImageHandleList[name]);
             ImageList.Remove(name);
@@ -55,5 +62,14 @@ public partial class UIManager : MonoBehaviour
         }
     }
 
+    void ClearImage()
+    {
+        foreach (var kvp in ImageHandleList)
+        {
+            Addressables.Release(kvp.Value);
+        }
+        ImageHandleList.Clear();
+        ImageList.Clear();
+    }
     #endregion
 }

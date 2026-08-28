@@ -8,9 +8,9 @@ namespace MyPlayer
     {
         void Heal()
         {
-            Debug.Log("in this!!");
+            // Debug.Log("in this!!");
             if(!ps.CanHeal())return ;
-            Debug.Log("in!");
+            // Debug.Log("in!");
             if(!inputs.Player.Heal.WasPressedThisFrame())return ;
             ps.Heal();
         }

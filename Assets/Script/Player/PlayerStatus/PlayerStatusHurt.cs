@@ -24,7 +24,7 @@ namespace MyPlayer
             hurtTc = new TimeCount(injuryTime);
             hurtTc.On_End.AddListener(()=>{SetIsInjury(false);Player.instance.QuitHurt();});
         }
-        void HurtInitial()
+        public void HurtInitial()
         {
             isinjury = false;
             hpMax = GameManager.instance.playerData.HP;

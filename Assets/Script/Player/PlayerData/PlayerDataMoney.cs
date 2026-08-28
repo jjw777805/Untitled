@@ -69,7 +69,7 @@ namespace MyPlayer
         }
         public void MoneyHeal()
         {
-            MoneyDelta( -MoneyGetHealCost() );
+            MoneyDelta( -MoneyGetHealCost(),false);
         }
     }
 }

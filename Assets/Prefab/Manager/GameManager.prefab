@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964f45b4e55cf64d94542e4d1fc0ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitailSceneSO: {fileID: 0}
   bagPanelName: BagPanel.prefab
   playerData:
-    hp: 3
+    hp: 2
     weapon: 0
     damage: 5
     collectionCommonDatas: []
     collectionSprites: []
-    initailSceneSO: {fileID: 11400000, guid: 6d98ce1b61d618b48a6fd3cd672d7a5d, type: 2}
+    money: 0
+    healCost: 50
   pausePanelName: PausePanel.prefab
 --- !u!114 &147197755092643882
 MonoBehaviour:

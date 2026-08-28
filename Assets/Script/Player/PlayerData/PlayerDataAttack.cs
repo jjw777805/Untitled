@@ -6,7 +6,7 @@ namespace MyPlayer
     public partial class PlayerData
     {
          [SerializeField]
-        int hp = 3;
+        int hp = 2;
         public int HP
         {
             set
@@ -49,7 +49,14 @@ namespace MyPlayer
     
         void NewHp()
         {
-            hp = 3;
+            hp = 2;
+        }
+
+        public void HPLimitChange(int delta)
+        {
+            hp+=delta;
+            if (PlayerStatus.instance == null)return ;
+            PlayerStatus.instance.HurtInitial();
         }
         void NewAttack()
         {

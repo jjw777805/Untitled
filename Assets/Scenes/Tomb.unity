@@ -5992,7 +5992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8298437367466055068}
   m_Layer: 0
-  m_Name: Rest
+  m_Name: RestTrans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6294,8 +6294,8 @@ GameObject:
   - component: {fileID: 3837079202413904455}
   - component: {fileID: 2939347836755227791}
   - component: {fileID: 7882996313740864024}
-  - component: {fileID: 4796489925929096725}
   - component: {fileID: 9218598364773343417}
+  - component: {fileID: 9218598364773343418}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -6303,19 +6303,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4796489925929096725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4327949961758507805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91492ebeb306b84d92d40f41c267b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rebornPos: {x: -10.99, y: 0.77, z: 0}
 --- !u!1 &4849860919618962270
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,8 +6343,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4796489925929096725}
-        m_TargetAssemblyTypeName: MyObject.RestObject, Assembly-CSharp
+      - m_Target: {fileID: 9218598364773343418}
+        m_TargetAssemblyTypeName: MyObject.RestTransport, Assembly-CSharp
         m_MethodName: Rest
         m_Mode: 1
         m_Arguments:
@@ -6689,6 +6676,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 285627545190733237}
+    - target: {fileID: 3231730540763209273, guid: 49c298a29a1fdfa4abf2efa0bb28cdf6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231730540763209273, guid: 49c298a29a1fdfa4abf2efa0bb28cdf6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4489658217168164231, guid: 49c298a29a1fdfa4abf2efa0bb28cdf6, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -6978,6 +6973,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &9218598364773343418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327949961758507805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be43a1f2d59b1c84abf14701e5313efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rebornPos: {x: -10.99, y: 0.77, z: 0}
+  portName: TombTransport
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

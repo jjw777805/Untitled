@@ -19,12 +19,12 @@ MonoBehaviour:
   atkMinDis: 1
   atkMaxDis: 2
   catchDis: 6
-  catchSpeed: 2
+  catchSpeed: 4
   lossPlayerTime: 1
   patrolDis: 4
   patrolSpeed: 2
   stunTime: 1
-  canSeeTime: 500
+  canSeeTime: 5
   leftMoney: 50
-  leftCollection: {fileID: 0}
-  leftPossibility: 0
+  leftCollection: []
+  leftPossibility: []

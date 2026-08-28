@@ -1,5 +1,6 @@
 
 
+using System.Collections.Generic;
 using MyObject;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace MyEnemy{
 
         public float canSeeTime;
         public int leftMoney;
-        public CollectionData leftCollection;
-        public float leftPossibility;
+        public List<CollectionData> leftCollection;
+        public List<float> leftPossibility;
     }    
 }

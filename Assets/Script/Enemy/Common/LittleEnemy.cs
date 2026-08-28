@@ -121,6 +121,7 @@ namespace MyEnemy
 
         public override void Death()
         {
+            Drop();
             gameObject.SetActive(false);
         }
         public override void Hurt(int damage)
@@ -163,6 +164,15 @@ namespace MyEnemy
                 return true;
             }
             return false;
+        }
+
+        public override void Drop()
+        {
+            int money = enemyData.leftMoney;
+            var ratios = enemyData.leftPossibility;
+            var collections = enemyData.leftCollection;
+            GameManager.instance.playerData.MoneyDelta(money);
+            #warning need to be complete
         }
 
         TimeCount atkCoolDown;

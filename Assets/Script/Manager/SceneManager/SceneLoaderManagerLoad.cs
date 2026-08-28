@@ -56,15 +56,13 @@ namespace MyManager
             try
             {
                 var newScene = await Addressables.LoadAssetAsync<SceneSO>(name).Task;
-                Debug.Log(newScene==null);
+                // Debug.Log(newScene==null);
                 currentScene = newScene;
 
                 if (newScene.sceneReference.IsValid())
                 {
                     if (PlayerStatus.instance!=null)
                         PlayerStatus.instance.ResetStatus(pos);
-                    if (CameraManager.instance != null)
-                        CameraManager.instance.ResetStatus();
                     return ;
                 }
 
