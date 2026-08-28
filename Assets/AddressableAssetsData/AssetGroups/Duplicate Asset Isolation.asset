@@ -37,8 +37,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2a4652356a70704a8bf85bcf0e3783c
+    m_Address: Assets/Pic/Trans/Black/Black.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7f099be4416c734391cadc2c5d6f571
     m_Address: Assets/Animate/player/player.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfa6488d1eb540a4ca12a3d7b3d1e952
+    m_Address: Assets/Pic/Trans/Black/White.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

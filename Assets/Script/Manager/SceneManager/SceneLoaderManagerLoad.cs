@@ -2,10 +2,12 @@ using System;
 using System.Threading.Tasks;
 using MyPlayer;
 using MyScene;
+using MyTransition;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 namespace MyManager
 {
@@ -14,6 +16,7 @@ namespace MyManager
         public SceneSO firstLoadScene;
         public SceneSO mainMenu;
         public SceneSO currentScene;
+        public TransitionTemplate trans;
 
         protected void FirstLoad()
         {
@@ -29,15 +32,22 @@ namespace MyManager
         {
             try
             {
+                trans.SetIn();
+                while(!trans.finished)await Task.Yield();
+
                 var newScene = await Addressables.LoadAssetAsync<SceneSO>(name).Task;
                 await LoadSceneAsync(newScene);
+
+                trans.SetOut();
+                while(!trans.finished)await Task.Yield();
+
             }catch (Exception e)
             {
                 Debug.LogError(e);
             }     
         }
 
-        async public Task LoadSceneAsync(SceneSO newScene)
+        async protected Task LoadSceneAsync(SceneSO newScene)
         {
             try
             {
@@ -66,6 +76,9 @@ namespace MyManager
                     return ;
                 }
 
+                trans.SetIn();
+                while(!trans.finished)await Task.Yield();
+
                 var async = currentScene.sceneReference.LoadSceneAsync(LoadSceneMode.Single);
                 Debug.Log("Get!");
                 async.Completed += (op) =>
@@ -75,14 +88,16 @@ namespace MyManager
                     if (CameraManager.instance != null)
                         CameraManager.instance.ResetStatus();
 
+                    trans.SetOut();
                 };
+                while(!trans.finished)await Task.Yield();
                 await Task.Yield();
             }catch (Exception e)
             {
                 Debug.LogError(e);
             }     
         }
-        public async void LoadSceneAsync(SceneSO newScene,Vector3 pos)
+        protected async void LoadSceneAsync(SceneSO newScene,Vector3 pos)
         {
             try
             {
