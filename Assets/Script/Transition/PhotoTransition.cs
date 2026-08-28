@@ -17,9 +17,14 @@ namespace MyTransition
 
         public ImageBundle imageFrom,imageTo;
         public float durationTime=1.0f;
+        public float pauseTime=0.0f;
         protected float scale = 1.0f;
 
         [ContextMenu("SetIn")]
+        void TrySetIn()
+        {
+            SetIn();
+        }
         public override void SetIn(Action onComplete=null)
         {
             finished = false;
@@ -36,26 +41,37 @@ namespace MyTransition
         }
 
         [ContextMenu("SetOut")]
+        void TrySetOut()
+        {
+            SetOut();
+        }
         public override void SetOut(Action onComplete=null)
         {
             finished = false;
             imageFrom.image.FadeTo(
-                imageFrom.alphaFrom,
-                durationTime,
-                ()=>{
-                    imageFrom.image.gameObject.SetActive(false);
+                imageFrom.alphaTo,
+                pauseTime,
+                () =>
+                {
+                    imageFrom.image.FadeTo(
+                        imageFrom.alphaFrom,
+                        durationTime,
+                        ()=>{
+                            imageFrom.image.gameObject.SetActive(false);
+                        }
+                    );
+                    imageTo.image.FadeTo(
+                        imageTo.alphaFrom,
+                        durationTime,
+                        ()=>{
+                            imageTo.image.gameObject.SetActive(false);
+                            finished = true;
+                            Time.timeScale =scale;
+                            onComplete?.Invoke();
+                        }
+                    ); 
                 }
-            );
-            imageTo.image.FadeTo(
-                imageTo.alphaFrom,
-                durationTime,
-                ()=>{
-                    imageTo.image.gameObject.SetActive(false);
-                    finished = true;
-                    Time.timeScale =scale;
-                    onComplete?.Invoke();
-                }
-            );
+            );   
         }
 
         void Start()

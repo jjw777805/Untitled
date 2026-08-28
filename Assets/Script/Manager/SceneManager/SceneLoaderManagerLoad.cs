@@ -16,7 +16,27 @@ namespace MyManager
         public SceneSO firstLoadScene;
         public SceneSO mainMenu;
         public SceneSO currentScene;
-        public TransitionTemplate trans;
+
+        public AssetReference transRef;
+
+        TransitionTemplate trans;
+
+        void RefClear()
+        {
+            if(trans!=null)Destroy(trans.gameObject);
+            if(transRef.IsValid())transRef.ReleaseAsset();
+        }
+        async void RefInitial()
+        {
+            GameObject t;
+            if (!transRef.IsValid())
+            {
+                await transRef.LoadAssetAsync<GameObject>().Task;
+            }
+            t = Instantiate((GameObject)transRef.Asset);
+            DontDestroyOnLoad(t);
+            trans = t.GetComponent<TransitionTemplate>();
+        }
 
         protected void FirstLoad()
         {
@@ -80,7 +100,7 @@ namespace MyManager
                 while(!trans.finished)await Task.Yield();
 
                 var async = currentScene.sceneReference.LoadSceneAsync(LoadSceneMode.Single);
-                Debug.Log("Get!");
+                // Debug.Log("Get!");
                 async.Completed += (op) =>
                 {
                     if (PlayerStatus.instance!=null)

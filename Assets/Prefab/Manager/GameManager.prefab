@@ -30,8 +30,7 @@ Transform:
   m_LocalPosition: {x: 1081.9971, y: 466.62354, z: 3.5458403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4305919682271373306}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8288599398618632446
@@ -72,85 +71,8 @@ MonoBehaviour:
   firstLoadScene: {fileID: 11400000, guid: 6d98ce1b61d618b48a6fd3cd672d7a5d, type: 2}
   mainMenu: {fileID: 11400000, guid: 5a84e990dea3e1f4d8e93b95c3cb6e10, type: 2}
   currentScene: {fileID: 0}
-  trans: {fileID: 1951052964451663403}
---- !u!1001 &9194833253935603878
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3901788706993936600}
-    m_Modifications:
-    - target: {fileID: 658522735428452712, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507942182576254500, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1090.5237
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -468.74048
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.7842932
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947496510116344017, guid: d6c96456885764241b5a8137799572c7, type: 3}
-      propertyPath: m_Name
-      value: BlackTransition
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d6c96456885764241b5a8137799572c7, type: 3}
---- !u!114 &1951052964451663403 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7244343969584963213, guid: d6c96456885764241b5a8137799572c7, type: 3}
-  m_PrefabInstance: {fileID: 9194833253935603878}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3865de96b71acbb4c9c96b317b23df9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &4305919682271373306 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4925582311298303836, guid: d6c96456885764241b5a8137799572c7, type: 3}
-  m_PrefabInstance: {fileID: 9194833253935603878}
-  m_PrefabAsset: {fileID: 0}
+  transRef:
+    m_AssetGUID: d6c96456885764241b5a8137799572c7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

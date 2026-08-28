@@ -16,6 +16,7 @@ namespace MyManager
             if(instance == null)
             {
                 instance = this;
+                RefInitial();
                 DontDestroyOnLoad(this.gameObject);    
             }
             else
@@ -27,6 +28,7 @@ namespace MyManager
 
         void OnDestroy()
         {
+            RefClear();
             if(instance == this)instance = null;
         }
         void Start()
