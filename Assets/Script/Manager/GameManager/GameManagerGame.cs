@@ -29,25 +29,25 @@ public partial class GameManager
         }
     }
 
-    public void ScenesReload()
+    public void ScenesReload(Action onComplete = null)
     {
         if (this != instance && instance != null)
         {
-            instance.ScenesReload();
+            instance.ScenesReload(onComplete);
             return ;
         }
         // string sceneName = SceneManager.GetActiveScene().name;
-        LoadScene(playerData.GetSceneName(),playerData.GetResetPos());
+        LoadScene(playerData.GetSceneName(),playerData.GetResetPos(),onComplete);
     }
 
-    public void LoadScene(string name,Vector3 pos)
+    public void LoadScene(string name,Vector3 pos,Action onComplete=null)
     {
         if (this != instance && instance != null)
         {
-            instance.LoadScene(name,pos);
+            instance.LoadScene(name,pos,onComplete);
             return ;
         }
-        SceneLoaderManager.instance.LoadSceneAsync(name,pos);
+        SceneLoaderManager.instance.LoadSceneAsync(name,pos,onComplete);
 
     }
 

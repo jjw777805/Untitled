@@ -12,6 +12,7 @@ namespace MyPlayer
             if(instance == null)
             {
                 instance = this;
+                TransRefLoad();
                 DontDestroyOnLoad(gameObject);    
             }
             else
@@ -22,7 +23,11 @@ namespace MyPlayer
 
         void OnDestroy()
         {
-            if(instance == this)instance = null;
+            if(instance == this)
+            {
+                instance = null;
+                TransRefClear();
+            }
         }
 
         public void Initialize()

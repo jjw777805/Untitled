@@ -194,6 +194,12 @@ MonoBehaviour:
   maxJumpTime: 0.25
   jumpV1: 20
   jumpV2: 10
+  originalLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  hiddenLayer:
+    serializedVersion: 2
+    m_Bits: 65536
 --- !u!114 &8616742603330573247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,10 +213,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSeq: 0.6
+  transRef:
+    m_AssetGUID: 034dee169504c944cbc1cfba54a060c4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   trapLayer:
     serializedVersion: 2
     m_Bits: 16384
   trapCheckRadius: 3
+  healSeq: 0.5
   injuryTime: 1
   moveSpeed: 7
   slideSeq: 0.25

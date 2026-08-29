@@ -48,7 +48,7 @@ namespace MyManager
         {
             await LoadSceneAsync(mainMenu);
         }
-        async public Task LoadSceneAsync(string name)
+        async public Task LoadSceneAsync(string name,Action onComplete = null)
         {
             try
             {
@@ -60,6 +60,8 @@ namespace MyManager
 
                 trans.SetOut();
                 while(!trans.finished)await Task.Yield();
+                onComplete?.Invoke();
+                await Task.Yield();
 
             }catch (Exception e)
             {
@@ -81,7 +83,7 @@ namespace MyManager
             }     
         }
 
-        public async void LoadSceneAsync(string name,Vector3 pos)
+        public async void LoadSceneAsync(string name,Vector3 pos,Action onComplete = null)
         {
             try
             {
@@ -93,6 +95,7 @@ namespace MyManager
                 {
                     if (PlayerStatus.instance!=null)
                         PlayerStatus.instance.ResetStatus(pos);
+                    onComplete?.Invoke();
                     return ;
                 }
 
@@ -111,6 +114,7 @@ namespace MyManager
                     trans.SetOut();
                 };
                 while(!trans.finished)await Task.Yield();
+                onComplete?.Invoke();
                 await Task.Yield();
             }catch (Exception e)
             {

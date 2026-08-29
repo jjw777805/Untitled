@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 561485cc11da9ef458e9444519f82575
   m_SerializeEntries:
+  - m_GUID: 034dee169504c944cbc1cfba54a060c4
+    m_Address: Assets/Prefab/Trans/DeathTransition.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ec7026cab99bf046912593a2828f0d0
     m_Address: SoulTransition.prefab
     m_ReadOnly: 0

@@ -44,8 +44,12 @@ namespace MyPlayer
             hurtTc.Reset();
             isinjury = true;
             hp-=k;
-            if(hp<=0)Death();
-            UIManager.instance.SetHP(hp);
+            if (hp <= 0)
+            {
+                UIManager.instance.SetHP(0);
+                Death();
+            }
+            else UIManager.instance.SetHP(hp);
         }
     }
 }

@@ -50,6 +50,7 @@ namespace MyPlayer
             am = gameObject.GetComponent<Animator>();
             sr = gameObject.GetComponent<SpriteRenderer>();
             BlockInitial();
+            Show();
         }
         void Update()
         {

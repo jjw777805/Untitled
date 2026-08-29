@@ -35,3 +35,13 @@
 message.txt
 
 save.sh
+
+/[Aa]ssets/Pic/
+
+/[Aa]ssets/Animate/
+
+/[Aa]ssets/Font/
+
+/[Aa]ssets/Map/
+
+/[Aa]ssets/Audio/
