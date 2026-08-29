@@ -40,6 +40,7 @@ namespace MyPlayer
                                 () =>
                                 {
                                     Player.instance.Show();
+                                    Time.timeScale = 1;
                                 }
                             );
                         }

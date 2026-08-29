@@ -21,6 +21,19 @@ namespace MyManager
 
         TransitionTemplate trans;
 
+        Action m_SceneReset;
+        public Action onSceneReset
+        {
+            get
+            {
+                return m_SceneReset;
+            }
+            set
+            {
+                m_SceneReset = value;
+            }
+        }
+
         void RefClear()
         {
             if(trans!=null)Destroy(trans.gameObject);
@@ -74,7 +87,11 @@ namespace MyManager
             try
             {
                 currentScene = newScene;
-                if (newScene.sceneReference.IsValid()) return ;
+                if (newScene.sceneReference.IsValid())
+                {
+                    onSceneReset?.Invoke();
+                    return ;
+                }
                 var async = currentScene.sceneReference.LoadSceneAsync(LoadSceneMode.Single);
                 await async.Task;
             }catch (Exception e)
@@ -95,6 +112,7 @@ namespace MyManager
                 {
                     if (PlayerStatus.instance!=null)
                         PlayerStatus.instance.ResetStatus(pos);
+                    onSceneReset?.Invoke();
                     onComplete?.Invoke();
                     return ;
                 }

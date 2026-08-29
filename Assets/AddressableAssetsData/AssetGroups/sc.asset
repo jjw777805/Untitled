@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4e5fe66db1c0e8f4ba4620ded8ba812e
   m_SerializeEntries:
+  - m_GUID: 06f16bf51b9923f41babf5e11ba98297
+    m_Address: Empty
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bed4857c4f92b1409d229556c97ea13
     m_Address: UItry
     m_ReadOnly: 0
@@ -24,6 +29,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 193bbe0e1676af3418be0cc35bdb92f1
     m_Address: GutterLow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eb906919e8649f429ad318c5e8bed86
+    m_Address: Assets/Scenes/Empty.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

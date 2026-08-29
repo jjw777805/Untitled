@@ -18,6 +18,8 @@ namespace MyPlayer
         SpriteRenderer sr;
         CD cd;
         Animator am;
+        
+        public AudioSource audioWalk,audioOneshot;
 
         void Awake()
         {

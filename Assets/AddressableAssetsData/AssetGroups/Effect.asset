@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Effect
+  m_EditorClassIdentifier: 
+  m_GroupName: Effect
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 22ccbba9579b4b946af15a25a23bf621
+  m_SerializeEntries:
+  - m_GUID: 6ee14f5d583765149af69230d70470a6
+    m_Address: Assets/Audio/Effect/Player/Walk.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ace8249ae8d5ec948bf85017d7ebaaac
+    m_Address: Assets/Audio/Effect/Player/Block.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc4ac7156d995b1479e1f61d5e21230a
+    m_Address: Assets/Audio/Effect/Player/Slide.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f808ff74c9bfe344399b927106972da8
+    m_Address: Assets/Audio/Effect/Player/Attack.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4706fe03f2f5100488acaf01cf3138d8, type: 2}
+    - {fileID: 11400000, guid: c3e8e390cc0e4594580ed20e698a7907, type: 2}

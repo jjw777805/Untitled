@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using MyManager;
 using MyPlayer;
 using MyUtils;
 using UnityEngine;
@@ -206,13 +207,17 @@ namespace MyEnemy
         #endregion 
         
         #region Interface
-        public void Reset()
+        public void ResetStatus()
         {
             gameObject.transform.position = bornPos;
             hp = enemyData.hp;
             transform.rotation = Quaternion.Euler(0,0,0);
             gameObject.SetActive(true);
             SetVisible(PlayerStatus.instance.Visible);
+            isStun = isAtk = isKnowPlayer = false;
+            canAttack = true;
+            gameObject.SetActive(true);
+            Initial();
         }
 
         public void SetVisible(bool visible)
@@ -231,7 +236,8 @@ namespace MyEnemy
         SpriteRenderer sr;
         TimeCount canSeeCT = new TimeCount();
         List<SpriteRenderer>srList = new List<SpriteRenderer>();
-        void Start()
+
+        void Initial()
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
@@ -248,6 +254,11 @@ namespace MyEnemy
             playerKnownCT.On_End.AddListener(()=>isKnowPlayer = false);
             canSeeCT.SetTime(enemyData.canSeeTime);
             canSeeCT.On_End.AddListener(()=>{SetVisible(false);});
+        }
+        void Start()
+        {
+            SceneLoaderManager.instance.onSceneReset+=ResetStatus;
+            Initial();
         }
         void Update()
         {
@@ -268,6 +279,10 @@ namespace MyEnemy
             MoveCheck();
         }
 
+        void OnDestroy()
+        {
+            SceneLoaderManager.instance.onSceneReset -= ResetStatus;
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))

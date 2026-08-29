@@ -47,6 +47,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab99e2a8b50d3f34bae516cbfe15c916
+    m_Address: Assets/AudioMixer.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5549ae49dd8a9f468669fa468e0c6d7
     m_Address: LaoWang.png
     m_ReadOnly: 0

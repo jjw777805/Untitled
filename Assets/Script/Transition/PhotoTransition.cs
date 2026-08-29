@@ -30,7 +30,7 @@ namespace MyTransition
             finished = false;
             scale = Time.timeScale;
             Time.timeScale = 0;
-
+            Debug.Log("SetIn");
             imageFrom.image.gameObject.SetActive(true);
             imageTo.image.gameObject.SetActive(true);
             imageFrom.image.FadeTo(imageFrom.alphaFrom,0f);
@@ -47,6 +47,7 @@ namespace MyTransition
         }
         public override void SetOut(Action onComplete=null)
         {
+            Debug.Log("SetOut");
             finished = false;
             imageFrom.image.FadeTo(
                 imageFrom.alphaTo,

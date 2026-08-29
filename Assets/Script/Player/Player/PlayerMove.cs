@@ -1,4 +1,5 @@
 
+using System;
 using MyUtils;
 using Unity.Mathematics;
 using UnityEngine;
@@ -32,15 +33,15 @@ namespace MyPlayer
 
             Vector3 newPos;
             newPos = ColliderUtils.AvailablePosBox(transform,cd,ps.SlideDistance);
-            if(Mathf.Abs(newPos.x)>0.1)
-                rb.velocity = newSpeed;
+            if (Mathf.Abs(newPos.x) > 0.1)rb.velocity = newSpeed;
+
+            if (audioWalk.isPlaying)
+            {
+                if(MathF.Abs(newSpeed.x)<0.01f || MathF.Abs(newSpeed.y)>0.1f)audioWalk.Pause();
+            }
             else
             {
-                // if(rb.velocity.y>0 && math.abs(newSpeed.x) > 0.1f)
-                // {
-                //     rb.velocity = new Vector2(rb.velocity.x,0);
-                //     jumpBegin = false;
-                // }
+                if(MathF.Abs(newSpeed.x)>0 && MathF.Abs(newSpeed.y)<0.01f)audioWalk.Play();
             }
         }
     }
