@@ -7,6 +7,7 @@ namespace MyPlayer
     public partial class Player:MonoBehaviour
     {
         bool hasSlide=false;
+        public AudioClip audioSlide;
         void Slide()
         {
             if(  !ps.CanSlide())return ;
@@ -16,6 +17,7 @@ namespace MyPlayer
             transform.Translate(newPos);
             rb.velocity = new Vector2(rb.velocity.x,0);
             ps.Slide();
+            audioOneshot.PlayOneShot(audioSlide);
             jumpBegin = false;
             if (ps.IsBlock())
             {

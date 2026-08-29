@@ -7,12 +7,14 @@ namespace MyPlayer
 {
     public partial class Player:MonoBehaviour
     {
+        public AudioClip audioAttack;
         void Attack()
         {
             if(!ps.CanAttack())return ;
             if(!inputs.Player.Attack.WasPressedThisFrame())return ;
             am.SetTrigger("Attack");
             ps.Attacked();
+            audioOneshot.PlayOneShot(audioAttack);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

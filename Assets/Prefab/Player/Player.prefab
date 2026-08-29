@@ -178,11 +178,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioWalk: {fileID: 4978712652995032383}
   audioOneshot: {fileID: 8599946573683728788}
+  audioAttack: {fileID: 8300000, guid: f808ff74c9bfe344399b927106972da8, type: 3}
   blkDuration: 1
   blkCD: 1
   blkRadius: 1
   blkShiverTime: 0.3
   blkShiverImage: p_blk.prefab
+  clipBlock: {fileID: 8300000, guid: ace8249ae8d5ec948bf85017d7ebaaac, type: 3}
   upG: 1
   downG: 5
   maxFallingV: -10
@@ -191,6 +193,7 @@ MonoBehaviour:
   jumpV2: 10
   originalLayer: Player
   hiddenLayer: Hidden
+  audioSlide: {fileID: 8300000, guid: bc4ac7156d995b1479e1f61d5e21230a, type: 3}
 --- !u!114 &8616742603330573247
 MonoBehaviour:
   m_ObjectHideFlags: 0

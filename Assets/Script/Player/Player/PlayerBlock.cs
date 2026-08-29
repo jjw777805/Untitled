@@ -27,7 +27,7 @@ namespace MyPlayer
         {
             Hurt,Trap
         }
-        
+        public AudioClip clipBlock;
         BlkType blkType;
         void BlockInitial()
         {
@@ -103,6 +103,7 @@ namespace MyPlayer
             // Debug.Log("sus1");
             blkS.Invoke();
             ps.Slide();
+            audioOneshot.PlayOneShot(clipBlock);
             blockSuccess = true;
             // Debug.Log("sus2");
             blkCT.Reset();
