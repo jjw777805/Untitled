@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: add7c9feddd41a54cb763c78be369d1a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 4297316c1b806134092d386d3ce13762
+    m_Address: Assets/Audio/BGM/Gutter.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a46a632f024f0c0479f9f8349134a90f
+    m_Address: Assets/Audio/BGM/Tomb.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3b3f3b46c05fe774b84f7fcf2aeca25e, type: 2}
   m_SchemaSet:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3901788706993936600}
   - component: {fileID: 8288599398618632446}
   - component: {fileID: 147197755092643882}
+  - component: {fileID: 8601133620611240432}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964f45b4e55cf64d94542e4d1fc0ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitailSceneSO: {fileID: 0}
+  InitailSceneSO: {fileID: 11400000, guid: 6d98ce1b61d618b48a6fd3cd672d7a5d, type: 2}
   bagPanelName: BagPanel.prefab
   playerData:
     hp: 2
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7f02c9bc0a6e449805f0bd1b3d1eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLoadScene: {fileID: 11400000, guid: 6d98ce1b61d618b48a6fd3cd672d7a5d, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 5a84e990dea3e1f4d8e93b95c3cb6e10, type: 2}
   mainMenu: {fileID: 11400000, guid: 5a84e990dea3e1f4d8e93b95c3cb6e10, type: 2}
   currentScene: {fileID: 0}
   transRef:
@@ -76,3 +77,15 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+--- !u!114 &8601133620611240432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287436446368428427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7d486b29091cf418cd9be557fdd4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
