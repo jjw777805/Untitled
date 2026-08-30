@@ -17,7 +17,6 @@ namespace MyManager
             {
                 instance = this;
                 config = LoadFromJson();
-                ResetVolumn();
                 DontDestroyOnLoad(this.gameObject);    
             }
             else
@@ -37,7 +36,7 @@ namespace MyManager
         }
         void Start()
         {
-            
+            ResetVolumn();
         }
 
         // Update is called once per frame

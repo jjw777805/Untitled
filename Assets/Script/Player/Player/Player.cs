@@ -1,5 +1,6 @@
 
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyPlayer
@@ -56,6 +57,7 @@ namespace MyPlayer
         }
         void Update()
         {
+            if(GameManager.instance.IsStop())return ;
             Move();
             if(Time.timeScale==0 && !ps.IsBlock())return ;
             Slide();

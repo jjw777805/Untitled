@@ -110,7 +110,7 @@ public partial class GameManager
         pauseTrigger = true;
         if (!isPause)
         {
-            // Debug.Log("isChecking");
+            Debug.Log("isChecking");
             
             OpenClosable(pausePanelName);
             Stop();

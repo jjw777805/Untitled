@@ -69,6 +69,11 @@ public partial class GameManager
             Debug.LogError(e);
         }     
     }
+
+    public bool IsStop()
+    {
+        return isPause;
+    }
     public void ExitGame()
     {
         if (this != instance && instance != null)

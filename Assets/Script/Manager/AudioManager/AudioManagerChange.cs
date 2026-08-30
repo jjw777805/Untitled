@@ -18,14 +18,14 @@ namespace MyManager
             Debug.Log(name + " " +ConvertLinearToDecibel(value).ToString());
             float dB = ConvertLinearToDecibel(value);
             bool success = ad.SetFloat(name, dB);
-            if (!success)
-            {
-                Debug.LogError($"设置音量失败！参数名: '{name}' 在 AudioMixer 中不存在。请检查暴露名称是否完全一致。");
-            }
-            else
-            {
-                Debug.Log($"成功设置 {name} = {dB} dB");
-            }
+            // if (!success)
+            // {
+            //     Debug.LogError($"设置音量失败！参数名: '{name}' 在 AudioMixer 中不存在。请检查暴露名称是否完全一致。");
+            // }
+            // else
+            // {
+            //     Debug.Log($"成功设置 {name} = {dB} dB");
+            // }
             SaveToJson();
         }
 

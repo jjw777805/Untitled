@@ -262,7 +262,7 @@ namespace MyEnemy
         }
         void Update()
         {
-            
+            if(GameManager.instance.IsStop())return ;
             if(Time.deltaTime ==0)return;
             atkCoolDown.Update(Time.deltaTime);
             stunCoolDown.Update(Time.deltaTime);
