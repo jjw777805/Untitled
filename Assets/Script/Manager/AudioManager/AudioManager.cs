@@ -7,7 +7,7 @@ namespace MyManager
     {
         public static AudioManager instance = null;
 
-        AudioConfig config=null;
+        public AudioConfig config=null;
         // Start is called before the first frame update
         #region 生命周期函数
         void Awake()
@@ -17,6 +17,7 @@ namespace MyManager
             {
                 instance = this;
                 config = LoadFromJson();
+                ResetVolumn();
                 DontDestroyOnLoad(this.gameObject);    
             }
             else

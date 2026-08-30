@@ -12,12 +12,13 @@ namespace MyManager
         public AudioMixer ad;
         public class AudioConfig
         {
-            public Dictionary<string,float>dic;
+            public Dictionary<string,float>dic = null;
             public AudioConfig()
             {
-                dic["BGM"] = 0.8f;
+                dic = new Dictionary<string, float>();
+                dic["BGM"] = 0.5f;
                 dic["Master"] = 0.8f;
-                dic["Effect"] = 0.8f;
+                dic["Effect"] = 0.5f;
             }
         }
 
@@ -49,6 +50,7 @@ namespace MyManager
         {
             string path = GetSavePath();
             string text = JsonConvert.SerializeObject(config);
+            File.WriteAllText(path,text);
         }
     }
  

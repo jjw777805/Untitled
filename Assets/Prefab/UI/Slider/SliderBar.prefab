@@ -285,7 +285,7 @@ MonoBehaviour:
   maxNumber: 100
   roundNumber: 0
   tmpText: {fileID: 7323131311561240517}
-  slider: {fileID: 397143137605737698}
+  slider: {fileID: 5064409353948777087}
 --- !u!1 &2518634030514373714
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,9 +295,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3082332363811616067}
-  - component: {fileID: 397143137605737698}
+  - component: {fileID: 5064409353948777087}
+  - component: {fileID: 5139287923925677153}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +326,7 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: 0}
   m_SizeDelta: {x: 800, y: 0}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &397143137605737698
+--- !u!114 &5064409353948777087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2518634030514373714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1a90ce1d1fc5845946321c0009ae61, type: 3}
+  m_Script: {fileID: 11500000, guid: 4094638bca7f94c47be48d854f158e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_OnSelect:
@@ -376,6 +377,51 @@ MonoBehaviour:
       m_Calls: []
   deltaStep: 0.01
   deltaSeq: 0.07
+  on_Exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MyUI.Selectable, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MyUI.NavigateButton, Assembly-CSharp
+        m_MethodName: SetIsIn
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  paramName: Master
+--- !u!114 &5139287923925677153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518634030514373714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875f789e5a7b3eb419ecd25a7fd643b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+  cancel: {fileID: 0}
 --- !u!1 &3263968981573291607
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6E38\u620F\u4E3B\u97F3\u91CF"
+  m_text: "\u80CC\u666F\u97F3\u91CF"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9a4625c857f7b34b8a4283ddbe60931, type: 2}
   m_sharedMaterial: {fileID: -697147161564593268, guid: c9a4625c857f7b34b8a4283ddbe60931, type: 2}
@@ -672,7 +718,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

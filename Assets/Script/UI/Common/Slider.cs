@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 namespace MyUI
 {
 
-    public class Slider : Selectable, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public class Slider : Selectable, IPointerDownHandler, IDragHandler, IPointerUpHandler,ICancelHandler
     {
         [Header("UI 引用")]
         public RectTransform fillRect;    // Fill 的 RectTransform
@@ -30,12 +30,15 @@ namespace MyUI
 
         MyInput inputs;
 
+        protected virtual void Initial()
+        {
+            inputs = GameManager.instance.GetInputs();
+            UpdateVisuals();
+        }
         void Start()
         {
             // 初始更新一次
-            inputs = GameManager.instance.GetInputs();
-            SetValue(value);
-            UpdateVisuals();
+            Initial();
         }
 
         float beginTime;
@@ -118,7 +121,7 @@ namespace MyUI
             }
         }
 
-        public void SetValue(float newValue)
+        public virtual void SetValue(float newValue)
         {
             value = Mathf.Clamp01(newValue);
             UpdateVisuals();
@@ -141,7 +144,26 @@ namespace MyUI
             }
         }
 
-        // 可选：外部获取值
         public float GetValue() => value;
+
+        public void OnCancel(BaseEventData eventData)
+        {
+            on_Exit?.Invoke();
+        }
+
+        [SerializeField]
+        protected UnityEvent on_Exit = new UnityEvent();
+
+        public UnityEvent onExit
+        {
+            set
+            {
+                onExit = value;
+            }
+            get
+            {
+                return onExit;
+            }
+        }
     }
 }
