@@ -57,8 +57,9 @@ namespace MyPlayer
         }
         void Update()
         {
-            if(GameManager.instance.IsStop())return ;
+            
             Move();
+            if(GameManager.instance.IsStop())return ;
             if(Time.timeScale==0 && !ps.IsBlock())return ;
             Slide();
             Block();   

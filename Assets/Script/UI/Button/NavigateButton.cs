@@ -18,6 +18,7 @@ namespace MyUI
         {
             base.OnSelect(eventData);
             defaultOpen?.Open();
+            SetIsIn(false);
         } 
 
         public override void OnDeselect(BaseEventData eventData)

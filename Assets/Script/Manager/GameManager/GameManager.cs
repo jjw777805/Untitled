@@ -59,6 +59,7 @@ public partial class GameManager : MonoBehaviour
     {
         PauseUpdate();
         BagUpdate();
+        FocusUpdate();
     }
 
     void LateUpdate()

@@ -14,7 +14,7 @@ namespace MyUI
         Selectable defaultFocus;
         [SerializeField]
         Closable defaultOpen;
-        GameObject frontSelected;
+        GameObject frontSelected=null;
         bool isInitialed = false;
         protected Closable()
         {
@@ -31,6 +31,15 @@ namespace MyUI
             canvasGroup.alpha=1;
             canvasGroup.blocksRaycasts=true;
             canvasGroup.interactable=true;
+            if(     frontSelected == null 
+                && EventSystem.current != null
+                && !EventSystem.current.alreadySelecting
+                && EventSystem.current.currentSelectedGameObject != null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>()!=null
+            )
+            {
+                frontSelected = EventSystem.current.currentSelectedGameObject;
+            }
             if(defaultOpen!=null)defaultOpen.Open();
             else
             {

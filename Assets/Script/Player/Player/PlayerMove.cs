@@ -10,7 +10,11 @@ namespace MyPlayer
     {
         public void Move()
         {
-            if(!ps.CanMove())return ;
+            if(!ps.CanMove() || GameManager.instance.IsStop())
+            {
+                if(audioWalk.isPlaying)audioWalk.Pause();
+                return ;
+            }
             Vector2 moveValue = inputs.Player.Move.ReadValue<Vector2>();
             Vector2 newSpeed = new Vector2( moveValue.x * ps.MoveSpeed ,rb.velocity.y);
             ps.Move(newSpeed);

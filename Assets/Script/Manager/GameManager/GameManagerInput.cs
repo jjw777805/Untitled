@@ -88,6 +88,7 @@ public partial class GameManager
                 nowEventSystem.enabled = true;
                 Debug.Log($"重绑成功：{mapName}/{actionName} -> {action.GetBindingDisplayString(bindingIndex)}");
                 operation.Dispose();
+                FocusReset();
             })
             .OnCancel(op => 
             { 
@@ -96,6 +97,7 @@ public partial class GameManager
                 action.Enable(); 
                 onCancel?.Invoke();
                 op.Dispose(); 
+                FocusReset();
             }
             )
             .Start();

@@ -42,6 +42,17 @@ public partial class UIManager : MonoBehaviour
             {
                 setting.SetFrontSelected(EventSystem.current?.currentSelectedGameObject);
             }
+            if(EventSystem.current == null)
+            {
+                Debug.Log("event null");
+            }else
+            {
+                if (EventSystem.current.currentSelectedGameObject == null)
+                {
+                    Debug.Log("cur is null");
+                }
+                else Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+            }
             await Task.Yield();
             setting.Open();
         }catch(Exception e)
