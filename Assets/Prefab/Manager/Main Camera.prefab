@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71ba5dc79120c14eb28af7d064d1992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  extraOffset: 0.01
+  tagString: CameraBounds
 --- !u!114 &1308326868558977169
 MonoBehaviour:
   m_ObjectHideFlags: 0

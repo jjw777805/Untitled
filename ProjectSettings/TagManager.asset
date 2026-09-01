@@ -9,6 +9,7 @@ TagManager:
   - Crash
   - Ground
   - MainMenu
+  - CameraBounds
   layers:
   - Default
   - TransparentFX

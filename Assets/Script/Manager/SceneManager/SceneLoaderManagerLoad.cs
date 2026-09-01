@@ -5,9 +5,7 @@ using MyScene;
 using MyTransition;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
 
 namespace MyManager
 {
@@ -54,7 +52,8 @@ namespace MyManager
         protected void FirstLoad()
         {
             currentScene = firstLoadScene;
-            currentScene.sceneReference.LoadSceneAsync(LoadSceneMode.Single);
+            if(currentScene == mainMenu)ReturnMainMenu();
+            else currentScene.sceneReference.LoadSceneAsync(LoadSceneMode.Single);
         }
 
         public async void ReturnMainMenu()

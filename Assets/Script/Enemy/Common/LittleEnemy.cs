@@ -281,6 +281,7 @@ namespace MyEnemy
 
         void OnDestroy()
         {
+            if(SceneLoaderManager.instance==null)return ;
             SceneLoaderManager.instance.onSceneReset -= ResetStatus;
         }
         private void OnTriggerEnter2D(Collider2D collision)

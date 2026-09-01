@@ -27,7 +27,7 @@ namespace MyCamera
             filter.SetLayerMask(LayerMask.GetMask(layerName));
             filter.useLayerMask = true;
         }
-        void LateUpdate()
+        public void LateUpdate()
         {
             if(targetObject == null)return ;
             Vector3 endPos = targetObject.transform.position;
