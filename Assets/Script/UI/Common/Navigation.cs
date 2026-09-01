@@ -38,11 +38,11 @@ namespace MyUI
             if (inputs.Player.Move.IsPressed() && isSelect )
             {   
                 Vector2 move = inputs.Player.Move.ReadValue<Vector2>();
-                if (move.x > 0.1f)right?.Select();
-                else if (move.x < -0.1f)left?.Select();
+                if (move.x > 0.1f && right!=null && right.gameObject.activeInHierarchy)right?.Select();
+                else if (move.x < -0.1f && left!=null && left.gameObject.activeInHierarchy)left?.Select();
                 
-                if (move.y > 0.1f) up?.Select();
-                else if (move.y < -0.1f)  down?.Select();
+                if (move.y > 0.1f && up!=null && up.gameObject.activeInHierarchy) up?.Select();
+                else if (move.y < -0.1f && down!=null && down.gameObject.activeInHierarchy)  down?.Select();
 
                 beginTime = Time.realtimeSinceStartup;
             }

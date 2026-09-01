@@ -15,7 +15,7 @@ namespace MyManager
         public void SetVolumn(string name,float value)
         {
             config.dic[name]=value;
-            Debug.Log(name + " " +ConvertLinearToDecibel(value).ToString());
+            // Debug.Log(name + " " +ConvertLinearToDecibel(value).ToString());
             float dB = ConvertLinearToDecibel(value);
             bool success = ad.SetFloat(name, dB);
             // if (!success)

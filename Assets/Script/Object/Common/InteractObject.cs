@@ -40,6 +40,10 @@ namespace MyObject
         {
             if (collision.CompareTag("Player"))
             {
+                if (GameManager.instance != null)
+                {
+                    if(GameManager.instance.IsStop())return ;
+                }
                 onEntry?.Invoke();
             }
         }

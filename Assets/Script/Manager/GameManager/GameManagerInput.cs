@@ -31,13 +31,18 @@ public partial class GameManager
         string path = GetInputsSavingPath();
         if (!File.Exists(path))
         {
-            Debug.LogError("No Such InputsJson File");
+            Debug.Log("No Such InputsJson File");
+            InputsReset();
         }
-        string json = File.ReadAllText (path);
-        var inputsAsset = instance.inputs.asset;
-        inputsAsset.Disable();
-        inputsAsset.LoadBindingOverridesFromJson(json);
-        inputsAsset.Enable();
+        else
+        {
+            string json = File.ReadAllText (path);
+            var inputsAsset = instance.inputs.asset;
+            inputsAsset.Disable();
+            inputsAsset.LoadBindingOverridesFromJson(json);
+            inputsAsset.Enable();
+        }
+        
     }
 
     public InputAction GetInputAction(string mapName, string actionName){

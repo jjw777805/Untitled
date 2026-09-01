@@ -108,7 +108,7 @@ public partial class GameManager
         if(SavingNumber == -1)return ;
         if(!inputs.UI.Cancel.WasPressedThisFrame() || pauseTrigger)return;
         pauseTrigger = true;
-        if (!isPause)
+        if (!isPause && Time.timeScale!=0)
         {
             Debug.Log("isChecking");
             
