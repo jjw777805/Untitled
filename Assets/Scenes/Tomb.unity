@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toScene: GutterLow
-  position: {x: -33, y: 36.770073, z: 0}
+  position: {x: -24, y: 36.770073, z: 0}
 --- !u!61 &591691268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6396,7 +6396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toScene: GutterLow
-  position: {x: -33, y: 0.77, z: 0}
+  position: {x: -24, y: 0.77, z: 0}
 --- !u!114 &4983040152068664212
 MonoBehaviour:
   m_ObjectHideFlags: 0

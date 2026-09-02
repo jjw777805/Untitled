@@ -17,7 +17,7 @@ MonoBehaviour:
   CrashTime: 3
   TossSeq: 3
   AliveTime: 5
-  beginPos: {x: -33.16683, y: 36.77007, z: 0}
+  beginPos: {x: -7.082829, y: 4.0275745, z: -10}
   beginVelocity: {x: -33.236263, y: 0.77008706, z: 0.0000026226833}
   isConstant: 1
   gravity: 1

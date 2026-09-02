@@ -8,6 +8,7 @@ namespace MyCamera
     {
         [SerializeField]
         protected Vector2 windowSize = Vector2.zero;
+        protected bool isLock = false;
         public string layerName="Camera";
         Rigidbody2D rb;
         public BoxCollider2D bc;
@@ -29,7 +30,7 @@ namespace MyCamera
         }
         public void LateUpdate()
         {
-            if(targetObject == null)return ;
+            if(targetObject == null || isLock)return ;
             Vector3 endPos = targetObject.transform.position;
             Vector3 delta = endPos - transform.position;
             endPos = AdjustPos(delta);
@@ -115,6 +116,16 @@ namespace MyCamera
 
             // ========== 4. 执行最终位移 ==========
             return finalPos;
+        }
+
+        public void SetLock(bool f)
+        {
+            isLock = f;
+        }
+
+        public void SetPosition(Vector3 pos)
+        {
+            transform.position = pos;
         }
     }
 }
