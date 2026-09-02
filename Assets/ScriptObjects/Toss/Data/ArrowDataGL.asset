@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e22df31230b2bd34e8a05f12481bf9eb, type: 3}
-  m_Name: ArrowData
+  m_Name: ArrowDataGL
   m_EditorClassIdentifier: 
   TossObject: {fileID: 4323486373246895939, guid: d61df519b3dd5e4489668648a35c3179, type: 3}
   shotOnce: 0

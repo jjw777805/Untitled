@@ -12,7 +12,7 @@ namespace MyCamera
             {
                 var t = CameraManager.instance.gameObject.GetComponent<CameraFollow>();
                 t.targetObject = Player.instance.gameObject;
-                Debug.Log("Exit!");
+                // Debug.Log("Exit!");
                 // t.SetLock(false);
             }
         }

@@ -922,6 +922,8 @@ MonoBehaviour:
   hp: 3
   bullets:
   - {fileID: 11400000, guid: 1eaa8dc91042a3c47bbe34041108a180, type: 2}
+  beginTime:
+  - 3
 --- !u!1 &1109613156
 GameObject:
   m_ObjectHideFlags: 0
