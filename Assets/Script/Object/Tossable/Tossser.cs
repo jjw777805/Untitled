@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyUtils;
-using Unity.VisualScripting;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
-using UnityEngine.Analytics;
 
 namespace MyObject
 {
