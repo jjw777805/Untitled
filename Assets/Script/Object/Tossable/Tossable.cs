@@ -124,6 +124,7 @@ namespace MyObject
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
+            // Debug.Log("Get In! : "+collision.name);
             bool attacked = false;
             if (collision.CompareTag("Player"))
             {

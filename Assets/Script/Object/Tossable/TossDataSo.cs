@@ -8,6 +8,10 @@ namespace MyObject
     {
         public GameObject TossObject;
         public bool shotOnce = false;
+        /// <summary>
+        /// 需要几次才能被损坏
+        /// </summary>
+        [Tooltip("需要攻击几次才能被损坏/要在Attri中启用")]
         public int CrashTime = 3;
         public float TossSeq = 3.0f;
         public float AliveTime = 5.0f;

@@ -28,7 +28,7 @@ TagManager:
   - Trap
   - CameraBound
   - Hidden
-  - 
+  - TrapBase
   - 
   - 
   - 
@@ -44,27 +44,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackGround
-    uniqueID: 849275369
-    locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 2692490705
-    locked: 0
-  - name: Interact
-    uniqueID: 1502122541
-    locked: 0
-  - name: Enemy
-    uniqueID: 2647155049
-    locked: 0
-  - name: UI
-    uniqueID: 3331371275
+  - name: Dialog
+    uniqueID: 2805997451
     locked: 0
   - name: Player
     uniqueID: 1529775433
     locked: 0
-  - name: Dialog
-    uniqueID: 2805997451
+  - name: UI
+    uniqueID: 3331371275
+    locked: 0
+  - name: Enemy
+    uniqueID: 2647155049
+    locked: 0
+  - name: Interact
+    uniqueID: 1502122541
+    locked: 0
+  - name: Trap
+    uniqueID: 1981651483
+    locked: 0
+  - name: TrapBase
+    uniqueID: 417358287
+    locked: 0
+  - name: Ground
+    uniqueID: 2692490705
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 849275369
     locked: 0

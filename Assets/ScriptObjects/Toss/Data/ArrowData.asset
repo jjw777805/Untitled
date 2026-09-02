@@ -15,8 +15,8 @@ MonoBehaviour:
   TossObject: {fileID: 4323486373246895939, guid: d61df519b3dd5e4489668648a35c3179, type: 3}
   shotOnce: 0
   CrashTime: 0
-  TossSeq: 10
-  AliveTime: 8
+  TossSeq: 5
+  AliveTime: 4
   beginPos: {x: -0.9, y: 0, z: 0}
   beginVelocity: {x: -3, y: 0, z: 0}
   isConstant: 1
