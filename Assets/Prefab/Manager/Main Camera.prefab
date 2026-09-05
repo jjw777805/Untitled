@@ -121,11 +121,11 @@ MonoBehaviour:
   m_CameraType: 0
   m_Cameras:
   - {fileID: 4282633215521301518}
+  - {fileID: 2890160032793440442}
   - {fileID: 912478705313928939}
   - {fileID: 1394150223419070041}
   - {fileID: 7954386813478725053}
   - {fileID: 2939552944760729223}
-  - {fileID: 2890160032793440442}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2

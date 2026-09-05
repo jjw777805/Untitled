@@ -16,9 +16,9 @@ namespace MyManager
             public AudioConfig()
             {
                 dic = new Dictionary<string, float>();
-                dic["BGM"] = 0.5f;
-                dic["Master"] = 0.8f;
-                dic["Effect"] = 0.5f;
+                dic["BGM"] = 1f;
+                dic["Master"] = 1f;
+                dic["Effect"] = 1f;
             }
         }
 

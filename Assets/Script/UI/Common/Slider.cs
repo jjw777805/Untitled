@@ -43,7 +43,7 @@ namespace MyUI
 
         float beginTime;
         // 在布局变化后重新计算宽度
-        void Update()
+        public virtual void Update()
         {
             // 如果宽度变化（例如窗口缩放），需更新
             float currentWidth = backgroundRect.rect.width;

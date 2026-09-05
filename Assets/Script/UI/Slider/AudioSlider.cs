@@ -19,5 +19,18 @@ namespace MyUI
             base.SetValue(newValue);
             AudioManager.instance.SetVolumn(paramName,value);
         }
+
+        override public void  Update()
+        {
+            if (AudioManager.instance.config.dic[paramName] != value)
+            {
+                SetValue(AudioManager.instance.config.dic[paramName]);
+            }
+            base.Update();
+        }
+        public void ResetVolumn()
+        {
+            AudioManager.instance.ResetVolumn();
+        }
     }
 }

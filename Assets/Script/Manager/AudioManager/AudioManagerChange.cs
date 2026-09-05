@@ -29,9 +29,9 @@ namespace MyManager
             SaveToJson();
         }
 
-        void ResetVolumn()
+        public void ResetVolumn()
         {
-            var t = new Dictionary<string,float>(config.dic);
+            var t = new AudioConfig().dic;
             foreach( var i in t)
             {
                 SetVolumn(i.Key,i.Value);
