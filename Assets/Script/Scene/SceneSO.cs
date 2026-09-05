@@ -12,5 +12,6 @@ namespace MyScene
     {
         public AssetReference sceneReference;
         public string sceneName;
+        public string showName;
     }
 }

@@ -24,7 +24,7 @@ namespace MyManager
             // Debug.Log("before : "+transform.position);
             myCollider = GetComponentInChildren<Collider2D>();
             GameObject t = GameObject.FindWithTag(tagString);
-            Debug.Log(t==null);
+            // Debug.Log(t==null);
             if(t!=null)otherCollider = t.GetComponentInChildren<Collider2D>();
             
             if (myCollider == null || otherCollider == null) return;
